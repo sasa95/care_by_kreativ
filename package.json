@@ -16,9 +16,11 @@
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.17.6",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
+    "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-styled-components": "^3.1.11",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-helmet": "^5.2.1",
     "styled-components": "^4.4.1",
     "styled-normalize": "^8.0.6"
   },
