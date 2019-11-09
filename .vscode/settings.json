@@ -2,9 +2,6 @@
   "editor.formatOnSave": true,
   "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
   "files.associations": {
     "*.js": "javascriptreact"
   }

@@ -1,3 +1,11 @@
 import React from 'react'
+import { Normalize } from 'styled-normalize'
 
-export default () => <div>Hello world!</div>
+const HomePage = () => (
+  <>
+    <Normalize />
+    <p>Hello World</p>
+  </>
+)
+
+export default HomePage
