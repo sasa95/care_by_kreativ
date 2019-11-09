@@ -1,10 +1,11 @@
 import React from 'react'
-import { Normalize } from 'styled-normalize'
+import Layout from './components/layout'
 
 const HomePage = () => (
   <>
-    <Normalize />
-    <p>Hello World</p>
+    <Layout>
+      <p>Hello World</p>
+    </Layout>
   </>
 )
 
