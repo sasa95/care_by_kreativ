@@ -8,9 +8,9 @@ const size = {
   desktopL: 1800,
 }
 
-const device = Object.keys(size).reduce((acc, cur) => {
+const breakpoints = Object.keys(size).reduce((acc, cur) => {
   acc[cur] = `(min-width: ${size[cur]}px)`
   return acc
 }, {})
 
-export default device
+export default breakpoints
