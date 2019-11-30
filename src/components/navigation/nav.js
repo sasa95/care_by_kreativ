@@ -5,11 +5,12 @@ import { useMediaQuery } from 'react-responsive'
 import NavigationContext from '../../context/navigation-context'
 import NavHamburger from './nav-hamburger'
 import NavOverlay from './nav-overlay'
-import breakpoints from '../../styles/breakpoints'
+import query from '../../styles/breakpoints'
 import NavList from './nav-list'
 
 const Navigation = styled.nav`
   position: fixed;
+  z-index: 1;
   top: -100px;
   width: 100%;
   transition: 0.5s;
@@ -21,19 +22,45 @@ const Navigation = styled.nav`
   `}
 `
 const Navbar = styled.div`
-  @media ${breakpoints.desktopM} {
-    width: 1170px;
-    margin: 0 auto;
-  }
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 15px;
+  padding: 15px 15px 0;
+
+  @media (min-height: 375px) and ${query.landscape},
+    ${query.tablet1_up} and ${query.portrait} {
+    padding-top: 30px;
+  }
+
+  @media ${query.tablet1_up} and ${query.portrait} {
+    max-width: 650px;
+    margin: auto;
+  }
+
+  @media ${query.tablet1_down} and ${query.landscape} {
+    max-width: 520px;
+    margin: auto;
+  }
+
+  @media ${query.tablet1_up} and ${query.landscape} {
+    max-width: 750px;
+    margin: auto;
+  }
+
+  @media ${query.tablet3_up} and ${query.landscape} {
+    max-width: 900px;
+    margin: auto;
+  }
 `
 
 const NavBrand = styled.img`
+  width: 40px;
   opacity: ${({ navExpanded }) => (navExpanded ? 0 : 1)};
+
+  @media ${query.mobile3_up} and ${query.portrait},
+    ${query.tablet1_up} {
+    width: 56px;
+  }
 `
 
 const Nav = () => {
@@ -43,7 +70,7 @@ const Nav = () => {
   const [visible, setVisible] = useState(true)
 
   const isTablet = useMediaQuery({
-    query: breakpoints.tablet,
+    query: query.tablet1_up,
   })
 
   useEffect(() => {
@@ -52,7 +79,8 @@ const Nav = () => {
   }, [])
 
   useEffect(() => {
-    const visible = prevScrollpos > currScrollpos
+    const visible = currScrollpos < 1 || prevScrollpos > currScrollpos
+
     setVisible(visible)
     setPrevScrollpos(currScrollpos)
   }, [currScrollpos])

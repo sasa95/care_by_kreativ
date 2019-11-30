@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import breakpoints from '../../styles/breakpoints'
+import query from '../../styles/breakpoints'
 import colors from '../../styles/colors'
 
 const List = styled.ul`
@@ -10,7 +10,7 @@ const List = styled.ul`
   margin: 0;
   padding: 0;
 
-  @media ${breakpoints.tablet} {
+  @media ${query.tablet1_up} {
     display: flex;
     text-align: left;
     line-height: normal;
@@ -19,18 +19,18 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
 
-  @media ${breakpoints.mobileM} {
+  @media ${query.mobile3_up} {
     font-size: 1.8rem;
   }
 
-  @media ${breakpoints.mobileL} {
+  @media ${query.mobile4_up} {
     font-size: 2rem;
   }
 
-  @media ${breakpoints.tablet} {
+  @media ${query.tablet1_up} {
     color: ${colors.kreativBlue};
     font-size: 1rem;
     font-weight: 300;

@@ -1,15 +1,19 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import NavigationContext from '../../context/navigation-context'
-import breakpoints from '../../styles/breakpoints'
+import query from '../../styles/breakpoints'
 
 const Icon = styled.div`
-  width: 40px;
+  width: 35px;
   height: 21px;
   position: relative;
-  z-index: 10;
+  z-index: 1;
 
-  @media ${breakpoints.tablet} {
+  @media ${query.mobile3_up} and ${query.portrait} {
+    width: 40px;
+  }
+
+  @media ${query.tablet1_up} {
     display: none;
   }
 `

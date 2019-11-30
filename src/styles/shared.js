@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import breakpoints from './breakpoints'
+import query from './breakpoints'
 
 const container = css`
   padding-right: 15px;
@@ -7,14 +7,14 @@ const container = css`
   margin-right: auto;
   margin-left: auto;
 
-  @media ${breakpoints.tablet} {
+  @media ${query.tablet1_up} {
     width: 750px;
   }
 
-  @media ${breakpoints.desktopS} {
+  @media ${query.tablet3_up} {
     width: 970px;
   }
-  @media ${breakpoints.desktopM} {
+  @media ${query.desktop2_up} {
     width: 1170px;
   }
 `
