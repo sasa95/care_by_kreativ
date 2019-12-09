@@ -18,7 +18,6 @@ const Navigation = styled.nav`
     visible &&
     `
     top: 0;
-    background-color: #fff;
   `}
 `
 const Navbar = styled.div`
@@ -56,6 +55,7 @@ const Navbar = styled.div`
 const NavBrand = styled.img`
   width: 40px;
   opacity: ${({ navExpanded }) => (navExpanded ? 0 : 1)};
+  z-index: 100;
 
   @media ${query.mobile3_up} and ${query.portrait},
     ${query.tablet1_up} {
