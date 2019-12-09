@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import { Normalize } from 'styled-normalize'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import NavigationContext from '../context/navigation-context'
 import Nav from './navigation/nav'
+import Bubles from './bubbles/bubbles'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -15,8 +16,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    position: relative;
     overflow: ${({ navExpanded }) => (navExpanded ? 'hidden' : 'auto')};
   }
+`
+
+const Test = styled.div`
+  height: 100vh;
 `
 
 const Layout = ({ children }) => {
@@ -28,6 +34,8 @@ const Layout = ({ children }) => {
       <Normalize />
       <Nav />
       {children}
+      <Test>Test section</Test>
+      <Bubles />
     </>
   )
 }
