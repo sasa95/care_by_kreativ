@@ -8,7 +8,7 @@ import Bubles from './bubbles/bubbles'
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
-    font-family: Muli, sans-serif;
+    font-family: poppins, sans-serif;
   }
   
   *, *:before, *:after {

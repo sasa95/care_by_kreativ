@@ -1,5 +1,5 @@
 import React from 'react'
-import 'typeface-muli'
+import 'typeface-poppins'
 import './static/js/iOS-zoom-fix'
 import { NavigationProvider } from './src/context/navigation-context'
 

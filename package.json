@@ -25,7 +25,8 @@
     "react-responsive": "^8.0.1",
     "styled-components": "^4.4.1",
     "styled-normalize": "^8.0.6",
-    "typeface-muli": "0.0.71"
+    "typeface-muli": "0.0.71",
+    "typeface-poppins": "0.0.72"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.7.0",

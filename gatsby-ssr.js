@@ -1,5 +1,5 @@
 import React from 'react'
-import 'typeface-muli'
+import 'typeface-poppins'
 import { NavigationProvider } from './src/context/navigation-context'
 
 const wrapRootElement = ({ element }) => {

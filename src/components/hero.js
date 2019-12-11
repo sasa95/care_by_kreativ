@@ -15,28 +15,28 @@ const TextContainer = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: 221px;
+  max-width: 248px;
   height: 100%;
   color: ${colors.kreativBlue};
 
   @media ${query.mobile3_up} and ${query.portrait} {
-    max-width: 252px;
+    max-width: 284px;
   }
 
   @media ${query.tablet1_up} and ${query.portrait} {
-    max-width: 441px;
+    max-width: 496px;
   }
 
   @media ${query.tablet3_down} and ${query.landscape} {
-    max-width: 398px;
+    max-width: 446px;
   }
 
   @media ${query.tablet3_up} and (max-height: 579px) and ${query.landscape} {
-    max-width: 255px;
+    max-width: 295px;
   }
 
   @media ${query.tablet3_up} and (min-height: 580px) and ${query.landscape} {
-    max-width: 510px;
+    max-width: 590px;
     position: relative;
     left: -50px;
   }
@@ -45,7 +45,7 @@ const TextContainer = styled.div`
 const Title = styled.h1`
   margin: 0;
   font-size: 3.5rem;
-  font-weight: 300;
+  font-weight: 700;
 
   @media ${query.landscape} {
     margin-bottom: 15px;
@@ -59,16 +59,44 @@ const Title = styled.h1`
   ${query.tablet3_up} and  (min-height: 580px) and ${query.landscape} {
     font-size: 7rem;
   }
-
-  strong {
-    font-weight: 900;
-  }
 `
 
 const Subtitle = styled.p`
   margin: 0;
-  font-weight: 300;
   align-self: flex-start;
+  color: rgba(26, 26, 26, 0.72);
+
+  @media ${query.mobile3_up} {
+    font-size: 1.1rem;
+  }
+
+  @media ${query.tablet1_up} {
+    font-size: 1.5rem;
+  }
+`
+
+const HighLight = styled.span`
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 22%;
+    width: 100%;
+    height: 7px;
+    background: #cbedf8;
+    z-index: -1;
+
+    @media ${query.mobile3_up} {
+      bottom: 21%;
+    }
+
+    @media ${query.tablet1_up} {
+      height: 10px;
+      bottom: 22%;
+    }
+  }
 `
 
 const Hero = () => {
@@ -79,7 +107,8 @@ const Hero = () => {
     <Wrapper>
       <TextContainer>
         <Title>
-          <strong>We</strong> (are) <br /> <strong>Care</strong>
+          <HighLight>We</HighLight> (are) <br />
+          <HighLight>Care</HighLight>
           {isLandscape && isDesktop && <br />} by {!isLandscape && <br />}
           Kreativ
         </Title>
