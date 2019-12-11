@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import colors from '../styles/colors'
 import query from '../styles/breakpoints'
@@ -41,11 +41,16 @@ const TextContainer = styled.div`
     left: -50px;
   }
 `
+const TitleFadeIn = keyframes`
+  to { opacity: 1 }
+`
 
 const Title = styled.h1`
   margin: 0;
   font-size: 3.5rem;
   font-weight: 700;
+  opacity: 0;
+  animation: ${TitleFadeIn} 2s 2s forwards;
 
   @media ${query.landscape} {
     margin-bottom: 15px;
@@ -65,6 +70,8 @@ const Subtitle = styled.p`
   margin: 0;
   align-self: flex-start;
   color: rgba(26, 26, 26, 0.72);
+  opacity: 0;
+  animation: ${TitleFadeIn} 2s 3s forwards;
 
   @media ${query.mobile3_up} {
     font-size: 1.1rem;
