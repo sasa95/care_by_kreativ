@@ -34,8 +34,12 @@ const Projects = () => {
       }
     })
 
-  const isMobile = useMediaQuery({ query: query.tablet3_down })
   const [animationPlayState, setAnimationPlayState] = useState('paused')
+  let isMobile = false
+  let isDesktop = false
+
+  isMobile = useMediaQuery({ query: query.tablet3_down })
+  isDesktop = useMediaQuery({ query: query.tablet3_up })
 
   useEffect(() => {
     setTimeout(() => {
@@ -45,14 +49,14 @@ const Projects = () => {
 
   return (
     <>
-      {isMobile ? (
+      {isMobile && (
         <ProjectsSM
           projects={projects}
           animationPlayState={animationPlayState}
         />
-      ) : (
-        <ProjectsLG projects={projects} />
       )}
+
+      {isDesktop && <ProjectsLG projects={projects} />}
     </>
   )
 }
