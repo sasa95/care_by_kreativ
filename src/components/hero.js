@@ -15,16 +15,16 @@ const TextContainer = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  max-width: 248px;
+  max-width: 227px;
   height: 100%;
   color: ${colors.kreativBlue};
 
   @media ${query.mobile3_up} and ${query.portrait} {
-    max-width: 284px;
+    max-width: 257px;
   }
 
   @media ${query.tablet1_up} and ${query.portrait} {
-    max-width: 496px;
+    max-width: 449px;
   }
 
   @media ${query.tablet3_down} and ${query.landscape} {
@@ -32,11 +32,11 @@ const TextContainer = styled.div`
   }
 
   @media ${query.tablet3_up} and (max-height: 579px) and ${query.landscape} {
-    max-width: 295px;
+    max-width: 340px;
   }
 
   @media ${query.tablet3_up} and (min-height: 580px) and ${query.landscape} {
-    max-width: 590px;
+    max-width: 449px;
     position: relative;
     left: -50px;
   }
@@ -109,15 +109,13 @@ const HighLight = styled.span`
 
 const Hero = () => {
   const isLandscape = useMediaQuery({ query: query.landscape })
-  const isDesktop = useMediaQuery({ query: query.tablet3_up })
 
   return (
     <Wrapper>
       <TextContainer>
         <Title>
-          <HighLight>We</HighLight> (are) <br />
-          <HighLight>Care</HighLight>
-          {isLandscape && isDesktop && <br />} by {!isLandscape && <br />}
+          <HighLight>We</HighLight> are <br />
+          <HighLight>Care</HighLight> by {!isLandscape && <br />}
           Kreativ
         </Title>
         <Subtitle>Filling digital space with love</Subtitle>
