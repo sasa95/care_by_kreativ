@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import ProjectsSM from './projects-sm'
 import ProjectsLG from './projects-lg'
@@ -33,12 +33,23 @@ const Projects = () => {
         images: project.images.map(image => url('./' + image)),
       }
     })
+
   const isMobile = useMediaQuery({ query: query.tablet3_down })
+  const [animationPlayState, setAnimationPlayState] = useState('paused')
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimationPlayState('running')
+    }, 2000)
+  }, [])
 
   return (
     <>
       {isMobile ? (
-        <ProjectsSM projects={projects} />
+        <ProjectsSM
+          projects={projects}
+          animationPlayState={animationPlayState}
+        />
       ) : (
         <ProjectsLG projects={projects} />
       )}
