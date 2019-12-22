@@ -7,6 +7,8 @@ import NavHamburger from './nav-hamburger'
 import NavOverlay from './nav-overlay'
 import query from '../../styles/breakpoints'
 import NavList from './nav-list'
+import logo from '../../images/logo.svg'
+import { container } from '../../styles/shared'
 
 const Navigation = styled.nav`
   position: fixed;
@@ -24,31 +26,13 @@ const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 15px 0;
+  padding-top: 15px;
+
+  ${container}
 
   @media (min-height: 375px) and ${query.landscape},
     ${query.tablet1_up} and ${query.portrait} {
     padding-top: 30px;
-  }
-
-  @media ${query.tablet1_up} and ${query.portrait} {
-    max-width: 650px;
-    margin: auto;
-  }
-
-  @media ${query.tablet1_down} and ${query.landscape} {
-    max-width: 520px;
-    margin: auto;
-  }
-
-  @media ${query.tablet1_up} and ${query.landscape} {
-    max-width: 750px;
-    margin: auto;
-  }
-
-  @media ${query.tablet3_up} and ${query.landscape} {
-    max-width: 900px;
-    margin: auto;
   }
 `
 
@@ -93,7 +77,7 @@ const Nav = () => {
   return (
     <Navigation navExpanded={navExpanded} visible={visible}>
       <Navbar navExpanded={navExpanded} visible={visible}>
-        <NavBrand navExpanded={navExpanded} src="/img/logo.svg" alt="" />
+        <NavBrand navExpanded={navExpanded} src={logo} />
         {isTablet ? <NavList /> : <NavHamburger />}
       </Navbar>
       {!isTablet && <NavOverlay />}

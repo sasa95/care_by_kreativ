@@ -56,7 +56,7 @@ const Bubble = styled.span`
   height: 12px;
   border-radius: 50%;
   position: absolute;
-  animation: ${heroAnimation} 3s linear backwards;
+  animation: ${heroAnimation} 3s linear;
   opacity: 0;
 `
 

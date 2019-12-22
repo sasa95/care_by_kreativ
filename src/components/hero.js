@@ -51,6 +51,7 @@ const Title = styled.h1`
   font-weight: 700;
   opacity: 0;
   animation: ${TitleFadeIn} 2s 2s forwards;
+    
 
   @media ${query.landscape} {
     margin-bottom: 15px;

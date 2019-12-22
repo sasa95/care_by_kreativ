@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Lorem Ipsum",
+    "title": "Maecenas eget tortor puru",
+    "subtitle": "Nulla sollicitudin libero maximus",
+    "color": "#F8B624",
+    "slug": "lorem_ipsum",
+    "images": [
+      "projects/lorem_ipsum/lorem_ipsum_1.jpg",
+      "projects/lorem_ipsum/lorem_ipsum_2.jpg",
+      "projects/lorem_ipsum/lorem_ipsum_3.jpg"
+    ]
+  },
+  {
+    "name": "Dolor Sit",
+    "title": "Turpis ultricies nec",
+    "subtitle": "Aliquet mi tempor cras",
+    "color": "#9280F9",
+    "slug": "dolor_sit",
+    "images": [
+      "projects/dolor_sit/dolor_sit_1.png",
+      "projects/dolor_sit/dolor_sit_2.png",
+      "projects/dolor_sit/dolor_sit_3.png"
+    ]
+  },
+  {
+    "name": "Amet Consectetur",
+    "title": "In hac habitasse platea dictums",
+    "subtitle": "Nulla facilisi interdum et malesuada",
+    "color": "#DD2538",
+    "slug": "amet_consectetur",
+    "images": [
+      "projects/amet_consectetur/amet_consectetur_1.jpg",
+      "projects/amet_consectetur/amet_consectetur_2.jpg",
+      "projects/amet_consectetur/amet_consectetur_3.jpg"
+    ]
+  }
+]

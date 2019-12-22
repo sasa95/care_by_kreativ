@@ -8,14 +8,14 @@ const container = css`
   margin-left: auto;
 
   @media ${query.tablet1_up} {
-    width: 750px;
+    width: 700px;
   }
 
   @media ${query.tablet3_up} {
-    width: 970px;
+    width: 900px;
   }
   @media ${query.desktop2_up} {
-    width: 1170px;
+    width: 950px;
   }
 `
 
