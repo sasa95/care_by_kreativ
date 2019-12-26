@@ -48,7 +48,7 @@ const Indicator = styled.div`
         background: ${color};
         content: '';
       `};
-    animation: 6s ${grow} 1.5s linear;
+    animation: 6s ${grow} 0.8s linear;
   }
 `
 
