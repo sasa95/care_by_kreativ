@@ -159,14 +159,6 @@ const OverlayTertiary = styled.div`
   transition-delay: 0.3s;
 `
 
-const None = styled.div`
-  display: none;
-`
-
-const ImgPlaceholder = styled.img`
-  display: none;
-`
-
 const ProjectItemLG = ({ selectedProject, allImages }) => {
   const [transition, setTransition] = useState('none')
   const [opacity, setOpacity] = useState(1)
@@ -201,10 +193,6 @@ const ProjectItemLG = ({ selectedProject, allImages }) => {
       }, 800)
     }
 
-    const a = new Image()
-
-    a.src = 'https://avatars0.githubusercontent.com/u/13697709?v=4'
-
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
@@ -214,14 +202,6 @@ const ProjectItemLG = ({ selectedProject, allImages }) => {
 
   return currentProject ? (
     <>
-      <None>
-        {allImages.map((image, i) => (
-          <div key={i}>
-            <ImgPlaceholder src={image} />
-          </div>
-        ))}
-      </None>
-
       <TextContainer>
         <Name opacity={opacity} transition={transition} left={left}>
           {currentProject.name}

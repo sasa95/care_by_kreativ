@@ -74,20 +74,15 @@ const ProjectsLG = ({ projects }) => {
     setSelectedProjectIndex(index)
   }
 
-  const images = []
-
   projects.forEach(project => {
     project.images.forEach(image => {
-      images.push(image)
+      new Image().src = image
     })
   })
 
   return (
     <Projects>
-      <ProjectItemLG
-        selectedProject={projects[selectedProjectIndex]}
-        allImages={images}
-      />
+      <ProjectItemLG selectedProject={projects[selectedProjectIndex]} />
 
       <IndicatorsContainer>
         {projects.map((project, i) => (
