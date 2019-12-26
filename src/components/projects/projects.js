@@ -23,18 +23,9 @@ const Projects = () => {
     }
   `)
 
-  const url = require.context('../../images/', true)
-
-  const projects = data.allProjectsJson.edges
-    .map(p => p.node)
-    .map(project => {
-      return {
-        ...project,
-        images: project.images.map(image => url('./' + image)),
-      }
-    })
-
   const [animationPlayState, setAnimationPlayState] = useState('paused')
+  const [allProjects, setAllProjects] = useState()
+
   let isMobile = false
   let isDesktop = false
 
@@ -42,6 +33,19 @@ const Projects = () => {
   isDesktop = useMediaQuery({ query: query.tablet3_up })
 
   useEffect(() => {
+    const url = require.context('../../images/', true)
+
+    const projects = data.allProjectsJson.edges
+      .map(p => p.node)
+      .map(project => {
+        return {
+          ...project,
+          images: project.images.map(image => url('./' + image)),
+        }
+      })
+
+    setAllProjects(projects)
+
     setTimeout(() => {
       setAnimationPlayState('running')
     }, 2000)
@@ -49,14 +53,14 @@ const Projects = () => {
 
   return (
     <>
-      {isMobile && (
+      {allProjects && isMobile && (
         <ProjectsSM
-          projects={projects}
+          projects={allProjects}
           animationPlayState={animationPlayState}
         />
       )}
 
-      {isDesktop && <ProjectsLG projects={projects} />}
+      {allProjects && isDesktop && <ProjectsLG projects={allProjects} />}
     </>
   )
 }

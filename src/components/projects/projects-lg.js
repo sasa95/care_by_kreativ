@@ -56,6 +56,14 @@ const ProjectsLG = ({ projects }) => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
 
   useEffect(() => {
+    projects.forEach(project => {
+      project.images.forEach(image => {
+        new Image().src = image
+      })
+    })
+  }, [])
+
+  useEffect(() => {
     const timeout = setTimeout(() => {
       let newIndex
       if (selectedProjectIndex === projects.length - 1) {
@@ -73,12 +81,6 @@ const ProjectsLG = ({ projects }) => {
   const changeProject = index => {
     setSelectedProjectIndex(index)
   }
-
-  projects.forEach(project => {
-    project.images.forEach(image => {
-      new Image().src = image
-    })
-  })
 
   return (
     <Projects>

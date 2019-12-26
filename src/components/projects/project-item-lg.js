@@ -159,7 +159,7 @@ const OverlayTertiary = styled.div`
   transition-delay: 0.3s;
 `
 
-const ProjectItemLG = ({ selectedProject, allImages }) => {
+const ProjectItemLG = ({ selectedProject }) => {
   const [transition, setTransition] = useState('none')
   const [opacity, setOpacity] = useState(1)
   const [left, setLeft] = useState(0)
