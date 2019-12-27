@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Danijela Tuba",
+    "job": "Product Designer",
+    "skill": "cats and doggos fan",
+    "image": "team/danijela.svg"
+  },
+  {
+    "name": "Milos Radmilac",
+    "job": "Brand Designer",
+    "skill": "addicted to good work",
+    "image": "team/milos.svg"
+  },
+  {
+    "name": "Sasa Drmic",
+    "job": "Web Developer",
+    "skill": "master of dark humor",
+    "image": "team/sasa.svg"
+  }
+]
