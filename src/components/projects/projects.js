@@ -4,6 +4,12 @@ import ProjectsSM from './projects-sm'
 import ProjectsLG from './projects-lg'
 import { useMediaQuery } from 'react-responsive'
 import query from '../../styles/breakpoints'
+import styled from 'styled-components'
+
+const Placeholder = styled.div`
+  height: 300px;
+  width: 100%;
+`
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -53,6 +59,7 @@ const Projects = () => {
 
   return (
     <>
+      {!allProjects && <Placeholder />}
       {allProjects && isMobile && (
         <ProjectsSM
           projects={allProjects}
