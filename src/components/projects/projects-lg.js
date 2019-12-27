@@ -15,7 +15,7 @@ const Projects = styled.section`
   align-items: center;
   position: relative;
   bottom: 120px;
-  height: 100vh;
+  height: 600px;
 `
 
 const IndicatorsContainer = styled.div`
