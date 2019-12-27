@@ -24,11 +24,16 @@ const Title = styled.h1`
   margin: 0 0 40px;
   text-align: center;
   font-weight: normal;
-  line-height: 1.8rem;
-  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-size: 1.8rem;
+
+  @media ${query.mobile3_up} {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
 
   @media ${query.tablet3_up} {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
   }
 `
 

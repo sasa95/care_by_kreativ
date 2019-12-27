@@ -79,8 +79,12 @@ const Title = styled.h3`
 const Description = styled.p`
   margin: 0;
   color: rgba(51, 51, 51, 0.72);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.5rem;
+
+  @media ${query.mobile2_up} {
+    font-size: 1.1rem;
+  }
 `
 
 const Word = styled.span`
