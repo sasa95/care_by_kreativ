@@ -14,7 +14,7 @@ const Projects = styled.section`
   justify-content: space-between;
   align-items: center;
   position: relative;
-  bottom: 120px;
+  bottom: 100px;
   height: 600px;
 `
 
