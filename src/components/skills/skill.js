@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import CircleBorder from '../circle-border'
 import query from '../../styles/breakpoints'
@@ -12,17 +12,17 @@ const SkillContainer = styled.div`
   margin: 40px auto 0;
 
   @media ${query.tablet3_up} {
-    &:first-child {
+    &:nth-of-type(1) {
       margin-top: 0;
     }
 
-    &:not(:first-child) {
-      margin-top: 100px;
+    &:not(:nth-of-type(1)) {
+      margin-top: 120px;
     }
 
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       position: relative;
-      left: 50px;
+      left: 81px;
     }
   }
 `
@@ -34,7 +34,9 @@ const IconContainer = styled.div`
 
   @media ${query.tablet3_up} {
     width: 120px;
-    margin-right: 50px;
+    height: 120px;
+    margin-right: 36px;
+    background: #fff;
   }
 `
 
@@ -43,6 +45,9 @@ const TextContainer = styled.div`
 
   @media ${query.mobile2_up} {
     width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 `
 
@@ -93,8 +98,6 @@ const Word = styled.span`
 `
 
 const Skill = ({ skill: { title, description, word, color, icon } }) => {
-  console.log(title)
-
   return (
     <SkillContainer>
       <IconContainer>

@@ -6,6 +6,8 @@ import Skill from './skill'
 import arc from '../../images/arc.svg'
 
 const SkillsSection = styled.section`
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding: 20px 15px 0;
   bottom: 120px;
@@ -30,10 +32,9 @@ const Title = styled.h1`
 const SkillsContainer = styled.div`
   @media ${query.tablet3_up} {
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: blue;
+    top: 150px;
+    transform: translateX(-60%);
   }
 `
 
@@ -43,8 +44,9 @@ const Arc = styled.img`
   @media ${query.tablet3_up} {
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 105px;
+    left: 83px;
+    height: calc(100% - 190px);
   }
 `
 
@@ -87,6 +89,8 @@ const Skills = () => {
       <Title>What can we offer you?</Title>
 
       <SkillsContainer>
+        <Arc src={arc} alt="arc" />
+
         {skillsData.map((skill, i) => (
           <Skill key={i} skill={skill} />
         ))}
