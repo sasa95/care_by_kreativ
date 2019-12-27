@@ -69,7 +69,7 @@ const OverlayPrimary = styled.div`
   padding-bottom: 330px;
   border-radius: 50%;
   background: ${({ color }) => color};
-  opacity: ${({ opacity }) => (opacity ? '24%' : 0)};
+  opacity: ${({ opacity }) => (opacity ? 0.24 : 0)};
   transition: opacity 0.3s;
   transition-delay: 0.1s;
 `
@@ -125,7 +125,7 @@ const OverlaySecondary = styled.div`
   padding-bottom: 155px;
   border-radius: 50%;
   background: ${({ color }) => color};
-  opacity: ${({ opacity }) => (opacity ? '24%' : 0)};
+  opacity: ${({ opacity }) => (opacity ? 0.24 : 0)};
   transition: opacity 0.3s;
   transition-delay: 0.2s;
 `
@@ -154,7 +154,7 @@ const OverlayTertiary = styled.div`
   padding-bottom: 125px;
   border-radius: 50%;
   background: ${({ color }) => color};
-  opacity: ${({ opacity }) => (opacity ? '24%' : 0)};
+  opacity: ${({ opacity }) => (opacity ? 0.24 : 0)};
   transition: opacity 0.3s;
   transition-delay: 0.3s;
 `

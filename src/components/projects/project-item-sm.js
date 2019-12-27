@@ -45,7 +45,8 @@ const Overlay = styled.div`
   padding-bottom: 60%;
   border-radius: 50%;
   background: ${({ color }) => color};
-  opacity: 24%;
+  opacity: 0.24;
+  visibility: visible;
 `
 
 const BorderInnerContainer = styled.div`
