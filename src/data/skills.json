@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Creating the product",
+    "description": "Concept, Design and Launch",
+    "word": "Heart",
+    "color": "#DD2538",
+    "icon": "skills/heart.svg"
+  },
+  {
+    "title": "Elevating the brand",
+    "description": "Research, Strategy and Implementation",
+    "word": "Motion",
+    "color": "#F8B624",
+    "icon": "skills/motion.svg"
+  },
+  {
+    "title": "Crafting the app",
+    "description": "Development, Support",
+    "word": "Magic",
+    "color": "#9280F9",
+    "icon": "skills/magic.svg"
+  }
+]

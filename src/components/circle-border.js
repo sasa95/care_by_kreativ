@@ -1,7 +1,8 @@
 import React from 'react'
 
-const CircleBorder = ({ color }) => (
+const CircleBorder = ({ color, className }) => (
   <svg
+    className={className}
     width="100%"
     viewBox="0 0 178 178"
     fill="none"
