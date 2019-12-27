@@ -10,10 +10,13 @@ const SkillsSection = styled.section`
   flex-direction: column;
   position: relative;
   padding: 20px 15px 0;
-  bottom: 120px;
 
   @media ${query.tablet3_up} {
-    height: 100vh;
+    height: 850px;
+  }
+
+  @media ${query.portrait} {
+    bottom: 120px;
   }
 `
 
