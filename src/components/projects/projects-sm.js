@@ -9,6 +9,7 @@ const fadeIn = keyframes`
 const Projects = styled.section`
   position: relative;
   bottom: 60px;
+  margin-bottom: -60px;
   padding: 0 15px;
   opacity: 0;
   animation: ${fadeIn} 2s forwards;

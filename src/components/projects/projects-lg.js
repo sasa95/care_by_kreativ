@@ -15,6 +15,7 @@ const Projects = styled.section`
   align-items: center;
   position: relative;
   bottom: 100px;
+  margin-bottom: -100px;
   height: 600px;
 `
 
