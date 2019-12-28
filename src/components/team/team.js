@@ -7,13 +7,7 @@ import TeamMember from './team-member'
 const TeamSection = styled.section`
   display: flex;
   flex-direction: column;
-  position: relative;
-  bottom: 60px;
   padding: 20px 15px 0;
-
-  @media ${query.tablet3_up} {
-    bottom: 100px;
-  }
 `
 
 const Title = styled.h1`
