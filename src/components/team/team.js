@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import query from '../../styles/breakpoints'
+import TeamMember from './team-member'
 
 const TeamSection = styled.section`
   display: flex;
@@ -12,7 +13,6 @@ const TeamSection = styled.section`
 
   @media ${query.tablet3_up} {
     bottom: 100px;
-    height: 850px;
   }
 `
 
@@ -30,6 +30,7 @@ const Title = styled.h1`
 
   @media ${query.tablet3_up} {
     font-size: 3.2rem;
+    margin-bottom: 20px;
   }
 `
 
@@ -41,8 +42,24 @@ const Description = styled.div`
   line-height: 1.5rem;
   color: rgba(51, 51, 51, 0.72);
 
+  @media ${query.tablet3_up} {
+    max-width: 420px;
+  }
+
   p {
     margin: 0;
+  }
+`
+
+const MembersContainer = styled.div`
+  padding-top: 20px;
+  text-align: center;
+
+  @media ${query.tablet3_up} {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 100px;
   }
 `
 
@@ -69,25 +86,29 @@ const Team = () => {
 
     const team = data.allTeamJson.edges
       .map(p => p.node)
-      .map(person => {
+      .map(member => {
         return {
-          ...person,
-          image: url('./' + person.image),
+          ...member,
+          image: url('./' + member.image),
         }
       })
 
     setTeamData(team)
-    console.log(team)
   }, [])
 
   return (
     <TeamSection>
       <Title>Are we even human?</Title>
       <Description>
-        <p>Take a good look at these faces.</p>
-        <p>Remember them.</p>
+        <p>Take a good look at these faces. Remember them.</p>
         <p>They will take the rest worries off your shoulders.</p>
       </Description>
+
+      <MembersContainer>
+        {teamData.map((member, i) => (
+          <TeamMember key={i} member={member} />
+        ))}
+      </MembersContainer>
     </TeamSection>
   )
 }
