@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import { Normalize } from 'styled-normalize'
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import NavigationContext from '../context/navigation-context'
 import Nav from './navigation/nav'
 import Bubles from './bubbles/bubbles'
+import Footer from './footer/footer'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -21,10 +22,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const Test = styled.div`
-  height: 100vh;
-`
-
 const Layout = ({ children }) => {
   const { navExpanded } = useContext(NavigationContext)
 
@@ -34,7 +31,7 @@ const Layout = ({ children }) => {
       <Normalize />
       <Nav />
       {children}
-      <Test>Test section</Test>
+      <Footer />
       <Bubles />
     </>
   )
