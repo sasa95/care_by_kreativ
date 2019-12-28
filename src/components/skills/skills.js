@@ -19,7 +19,7 @@ const SkillsSection = styled.section`
 `
 
 const Title = styled.h1`
-  margin: 0 0 40px;
+  margin: 0;
   text-align: center;
   font-weight: normal;
   line-height: 2.4rem;
