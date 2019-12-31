@@ -30,7 +30,7 @@ const SocialIconsContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 30px 0 20px;
+  padding: 50px 0 20px;
   max-width: 250px;
   margin: auto;
 
