@@ -8,7 +8,7 @@ import NavOverlay from './nav-overlay'
 import mq from '../../styles/media-queries'
 import NavList from './nav-list'
 import logo from '../../images/logo.svg'
-import { container } from '../../styles/shared'
+import { Container } from '../../styles/shared'
 
 const Navigation = styled.nav`
   position: fixed;
@@ -29,7 +29,7 @@ const Navbar = styled.div`
   padding: 15px 0;
   background: #fff;
 
-  ${container}
+  ${Container}
 `
 
 const NavBrand = styled.img`

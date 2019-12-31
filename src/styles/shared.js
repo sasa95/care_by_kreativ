@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 import mq from './media-queries'
 
-const container = css`
+const Container = css`
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -19,4 +19,4 @@ const container = css`
   }
 `
 
-export { container }
+export { Container }

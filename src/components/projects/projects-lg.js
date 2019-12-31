@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import ProjectItemLG from './project-item-lg'
-import { container } from '../../styles/shared'
+import { Container } from '../../styles/shared'
 
 const grow = keyframes`
   to { width: 100% }
 `
 
 const Projects = styled.section`
-  ${container}
+  ${Container}
   display: flex;
   flex-direction: row;
   justify-content: space-between;
