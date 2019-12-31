@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import NavigationContext from '../../context/navigation-context'
-import query from '../../styles/breakpoints'
+import mq from '../../styles/media-queries'
 
 const Icon = styled.div`
   width: 35px;
@@ -9,11 +9,11 @@ const Icon = styled.div`
   position: relative;
   z-index: 1;
 
-  @media ${query.mobile3_up} and ${query.portrait} {
+  @media ${mq.mobile3_up} and ${mq.portrait} {
     width: 40px;
   }
 
-  @media ${query.tablet1_up} {
+  @media ${mq.tablet1_up} {
     display: none;
   }
 `

@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import colors from '../styles/colors'
-import query from '../styles/breakpoints'
+import mq from '../styles/media-queries'
 
 const Wrapper = styled.section`
   position: relative;
@@ -19,23 +19,23 @@ const TextContainer = styled.div`
   height: 100%;
   color: ${colors.kreativBlue};
 
-  @media ${query.mobile3_up} and ${query.portrait} {
+  @media ${mq.mobile3_up} and ${mq.portrait} {
     max-width: 257px;
   }
 
-  @media ${query.tablet1_up} and ${query.portrait} {
+  @media ${mq.tablet1_up} and ${mq.portrait} {
     max-width: 449px;
   }
 
-  @media ${query.tablet3_down} and ${query.landscape} {
+  @media ${mq.tablet3_down} and ${mq.landscape} {
     max-width: 446px;
   }
 
-  @media ${query.tablet3_up} and (max-height: 579px) and ${query.landscape} {
+  @media ${mq.tablet3_up} and (max-height: 579px) and ${mq.landscape} {
     max-width: 340px;
   }
 
-  @media ${query.tablet3_up} and (min-height: 580px) and ${query.landscape} {
+  @media ${mq.tablet3_up} and (min-height: 580px) and ${mq.landscape} {
     max-width: 449px;
     position: relative;
     left: -50px;
@@ -53,16 +53,16 @@ const Title = styled.h1`
   animation: ${TitleFadeIn} 2s 2s forwards;
     
 
-  @media ${query.landscape} {
+  @media ${mq.landscape} {
     margin-bottom: 15px;
   }
 
-  @media ${query.mobile3_up} and ${query.portrait} {
+  @media ${mq.mobile3_up} and ${mq.portrait} {
     font-size: 4rem;
   }
 
-  @media ${query.tablet1_up} and ${query.portrait},
-  ${query.tablet3_up} and  (min-height: 580px) and ${query.landscape} {
+  @media ${mq.tablet1_up} and ${mq.portrait},
+  ${mq.tablet3_up} and  (min-height: 580px) and ${mq.landscape} {
     font-size: 7rem;
   }
 `
@@ -74,11 +74,11 @@ const Subtitle = styled.p`
   opacity: 0;
   animation: ${TitleFadeIn} 2s 3s forwards;
 
-  @media ${query.mobile3_up} {
+  @media ${mq.mobile3_up} {
     font-size: 1.1rem;
   }
 
-  @media ${query.tablet1_up} {
+  @media ${mq.tablet1_up} {
     font-size: 1.5rem;
   }
 `
@@ -96,11 +96,11 @@ const HighLight = styled.span`
     background: #cbedf8;
     z-index: -1;
 
-    @media ${query.mobile3_up} {
+    @media ${mq.mobile3_up} {
       bottom: 21%;
     }
 
-    @media ${query.tablet1_up} {
+    @media ${mq.tablet1_up} {
       height: 10px;
       bottom: 22%;
     }
@@ -108,7 +108,7 @@ const HighLight = styled.span`
 `
 
 const Hero = () => {
-  const isLandscape = useMediaQuery({ query: query.landscape })
+  const isLandscape = useMediaQuery({ query: mq.landscape })
 
   return (
     <Wrapper>

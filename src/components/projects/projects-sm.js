@@ -1,6 +1,6 @@
 import React from 'react'
-import ProjectItemSM from './project-item-sm'
 import styled, { keyframes } from 'styled-components'
+import ProjectItemSM from './project-item-sm'
 
 const fadeIn = keyframes`
   to {opacity: 1}

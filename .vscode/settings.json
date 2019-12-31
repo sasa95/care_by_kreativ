@@ -1,10 +1,12 @@
 {
   "editor.formatOnSave": true,
+  "prettier-stylelint.stylelintIntegration": true,
   "eslint.alwaysShowStatus": true,
   "files.associations": {
     "*.js": "javascriptreact"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.es": true
   }
 }

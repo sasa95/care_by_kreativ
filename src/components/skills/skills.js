@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import query from '../../styles/breakpoints'
+import mq from '../../styles/media-queries'
 import Skill from './skill'
 import arc from '../../images/arc.svg'
 
@@ -11,7 +11,7 @@ const SkillsSection = styled.section`
   position: relative;
   padding: 20px 15px 0;
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     height: 850px;
   }
 `
@@ -23,18 +23,18 @@ const Title = styled.h1`
   line-height: 2.4rem;
   font-size: 1.8rem;
 
-  @media ${query.mobile3_up} {
+  @media ${mq.mobile3_up} {
     font-size: 2rem;
     line-height: 2.4rem;
   }
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     font-size: 3.2rem;
   }
 `
 
 const SkillsContainer = styled.div`
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     position: absolute;
     left: 50%;
     top: 150px;
@@ -45,7 +45,7 @@ const SkillsContainer = styled.div`
 const Arc = styled.img`
   display: none;
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     display: block;
     position: absolute;
     top: 105px;

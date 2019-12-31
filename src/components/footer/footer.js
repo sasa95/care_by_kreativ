@@ -5,7 +5,7 @@ import SocialIcon from './social-icon'
 import fbIcon from '../../images/social/facebook.svg'
 import liIcon from '../../images/social/linkedin.svg'
 import igIcon from '../../images/social/instagram.svg'
-import query from '../../styles/breakpoints'
+import mq from '../../styles/media-queries'
 
 const FooterContainer = styled.footer`
   padding: 0 15px 0;
@@ -34,7 +34,7 @@ const SocialIconsContainer = styled.div`
   max-width: 250px;
   margin: auto;
 
-  @media ${query.tablet1_up} {
+  @media ${mq.tablet1_up} {
     padding: 60px 0 50px;
     max-width: 400px;
   }

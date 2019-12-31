@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import query from '../../styles/breakpoints'
+import mq from '../../styles/media-queries'
 
 const MemberContainer = styled.div`
   margin-bottom: 40px;
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     &:nth-of-type(2) {
       position: relative;
       top: -50px;

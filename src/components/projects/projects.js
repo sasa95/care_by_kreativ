@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { useMediaQuery } from 'react-responsive'
+import styled from 'styled-components'
 import ProjectsSM from './projects-sm'
 import ProjectsLG from './projects-lg'
-import { useMediaQuery } from 'react-responsive'
-import query from '../../styles/breakpoints'
-import styled from 'styled-components'
+import mq from '../../styles/media-queries'
 
 const Placeholder = styled.div`
   height: 300px;
@@ -35,8 +35,8 @@ const Projects = () => {
   let isMobile = false
   let isDesktop = false
 
-  isMobile = useMediaQuery({ query: query.tablet3_down })
-  isDesktop = useMediaQuery({ query: query.tablet3_up })
+  isMobile = useMediaQuery({ query: mq.tablet3_down })
+  isDesktop = useMediaQuery({ query: mq.tablet3_up })
 
   useEffect(() => {
     const url = require.context('../../images/', true)

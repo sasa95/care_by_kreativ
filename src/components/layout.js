@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize'
 import { createGlobalStyle } from 'styled-components'
 import NavigationContext from '../context/navigation-context'
 import Nav from './navigation/nav'
-import Bubles from './bubbles/bubbles'
+import Bubbles from './bubbles/bubbles'
 import Footer from './footer/footer'
 
 const GlobalStyle = createGlobalStyle`
@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       <Nav />
       {children}
       <Footer />
-      <Bubles />
+      <Bubbles />
     </>
   )
 }

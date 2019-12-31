@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import NavigationContext from '../../context/navigation-context'
 import NavHamburger from './nav-hamburger'
 import NavOverlay from './nav-overlay'
-import query from '../../styles/breakpoints'
+import mq from '../../styles/media-queries'
 import NavList from './nav-list'
 import logo from '../../images/logo.svg'
 import { container } from '../../styles/shared'
@@ -30,8 +30,8 @@ const Navbar = styled.div`
 
   ${container}
 
-  @media (min-height: 375px) and ${query.landscape},
-    ${query.tablet1_up} and ${query.portrait} {
+  @media (min-height: 375px) and ${mq.landscape},
+    ${mq.tablet1_up} and ${mq.portrait} {
     padding-top: 30px;
   }
 `
@@ -41,8 +41,8 @@ const NavBrand = styled.img`
   opacity: ${({ navExpanded }) => (navExpanded ? 0 : 1)};
   z-index: 100;
 
-  @media ${query.mobile3_up} and ${query.portrait},
-    ${query.tablet1_up} {
+  @media ${mq.mobile3_up} and ${mq.portrait},
+    ${mq.tablet1_up} {
     width: 56px;
   }
 `
@@ -54,7 +54,7 @@ const Nav = () => {
   const [visible, setVisible] = useState(true)
 
   const isTablet = useMediaQuery({
-    query: query.tablet1_up,
+    query: mq.tablet1_up,
   })
 
   useEffect(() => {

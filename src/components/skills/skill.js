@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import CircleBorder from '../circle-border'
-import query from '../../styles/breakpoints'
+import mq from '../../styles/media-queries'
 
 const SkillContainer = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ const SkillContainer = styled.div`
   max-width: 400px;
   margin: 40px auto 0;
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     &:nth-of-type(1) {
       margin-top: 0;
     }
@@ -32,7 +32,7 @@ const IconContainer = styled.div`
   align-self: center;
   width: 70px;
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     width: 120px;
     height: 120px;
     margin-right: 36px;
@@ -43,7 +43,7 @@ const IconContainer = styled.div`
 const TextContainer = styled.div`
   width: 173px;
 
-  @media ${query.mobile2_up} {
+  @media ${mq.mobile2_up} {
     width: 200px;
     display: flex;
     flex-direction: column;
@@ -58,7 +58,7 @@ const Icon = styled.img`
   transform: translate(-50%, -50%);
   width: 35px;
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     width: 55px;
   }
 `
@@ -82,7 +82,7 @@ const Description = styled.p`
   font-size: 1.05rem;
   line-height: 1.5rem;
 
-  @media ${query.mobile2_up} {
+  @media ${mq.mobile2_up} {
     font-size: 1.1rem;
   }
 `
@@ -90,7 +90,7 @@ const Description = styled.p`
 const Word = styled.span`
   display: none;
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     display: block;
     position: absolute;
     left: -60px;

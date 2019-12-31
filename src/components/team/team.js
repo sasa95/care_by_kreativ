@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import query from '../../styles/breakpoints'
+import mq from '../../styles/media-queries'
 import TeamMember from './team-member'
 
 const TeamSection = styled.section`
@@ -17,12 +17,12 @@ const Title = styled.h1`
   line-height: 2.4rem;
   font-size: 1.8rem;
 
-  @media ${query.mobile3_up} {
+  @media ${mq.mobile3_up} {
     font-size: 2rem;
     line-height: 2.4rem;
   }
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     font-size: 3.2rem;
     margin-bottom: 20px;
   }
@@ -36,12 +36,12 @@ const Description = styled.div`
   line-height: 1.5rem;
   color: rgba(51, 51, 51, 0.72);
 
-  @media ${query.tablet3_up} {
-    max-width: 420px;
-  }
-
   p {
     margin: 0;
+  }
+
+  @media ${mq.tablet3_up} {
+    max-width: 420px;
   }
 `
 
@@ -49,7 +49,7 @@ const MembersContainer = styled.div`
   padding-top: 20px;
   text-align: center;
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import query from './breakpoints'
+import mq from './media-queries'
 
 const container = css`
   padding-right: 15px;
@@ -7,14 +7,14 @@ const container = css`
   margin-right: auto;
   margin-left: auto;
 
-  @media ${query.tablet1_up} {
+  @media ${mq.tablet1_up} {
     width: 700px;
   }
 
-  @media ${query.tablet3_up} {
+  @media ${mq.tablet3_up} {
     width: 900px;
   }
-  @media ${query.desktop2_up} {
+  @media ${mq.desktop2_up} {
     width: 950px;
   }
 `

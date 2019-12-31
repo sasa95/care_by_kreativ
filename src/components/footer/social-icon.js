@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import CircleBorder from '../circle-border'
-import query from '../../styles/breakpoints'
+import mq from '../../styles/media-queries'
 
 const IconContainer = styled.div`
   position: relative;
   width: 40px;
   height: 40px;
 
-  @media ${query.tablet1_up} {
+  @media ${mq.tablet1_up} {
     width: 60px;
     height: 60px;
   }
@@ -21,7 +21,7 @@ const Icon = styled.img`
   transform: translate(-50%, -50%);
   height: 20px;
 
-  @media ${query.tablet1_up} {
+  @media ${mq.tablet1_up} {
     height: 30px;
   }
 `
