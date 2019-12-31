@@ -26,14 +26,10 @@ const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
+  padding: 15px 0;
+  background: #fff;
 
   ${container}
-
-  @media (min-height: 375px) and ${mq.landscape},
-    ${mq.tablet1_up} and ${mq.portrait} {
-    padding-top: 30px;
-  }
 `
 
 const NavBrand = styled.img`
