@@ -73,6 +73,7 @@ const Subtitle = styled.p`
   color: rgba(26, 26, 26, 0.72);
   opacity: 0;
   animation: ${TitleFadeIn} 2s 3s forwards;
+  transform: translateX(3px);
 
   @media ${mq.mobile3_up} {
     font-size: 1.1rem;
@@ -80,6 +81,7 @@ const Subtitle = styled.p`
 
   @media ${mq.tablet1_up} {
     font-size: 1.5rem;
+    transform: translateX(5px);
   }
 `
 
