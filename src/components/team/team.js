@@ -3,11 +3,14 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import mq from '../../styles/media-queries'
 import TeamMember from './team-member'
+import { Container } from '../../styles/shared'
 
 const TeamSection = styled.section`
   display: flex;
   flex-direction: column;
   padding: 20px 15px 0;
+
+  ${Container}
 `
 
 const Title = styled.h1`
@@ -52,7 +55,7 @@ const MembersContainer = styled.div`
   @media ${mq.tablet3_up} {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 100px;
   }
 `
