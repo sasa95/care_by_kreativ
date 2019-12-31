@@ -43,6 +43,10 @@ const Description = styled.div`
     margin: 0;
   }
 
+  @media ${mq.tablet1_up} {
+    max-width: 400px;
+  }
+
   @media ${mq.tablet3_up} {
     max-width: 420px;
   }
