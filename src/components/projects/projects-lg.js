@@ -66,18 +66,18 @@ const ProjectsLG = ({ projects }) => {
   }, [])
 
   useEffect(() => {
-    // const timeout = setTimeout(() => {
-    //   let newIndex
-    //   if (selectedProjectIndex === projects.length - 1) {
-    //     newIndex = 0
-    //   } else {
-    //     newIndex = selectedProjectIndex + 1
-    //   }
-    //   setSelectedProjectIndex(newIndex)
-    // }, 7000)
-    // return () => {
-    //   clearTimeout(timeout)
-    // }
+    const timeout = setTimeout(() => {
+      let newIndex
+      if (selectedProjectIndex === projects.length - 1) {
+        newIndex = 0
+      } else {
+        newIndex = selectedProjectIndex + 1
+      }
+      setSelectedProjectIndex(newIndex)
+    }, 7000)
+    return () => {
+      clearTimeout(timeout)
+    }
   }, [selectedProjectIndex])
 
   const changeProject = index => {
