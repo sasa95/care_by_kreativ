@@ -1,10 +1,12 @@
 import React, { useContext, useEffect } from 'react'
 import { Normalize } from 'styled-normalize'
 import { createGlobalStyle } from 'styled-components'
+import { useMediaQuery } from 'react-responsive'
 import NavigationContext from '../context/navigation-context'
 import Nav from './navigation/nav'
 import Bubbles from './bubbles/bubbles'
 import Footer from './footer/footer'
+import mq from '../styles/media-queries'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -23,11 +25,18 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children }) => {
+  const offset = useMediaQuery({
+    query: mq.mobile3_up,
+  })
+    ? 86
+    : 70
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       require('smooth-scroll')('a[href*="#"]', {
-        offset: 100,
+        offset,
         durationMax: 500,
+        updateURL: false,
       })
     }
   }, [])
