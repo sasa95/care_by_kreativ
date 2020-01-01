@@ -84,7 +84,7 @@ const ProjectsLG = ({ projects }) => {
   }
 
   return (
-    <Projects>
+    <Projects id="projects">
       <ProjectItemLG selectedProject={projects[selectedProjectIndex]} />
 
       <IndicatorsContainer>

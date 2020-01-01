@@ -17,7 +17,7 @@ const Projects = styled.section`
 `
 
 const ProjectsSM = ({ projects, animationPlayState }) => (
-  <Projects animation={animationPlayState}>
+  <Projects animation={animationPlayState} id="projects">
     {projects.map((project, i) => (
       <ProjectItemSM key={i} project={project} />
     ))}

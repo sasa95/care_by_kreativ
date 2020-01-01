@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import mq from '../../styles/media-queries'
 import colors from '../../styles/colors'
+import NavigationContext from '../../context/navigation-context'
 
 const List = styled.ul`
   text-align: center;
@@ -41,12 +42,28 @@ const ListItem = styled.li`
   }
 `
 
+const Link = styled.a`
+  color: ${colors.kreativBlue}!important;
+  text-decoration: none;
+`
+
 const NavList = () => {
+  const { setNavExpanded } = useContext(NavigationContext)
+
   return (
     <List>
-      <ListItem>Projects</ListItem>
-      <ListItem>Skills</ListItem>
-      <ListItem>About Us</ListItem>
+      <ListItem onClick={() => setNavExpanded(false)}>
+        <Link href="/#projects">Projects</Link>
+      </ListItem>
+
+      <ListItem>
+        <Link href="/#skills">Skills</Link>
+      </ListItem>
+
+      <ListItem>
+        <Link href="/#squad">Squad</Link>
+      </ListItem>
+
       <ListItem>hey@carebykreativ.com</ListItem>
     </List>
   )

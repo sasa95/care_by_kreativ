@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Normalize } from 'styled-normalize'
 import { createGlobalStyle } from 'styled-components'
 import NavigationContext from '../context/navigation-context'
@@ -23,6 +23,15 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children }) => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      require('smooth-scroll')('a[href*="#"]', {
+        offset: 100,
+        durationMax: 500,
+      })
+    }
+  }, [])
+
   const { navExpanded } = useContext(NavigationContext)
 
   return (

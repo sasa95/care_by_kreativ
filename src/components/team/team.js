@@ -98,7 +98,7 @@ const Team = () => {
   }, [])
 
   return (
-    <TeamSection>
+    <TeamSection id="squad">
       <Title>Are we even human?</Title>
       <Description>
         <p>Take a good look at these faces. Remember them.</p>

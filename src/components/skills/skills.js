@@ -89,7 +89,7 @@ const Skills = () => {
   }, [])
 
   return (
-    <SkillsSection>
+    <SkillsSection id="skills">
       <Title>What can we offer you?</Title>
 
       <SkillsContainer>

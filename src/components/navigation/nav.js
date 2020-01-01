@@ -55,6 +55,7 @@ const Nav = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', throttle(handleScroll, 300))
+    document.addEventListener('scrollStart', handleSmoothScroll, false)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -68,6 +69,12 @@ const Nav = () => {
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset
     setCurrScrollpos(currentScrollPos)
+  }
+
+  const handleSmoothScroll = () => {
+    setTimeout(() => {
+      setVisible(true)
+    }, 700)
   }
 
   return (
