@@ -22,6 +22,7 @@ const Projects = styled.section`
 const IndicatorsContainer = styled.div`
   position: absolute;
   top: calc(50% + 140px);
+  left: 15px;
   transform: translateY(-50%);
   display: flex;
   flex-direction: row;

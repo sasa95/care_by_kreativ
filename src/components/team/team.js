@@ -32,6 +32,7 @@ const Title = styled.h1`
 `
 
 const Description = styled.div`
+  width: 100%;
   max-width: 300px;
   margin: auto;
   padding-top: 20px;
