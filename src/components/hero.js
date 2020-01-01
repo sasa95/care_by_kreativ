@@ -15,6 +15,7 @@ const TextContainer = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   max-width: 227px;
   height: 100%;
   color: ${colors.kreativBlue};
@@ -46,6 +47,7 @@ const TitleFadeIn = keyframes`
 `
 
 const Title = styled.h1`
+  width: 100%;
   margin: 0;
   font-size: 3.5rem;
   font-weight: 700;

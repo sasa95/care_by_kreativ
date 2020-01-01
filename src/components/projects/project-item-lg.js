@@ -65,6 +65,8 @@ const ImagePrimary = styled.img`
 
 const OverlayPrimary = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
   width: 330px;
   padding-bottom: 330px;
   border-radius: 50%;
@@ -79,6 +81,7 @@ const BorderInnerContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 360px;
+  height: 360px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -93,6 +96,7 @@ const BorderOuterContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 385px;
+  height: 385px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -121,6 +125,8 @@ const ImageSecondary = styled.img`
 
 const OverlaySecondary = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
   width: 155px;
   padding-bottom: 155px;
   border-radius: 50%;
@@ -150,6 +156,8 @@ const ImageTertiary = styled.img`
 
 const OverlayTertiary = styled.div`
   position: absolute;
+  top: 0;
+  left: 0;
   width: 125px;
   padding-bottom: 125px;
   border-radius: 50%;
