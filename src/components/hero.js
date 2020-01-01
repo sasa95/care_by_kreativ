@@ -113,7 +113,7 @@ const Hero = () => {
   const isLandscape = useMediaQuery({ query: mq.landscape })
 
   return (
-    <Wrapper>
+    <Wrapper id="hero">
       <TextContainer>
         <Title>
           <HighLight>We</HighLight> are <br />

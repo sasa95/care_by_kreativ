@@ -22,6 +22,8 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     overflow: ${({ navExpanded }) => (navExpanded ? 'hidden' : 'auto')};
   }
+
+ 
 `
 
 const Layout = ({ children }) => {

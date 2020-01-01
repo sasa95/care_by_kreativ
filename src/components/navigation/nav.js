@@ -74,7 +74,7 @@ const Nav = () => {
   const handleSmoothScroll = () => {
     setTimeout(() => {
       setVisible(true)
-    }, 700)
+    }, 800)
   }
 
   return (

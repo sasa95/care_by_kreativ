@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+import Scrollspy from 'react-scrollspy'
 import mq from '../../styles/media-queries'
 import colors from '../../styles/colors'
 import NavigationContext from '../../context/navigation-context'
 
-const List = styled.ul`
+const List = styled(Scrollspy)`
   text-align: center;
   list-style: none;
   line-height: 3.5rem;
@@ -22,6 +23,10 @@ const ListItem = styled.li`
   color: #fff;
   font-size: 1.3rem;
   font-weight: bold;
+
+  &:first-child {
+    display: none;
+  }
 
   @media ${mq.mobile3_up} {
     font-size: 1.5rem;
@@ -51,33 +56,52 @@ const Link = styled.a`
   }
 `
 
+const ActiveLink = createGlobalStyle`
+ .activeLink {
+    font-weight: bold;
+ }
+`
+
 const NavList = () => {
   const { setNavExpanded } = useContext(NavigationContext)
 
   return (
-    <List>
-      <ListItem>
-        <Link href="/#projects" onClick={() => setNavExpanded(false)}>
-          Projects
-        </Link>
-      </ListItem>
+    <>
+      <ActiveLink />
+      <List
+        items={['hero', 'projects', 'skills', 'squad']}
+        currentClassName="activeLink"
+        offset={-300}
+      >
+        <ListItem>
+          <Link href="/#hero" onClick={() => setNavExpanded(false)}>
+            Hero
+          </Link>
+        </ListItem>
 
-      <ListItem>
-        <Link href="/#skills" onClick={() => setNavExpanded(false)}>
-          Skills
-        </Link>
-      </ListItem>
+        <ListItem>
+          <Link href="/#projects" onClick={() => setNavExpanded(false)}>
+            Projects
+          </Link>
+        </ListItem>
 
-      <ListItem>
-        <Link href="/#squad" onClick={() => setNavExpanded(false)}>
-          Squad
-        </Link>
-      </ListItem>
+        <ListItem>
+          <Link href="/#skills" onClick={() => setNavExpanded(false)}>
+            Skills
+          </Link>
+        </ListItem>
 
-      <ListItem onClick={() => setNavExpanded(false)}>
-        hey@carebykreativ.com
-      </ListItem>
-    </List>
+        <ListItem>
+          <Link href="/#squad" onClick={() => setNavExpanded(false)}>
+            Squad
+          </Link>
+        </ListItem>
+
+        <ListItem onClick={() => setNavExpanded(false)}>
+          hey@carebykreativ.com
+        </ListItem>
+      </List>
+    </>
   )
 }
 
