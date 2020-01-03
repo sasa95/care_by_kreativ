@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 import CircleBorder from '../circle-border'
 
 const Project = styled.div`
@@ -31,9 +32,11 @@ const ImageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 24px 0 30px 0;
+  width: 60%;
+  max-width: 400px;
 `
 
-const Image = styled.img`
+const Image = styled(Img)`
   width: 60%;
   max-width: 400px;
   border-radius: 50%;
@@ -80,7 +83,7 @@ const ProjectItemSM = ({
     <Project>
       <Name>{name}</Name>
       <ImageContainer>
-        <Image src={images[0]} />
+        <Image fluid={images[0]} />
         <Overlay color={color} />
         <BorderInnerContainer>
           <CircleBorder color={color} />

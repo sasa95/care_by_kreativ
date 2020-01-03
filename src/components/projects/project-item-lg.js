@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 import CircleBorder from '../circle-border'
-import useMounted from '../../hooks/useMounted'
+import useMounted from '../../helpers/useMounted'
 
 const TextContainer = styled.div`
   width: 33.33%;
@@ -55,7 +56,7 @@ const ImageContainerPrimary = styled.div`
   margin: 24px 0 30px 0;
 `
 
-const ImagePrimary = styled.img`
+const ImagePrimary = styled(Img)`
   width: 330px;
   border-radius: 50%;
   opacity: ${({ opacity }) => opacity};
@@ -115,7 +116,7 @@ const ImageContainerSecondary = styled.div`
   align-items: center;
   margin: 24px 0 30px 0;
 `
-const ImageSecondary = styled.img`
+const ImageSecondary = styled(Img)`
   width: 155px;
   border-radius: 50%;
   opacity: ${({ opacity }) => opacity};
@@ -146,7 +147,7 @@ const ImageContainerTertiary = styled.div`
   align-items: center;
   margin: 24px 0 30px 0;
 `
-const ImageTertiary = styled.img`
+const ImageTertiary = styled(Img)`
   width: 125px;
   border-radius: 50%;
   opacity: ${({ opacity }) => opacity};
@@ -224,7 +225,7 @@ const ProjectItemLG = ({ selectedProject }) => {
 
       <ImagesContainer>
         <ImageContainerPrimary>
-          <ImagePrimary src={currentProject.images[0]} opacity={opacity} />
+          <ImagePrimary fluid={currentProject.images[0]} opacity={opacity} />
           <OverlayPrimary color={currentProject.color} opacity={opacity} />
           <BorderInnerContainer opacity={opacity}>
             <CircleBorder color={currentProject.color} />
@@ -234,11 +235,11 @@ const ProjectItemLG = ({ selectedProject }) => {
           </BorderOuterContainer>
         </ImageContainerPrimary>
         <ImageContainerSecondary>
-          <ImageSecondary src={currentProject.images[1]} opacity={opacity} />
+          <ImageSecondary fluid={currentProject.images[1]} opacity={opacity} />
           <OverlaySecondary color={currentProject.color} opacity={opacity} />
         </ImageContainerSecondary>
         <ImageContainerTertiary>
-          <ImageTertiary src={currentProject.images[2]} opacity={opacity} />
+          <ImageTertiary fluid={currentProject.images[2]} opacity={opacity} />
           <OverlayTertiary color={currentProject.color} opacity={opacity} />
         </ImageContainerTertiary>
       </ImagesContainer>

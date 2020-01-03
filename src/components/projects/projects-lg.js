@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Img from 'gatsby-image'
 import styled, { keyframes, css } from 'styled-components'
 import ProjectItemLG from './project-item-lg'
 import { Container } from '../../styles/shared'
@@ -54,7 +55,7 @@ const Indicator = styled.div`
   }
 `
 
-const ProjectsLG = ({ projects }) => {
+const ProjectsLG = ({ projects, image }) => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
 
   useEffect(() => {
@@ -86,7 +87,10 @@ const ProjectsLG = ({ projects }) => {
 
   return (
     <Projects id="projects">
-      <ProjectItemLG selectedProject={projects[selectedProjectIndex]} />
+      <ProjectItemLG
+        fancyImage={image}
+        selectedProject={projects[selectedProjectIndex]}
+      />
 
       <IndicatorsContainer>
         {projects.map((project, i) => (

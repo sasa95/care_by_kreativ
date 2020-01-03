@@ -1,28 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
-import styled from 'styled-components'
+import { groupBy, orderBy } from 'lodash'
 import ProjectsSM from './projects-sm'
 import ProjectsLG from './projects-lg'
 import mq from '../../styles/media-queries'
 
-const Placeholder = styled.div`
-  height: 300px;
-  width: 100%;
-`
-
 const Projects = () => {
   const data = useStaticQuery(graphql`
     query {
-      allProjectsJson {
+      projects: allProjectsJson {
         edges {
           node {
             name
+            slug
             title
             subtitle
-            images
             color
             slug
+          }
+        }
+      }
+
+      images: allFile(filter: { relativeDirectory: { regex: "/projects/" } }) {
+        edges {
+          node {
+            childImageSharp {
+              fluid(maxWidth: 400) {
+                ...GatsbyImageSharpFluid
+                originalName
+              }
+            }
           }
         }
       }
@@ -39,19 +47,25 @@ const Projects = () => {
   isDesktop = useMediaQuery({ query: mq.tablet3_up })
 
   useEffect(() => {
-    const url = require.context('../../images/', true)
+    const imagesMapped = data.images.edges.map(
+      image => image.node.childImageSharp.fluid
+    )
 
-    const projects = data.allProjectsJson.edges
-      .map(p => p.node)
-      .map(project => {
-        return {
-          ...project,
-          images: project.images.map(image => url('./' + image)),
-        }
-      })
+    const imagesSorted = orderBy(imagesMapped, 'originalName')
+
+    const imagesGrouped = groupBy(imagesSorted, image => {
+      const end = image.originalName.lastIndexOf('_')
+      return image.originalName.substring(0, end)
+    })
+
+    const projects = data.projects.edges.map(project => {
+      return {
+        ...project.node,
+        images: imagesGrouped[project.node.slug],
+      }
+    })
 
     setAllProjects(projects)
-
     setTimeout(() => {
       setAnimationPlayState('running')
     }, 2000)
@@ -59,7 +73,6 @@ const Projects = () => {
 
   return (
     <>
-      {!allProjects && <Placeholder />}
       {allProjects && isMobile && (
         <ProjectsSM
           projects={allProjects}

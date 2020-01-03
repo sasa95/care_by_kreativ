@@ -7,10 +7,20 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-lodash`,
     `gatsby-transformer-json`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `data`,
         path: `./src/data/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `./src/images/`,
       },
     },
     {
