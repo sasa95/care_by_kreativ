@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import Layout from '../components/layout'
 import Head from '../components/head'
 import mq from '../styles/media-queries'
 
@@ -30,12 +29,12 @@ export const query = graphql`
 
 const ProjectTemplate = ({ data }) => {
   return (
-    <Layout>
+    <>
       <Head title="Projects" />
       <Project>
         <h1>{data.allSitePage.edges[0].node.context.name}</h1>
       </Project>
-    </Layout>
+    </>
   )
 }
 
