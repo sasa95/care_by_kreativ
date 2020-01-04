@@ -32,13 +32,13 @@ const ImageContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 24px 0 30px 0;
-  width: 60%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 330px;
 `
 
 const Image = styled(Img)`
   width: 60%;
-  max-width: 400px;
+  max-width: 300px;
   border-radius: 50%;
 `
 
