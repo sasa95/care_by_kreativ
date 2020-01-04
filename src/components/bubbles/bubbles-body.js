@@ -11,7 +11,7 @@ const bodyAnimation = keyframes`
   } 
 
   100% {
-    top: 0;
+    top: -10%;
     opacity: 1
   }
 `
@@ -59,6 +59,7 @@ const Bubble = styled.span`
   position: absolute;
   opacity: 0;
   animation: ${bodyAnimation} 1s linear infinite forwards;
+  z-index: 10;
 `
 
 const BubblesBody = () => <BodyBubbles>{generateBubbles(5)}</BodyBubbles>

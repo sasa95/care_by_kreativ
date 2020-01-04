@@ -4,9 +4,9 @@ import { createGlobalStyle } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import NavigationContext from '../context/navigation-context'
 import Nav from './navigation/nav'
-import Bubbles from './bubbles/bubbles'
 import Footer from './footer/footer'
 import mq from '../styles/media-queries'
+import BubblesBody from './bubbles/bubbles-body'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -23,6 +23,10 @@ const GlobalStyle = createGlobalStyle`
     overflow: ${({ navExpanded }) => (navExpanded ? 'hidden' : 'auto')};
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
  
 `
 
@@ -52,7 +56,7 @@ const Layout = ({ children }) => {
       <Nav />
       {children}
       <Footer />
-      <Bubbles />
+      <BubblesBody />
     </>
   )
 }

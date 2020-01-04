@@ -11,7 +11,7 @@ const heroAnimation = keyframes`
   } 
 
   100% {
-    top: 0;
+    top: -10%;
     opacity: 1
   }
 `
@@ -58,6 +58,7 @@ const Bubble = styled.span`
   position: absolute;
   animation: ${heroAnimation} 1s linear;
   opacity: 0;
+  z-index: 100;
 `
 
 const BubblesHeroFast = () => (

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import CircleBorder from '../circle-border'
 import useMounted from '../../helpers/useMounted'
+import { Link, navigate } from 'gatsby'
 
 const TextContainer = styled.div`
   width: 33.33%;
@@ -13,13 +14,31 @@ const ImagesContainer = styled.div`
 `
 
 const Name = styled.h2`
+  display: inline-block;
   position: relative;
   font-size: 1.4rem;
+  text-decoration: none;
   margin-bottom: 5px;
   transition-duration: 0.3s;
   left: ${({ left }) => left};
   transition-property: ${({ transition }) => transition};
   opacity: ${({ opacity }) => opacity};
+
+  &:hover :after {
+    width: 100%;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0%;
+    height: 7px;
+    background: #cbedf8;
+    z-index: -1;
+    transition: width 0.3s;
+  }
 `
 const Title = styled.h3`
   position: relative;
@@ -75,6 +94,12 @@ const OverlayPrimary = styled.div`
   opacity: ${({ opacity }) => (opacity ? 0.24 : 0)};
   transition: opacity 0.3s;
   transition-delay: 0.1s;
+  z-index: 10;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0;
+  }
 `
 
 const BorderInnerContainer = styled.div`
@@ -209,11 +234,17 @@ const ProjectItemLG = ({ selectedProject }) => {
     }
   }, [selectedProject])
 
+  const toProject = project => {
+    navigate(`/projects/${project}`)
+  }
+
   return currentProject ? (
     <>
       <TextContainer>
         <Name opacity={opacity} transition={transition} left={left}>
-          {currentProject.name}
+          <Link to={`/projects/${currentProject.slug}`}>
+            {currentProject.name}
+          </Link>
         </Name>
         <Title opacity={opacity} transition={transition} left={left}>
           {currentProject.title}
@@ -224,7 +255,7 @@ const ProjectItemLG = ({ selectedProject }) => {
       </TextContainer>
 
       <ImagesContainer>
-        <ImageContainerPrimary>
+        <ImageContainerPrimary onClick={() => toProject(currentProject.slug)}>
           <ImagePrimary fluid={currentProject.images[0]} opacity={opacity} />
           <OverlayPrimary color={currentProject.color} opacity={opacity} />
           <BorderInnerContainer opacity={opacity}>
@@ -234,11 +265,11 @@ const ProjectItemLG = ({ selectedProject }) => {
             <CircleBorder />
           </BorderOuterContainer>
         </ImageContainerPrimary>
-        <ImageContainerSecondary>
+        <ImageContainerSecondary onClick={() => toProject(currentProject.slug)}>
           <ImageSecondary fluid={currentProject.images[1]} opacity={opacity} />
           <OverlaySecondary color={currentProject.color} opacity={opacity} />
         </ImageContainerSecondary>
-        <ImageContainerTertiary>
+        <ImageContainerTertiary onClick={() => toProject(currentProject.slug)}>
           <ImageTertiary fluid={currentProject.images[2]} opacity={opacity} />
           <OverlayTertiary color={currentProject.color} opacity={opacity} />
         </ImageContainerTertiary>

@@ -48,27 +48,37 @@ const Nav = () => {
   const [prevScrollpos, setPrevScrollpos] = useState(0)
   const [currScrollpos, setCurrScrollpos] = useState(-1)
   const [visible, setVisible] = useState(true)
+  let unmounted = false
 
   const isTablet = useMediaQuery({
     query: mq.tablet1_up,
   })
 
   useEffect(() => {
-    window.addEventListener('scroll', throttle(handleScroll, 300))
+    window.addEventListener('scroll', throttle(handleScroll, 300), false)
     document.addEventListener('scrollStart', handleSmoothScroll, false)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', throttle(handleScroll, 300), false)
+      document.removeEventListener('scrollStart', handleSmoothScroll, false)
+      unmounted = true
+    }
   }, [])
 
   useEffect(() => {
-    const visible = currScrollpos < 1 || prevScrollpos > currScrollpos
+    if (!unmounted) {
+      const visible = currScrollpos < 1 || prevScrollpos > currScrollpos
 
-    setVisible(visible)
-    setPrevScrollpos(currScrollpos)
+      setVisible(visible)
+      setPrevScrollpos(currScrollpos)
+    }
   }, [currScrollpos])
 
   const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset
-    setCurrScrollpos(currentScrollPos)
+    if (!unmounted) {
+      const currentScrollPos = window.pageYOffset
+      setCurrScrollpos(currentScrollPos)
+    }
   }
 
   const handleSmoothScroll = () => {

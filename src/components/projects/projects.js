@@ -66,9 +66,13 @@ const Projects = () => {
     })
 
     setAllProjects(projects)
-    setTimeout(() => {
+    const t = setTimeout(() => {
       setAnimationPlayState('running')
     }, 2000)
+
+    return () => {
+      clearTimeout(t)
+    }
   }, [])
 
   return (

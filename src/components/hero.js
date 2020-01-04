@@ -3,6 +3,8 @@ import styled, { keyframes } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import colors from '../styles/colors'
 import mq from '../styles/media-queries'
+import BubblesHeroSlow from './bubbles/bubbles-hero-slow'
+import BubblesHeroFast from './bubbles/bubbles-hero-fast'
 
 const Wrapper = styled.section`
   position: relative;
@@ -115,16 +117,20 @@ const Hero = () => {
   const isLandscape = useMediaQuery({ query: mq.landscape })
 
   return (
-    <Wrapper id="hero">
-      <TextContainer>
-        <Title>
-          <HighLight>We</HighLight> are <br />
-          <HighLight>Care</HighLight> by {!isLandscape && <br />}
-          Kreativ
-        </Title>
-        <Subtitle>Filling digital space with love</Subtitle>
-      </TextContainer>
-    </Wrapper>
+    <>
+      <Wrapper id="hero">
+        <TextContainer>
+          <Title>
+            <HighLight>We</HighLight> are <br />
+            <HighLight>Care</HighLight> by {!isLandscape && <br />}
+            Kreativ
+          </Title>
+          <Subtitle>Filling digital space with love</Subtitle>
+        </TextContainer>
+      </Wrapper>
+      <BubblesHeroFast />
+      <BubblesHeroSlow />
+    </>
   )
 }
 export default Hero

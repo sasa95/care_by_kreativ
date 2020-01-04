@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Img from 'gatsby-image'
 import styled, { keyframes, css } from 'styled-components'
 import ProjectItemLG from './project-item-lg'
 import { Container } from '../../styles/shared'
@@ -57,14 +56,6 @@ const Indicator = styled.div`
 
 const ProjectsLG = ({ projects, image }) => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
-
-  useEffect(() => {
-    projects.forEach(project => {
-      project.images.forEach(image => {
-        new Image().src = image
-      })
-    })
-  }, [])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
