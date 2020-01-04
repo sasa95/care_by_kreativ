@@ -20,7 +20,7 @@ const List = styled(Scrollspy)`
 `
 
 const ListItem = styled.li`
-  color: #fff;
+  color: rgba(26, 26, 26, 0.72);
   font-size: 1.3rem;
   font-weight: bold;
 
@@ -49,7 +49,7 @@ const ListItem = styled.li`
 
 const Link = styled.a`
   text-decoration: none !important;
-  color: #fff !important;
+  color: rgba(26, 26, 26, 0.72);
 
   @media ${mq.tablet1_up} {
     color: ${colors.kreativBlue}!important;
@@ -57,7 +57,8 @@ const Link = styled.a`
 `
 
 const ActiveLink = createGlobalStyle`
- .activeLink {
+ .activeLink a {
+    color: ${colors.kreativBlue};
     font-weight: bold;
  }
 `

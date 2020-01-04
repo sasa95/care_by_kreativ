@@ -8,13 +8,12 @@ const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   opacity: 0;
-  background-color: #345fd5;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  transition: opacity 0.3s ease-in;
+  transition: all 0.3s ease-in;
   pointer-events: none;
 
   ${({ navExpanded }) =>
@@ -22,7 +21,7 @@ const Overlay = styled.div`
     `
     opacity: 1;
     pointer-events: all;
-    background-color: #345FD5
+    background-color: #fff;
   `}
 `
 

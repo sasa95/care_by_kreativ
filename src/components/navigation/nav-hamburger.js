@@ -23,7 +23,8 @@ const Line = styled.span`
   position: absolute;
   height: 3px;
   width: 100%;
-  background-color: ${({ navExpanded }) => (navExpanded ? '#fff' : '#345fd5')};
+  background-color: ${({ navExpanded }) =>
+    navExpanded ? '#6E6E6E' : '#345fd5'};
   border-radius: 3px;
   opacity: 1;
   left: 0;
