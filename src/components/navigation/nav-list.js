@@ -4,6 +4,8 @@ import Scrollspy from 'react-scrollspy'
 import mq from '../../styles/media-queries'
 import colors from '../../styles/colors'
 import NavigationContext from '../../context/navigation-context'
+import { Link } from 'gatsby'
+import { Location } from '@reach/router'
 
 const List = styled(Scrollspy)`
   text-align: center;
@@ -23,10 +25,11 @@ const ListItem = styled.li`
   color: rgba(26, 26, 26, 0.72);
   font-size: 1.3rem;
   font-weight: bold;
+  display: ${({ hide }) => (hide ? 'none' : 'list-item')};
 
-  &:first-child {
+  /* &:first-child {
     display: none;
-  }
+  } */
 
   @media ${mq.mobile3_up} {
     font-size: 1.5rem;
@@ -47,7 +50,7 @@ const ListItem = styled.li`
   }
 `
 
-const Link = styled.a`
+const InternalLink = styled.a`
   text-decoration: none !important;
   color: rgba(26, 26, 26, 0.72);
 
@@ -57,7 +60,8 @@ const Link = styled.a`
 `
 
 const ActiveLink = createGlobalStyle`
- .activeLink a {
+ .activeLink a,
+ .activeRoute {
     color: ${colors.kreativBlue};
     font-weight: bold;
  }
@@ -70,36 +74,72 @@ const NavList = () => {
     <>
       <ActiveLink />
       <List
-        items={['hero', 'projects', 'skills', 'squad']}
+        items={['hero', 'projects', 'skills', 'squad', 'contact']}
         currentClassName="activeLink"
         offset={-300}
       >
-        <ListItem>
-          <Link href="/#hero" onClick={() => setNavExpanded(false)}>
-            Hero
-          </Link>
-        </ListItem>
+        <Location>
+          {({ location: { pathname } }) => {
+            if (pathname === '/') {
+              return (
+                <>
+                  <ListItem hide="true">
+                    <InternalLink
+                      href="/#hero"
+                      onClick={() => setNavExpanded(false)}
+                    >
+                      Hero
+                    </InternalLink>
+                  </ListItem>
 
-        <ListItem>
-          <Link href="/#projects" onClick={() => setNavExpanded(false)}>
-            Projects
-          </Link>
-        </ListItem>
+                  <ListItem>
+                    <InternalLink
+                      href="/#projects"
+                      onClick={() => setNavExpanded(false)}
+                    >
+                      Projects
+                    </InternalLink>
+                  </ListItem>
 
-        <ListItem>
-          <Link href="/#skills" onClick={() => setNavExpanded(false)}>
-            Skills
-          </Link>
-        </ListItem>
+                  <ListItem>
+                    <InternalLink
+                      href="/#skills"
+                      onClick={() => setNavExpanded(false)}
+                    >
+                      Skills
+                    </InternalLink>
+                  </ListItem>
 
-        <ListItem>
-          <Link href="/#squad" onClick={() => setNavExpanded(false)}>
-            Squad
-          </Link>
-        </ListItem>
+                  <ListItem>
+                    <InternalLink
+                      href="/#squad"
+                      onClick={() => setNavExpanded(false)}
+                    >
+                      Squad
+                    </InternalLink>
+                  </ListItem>
+                </>
+              )
+            } else {
+              return (
+                <ListItem onClick={() => setNavExpanded(false)}>
+                  <Link to="/" onClick={() => setNavExpanded(false)}>
+                    Home
+                  </Link>
+                </ListItem>
+              )
+            }
+          }}
+        </Location>
 
         <ListItem onClick={() => setNavExpanded(false)}>
-          hey@carebykreativ.com
+          <Link
+            to="/contact"
+            activeClassName="activeRoute"
+            onClick={() => setNavExpanded(false)}
+          >
+            Say Hi
+          </Link>
         </ListItem>
       </List>
     </>
