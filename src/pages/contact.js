@@ -129,7 +129,7 @@ const Contact = () => {
             required
           />
 
-          <Label htmlFor="emailInput">Name:</Label>
+          <Label htmlFor="emailInput">Email:</Label>
           <Input
             type="email"
             name="email"
