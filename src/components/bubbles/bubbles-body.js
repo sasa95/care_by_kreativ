@@ -6,7 +6,7 @@ const randomColors = Object.values(colors)
 
 const bodyAnimation = keyframes`
   0% {
-    top: 100%;
+    top: 99%;
     opacity: 1
   } 
 
@@ -52,7 +52,7 @@ const generateBubbles = number => {
 }
 
 const Bubble = styled.span`
-  display: block;
+  display: table-cell;
   width: 12px;
   height: 12px;
   border-radius: 50%;

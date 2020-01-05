@@ -64,9 +64,7 @@ const Nav = () => {
   }, [])
 
   useEffect(() => {
-    const visible =
-      (currScrollpos < 1 || prevScrollpos > currScrollpos) &&
-      window.innerHeight + currScrollpos < document.body.offsetHeight - 100
+    const visible = currScrollpos < 1 || prevScrollpos > currScrollpos
 
     setVisible(visible)
     setPrevScrollpos(currScrollpos)
