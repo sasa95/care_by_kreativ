@@ -6,6 +6,7 @@ import colors from '../../styles/colors'
 import NavigationContext from '../../context/navigation-context'
 import { Link } from 'gatsby'
 import { Location } from '@reach/router'
+import { useMediaQuery } from 'react-responsive'
 
 const List = styled(Scrollspy)`
   text-align: center;
@@ -69,6 +70,10 @@ const ActiveLink = createGlobalStyle`
 
 const NavList = () => {
   const { setNavExpanded } = useContext(NavigationContext)
+
+  const isTablet = useMediaQuery({
+    query: mq.tablet1_up,
+  })
 
   return (
     <>
@@ -138,7 +143,7 @@ const NavList = () => {
             activeClassName="activeRoute"
             onClick={() => setNavExpanded(false)}
           >
-            Say Hi
+            {isTablet ? 'hey@carebykreativ.com' : 'Say Hi'}
           </Link>
         </ListItem>
       </List>
