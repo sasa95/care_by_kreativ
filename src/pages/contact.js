@@ -10,12 +10,11 @@ const ContactSection = styled.section`
   position: relative;
   overflow: hidden;
   padding-top: 90px;
-  padding-bottom: 50px;
-  min-height: calc(100vh - 195px);
+  min-height: calc(100vh - 125px);
 
   @media ${mq.mobile3_up} {
     padding-top: 106px;
-    min-height: calc(100vh - 233px);
+    min-height: calc(100vh - 185px);
   }
 `
 
