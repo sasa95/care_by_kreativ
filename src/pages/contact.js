@@ -2,16 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import Head from '../components/head'
 import mq from '../styles/media-queries'
-import { Container } from '../styles/shared'
+import { Container, FormField } from '../styles/shared'
 import colors from '../styles/colors'
 
 const ContactSection = styled.section`
   ${Container}
+  position: relative;
+  overflow: hidden;
   padding-top: 90px;
-  height: 100vh;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 195px);
 
   @media ${mq.mobile3_up} {
     padding-top: 106px;
+    min-height: calc(100vh - 233px);
   }
 `
 
@@ -33,14 +37,67 @@ const Title = styled.h1`
 `
 
 const Description = styled.p`
-  margin: 30px 0;
+  margin: 30px auto;
   color: rgba(51, 51, 51, 0.72);
   text-align: center;
+  width: 100%;
+  max-width: 490px;
+
+  @media ${mq.tablet3_up} {
+    max-width: 100%;
+    margin: 45px auto;
+  }
+`
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
 `
 
 const Email = styled.a`
   color: ${colors.kreativBlue};
   text-decoration: none;
+`
+
+const Label = styled.label`
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+`
+
+const Input = styled.input`
+  ${FormField}
+`
+
+const Message = styled.textarea`
+  ${FormField}
+  height: 200px;
+  resize: none;
+`
+
+const SendButton = styled.button`
+  display: block;
+  margin: auto;
+  border: 2px solid ${colors.kreativBlue};
+  border-radius: 10px;
+  padding: 13px 7px;
+  width: 150px;
+  color: rgba(26, 26, 26, 72);
+  background: transparent;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 100%;
+  cursor: pointer;
+
+  @media ${mq.tablet3_up} {
+    align-self: flex-end;
+    margin: 0;
+    width: 200px;
+    padding: 25px 35px;
+  }
 `
 
 const Contact = () => {
@@ -52,30 +109,42 @@ const Contact = () => {
         <Description>
           Say hi to{' '}
           <Email href="mailto:hey@carebykreativ.com">
-            hey@carebykreativ.com
+            hey@carebykreativ.com{' '}
           </Email>
           or reach out via form below.
         </Description>
 
-        <form method="post" netlify-honeypot="bot-field" data-netlify="true">
-          <input type="hidden" name="bot-field" />
+        <Form method="post" netlify-honeypot="bot-field" data-netlify="true">
+          <Input type="hidden" name="bot-field" />
 
-          <label>
-            Email
-            <input type="email" name="email" />
-          </label>
-          <br />
-          <label>
-            Name
-            <input type="text" name="name" />
-          </label>
-          <label>
-            Message
-            <input type="text" name="message" />
-          </label>
+          <Label htmlFor="nameInput">Name:</Label>
+          <Input
+            type="text"
+            name="name"
+            id="nameInput"
+            placeholder="Name"
+            required
+          />
 
-          <button type="submit">Send</button>
-        </form>
+          <Label htmlFor="emailInput">Name:</Label>
+          <Input
+            type="email"
+            name="email"
+            id="emailInput"
+            placeholder="Email"
+            required
+          />
+
+          <Label htmlFor="messageInput">Message:</Label>
+          <Message
+            name="message"
+            id="messageInput"
+            placeholder="Message"
+            required
+          ></Message>
+
+          <SendButton type="submit">Send message</SendButton>
+        </Form>
       </ContactSection>
     </>
   )
