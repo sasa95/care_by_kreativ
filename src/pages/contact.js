@@ -111,7 +111,12 @@ const Contact = () => {
           or reach out via form below.
         </Description>
 
-        <Form method="post" netlify-honeypot="bot-field" data-netlify="true">
+        <Form
+          method="post"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+          action="/thanks"
+        >
           <Input type="hidden" name="bot-field" />
 
           <Label htmlFor="nameInput">Name:</Label>
