@@ -9,6 +9,7 @@ import mq from '../../styles/media-queries'
 import NavList from './nav-list'
 import logo from '../../images/logo.svg'
 import { Container } from '../../styles/shared'
+import { Link } from 'gatsby'
 
 const Navigation = styled.nav`
   position: fixed;
@@ -85,7 +86,9 @@ const Nav = () => {
   return (
     <Navigation navExpanded={navExpanded} visible={visible}>
       <Navbar navExpanded={navExpanded} visible={visible}>
-        <NavBrand navExpanded={navExpanded} src={logo} />
+        <Link to="/">
+          <NavBrand navExpanded={navExpanded} src={logo} />
+        </Link>
         {isTablet ? <NavList /> : <NavHamburger />}
       </Navbar>
       {!isTablet && <NavOverlay />}
