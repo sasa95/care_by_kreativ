@@ -30,10 +30,10 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Main = styled.main`
-  min-height: calc(100vh - 125px);
+  min-height: calc(100vh - 126px);
 
   @media ${mq.mobile3_up} {
-    min-height: calc(100vh - 185px);
+    min-height: calc(100vh - 186px);
   }
 `
 

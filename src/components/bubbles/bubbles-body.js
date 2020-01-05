@@ -6,12 +6,12 @@ const randomColors = Object.values(colors)
 
 const bodyAnimation = keyframes`
   0% {
-    top: 99%;
+    bottom: 0;
     opacity: 1
   } 
 
   100% {
-    top: -10%;
+    bottom: calc(100% + 20px);
     opacity: 1
   }
 `
@@ -44,7 +44,7 @@ const getAnimations = number => {
 }
 
 const BodyBubbles = styled.div`
-  height: 15px;
+  height: 16px;
   ${getAnimations(5)};
 `
 
