@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Normalize } from 'styled-normalize'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import NavigationContext from '../context/navigation-context'
 import Nav from './navigation/nav'
@@ -27,7 +27,14 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
- 
+`
+
+const Main = styled.main`
+  min-height: calc(100vh - 125px);
+
+  @media ${mq.mobile3_up} {
+    min-height: calc(100vh - 185px);
+  }
 `
 
 const Layout = ({ children }) => {
@@ -54,7 +61,7 @@ const Layout = ({ children }) => {
       <GlobalStyle navExpanded={navExpanded} />
       <Normalize />
       <Nav />
-      {children}
+      <Main>{children}</Main>
       <Footer />
       <BubblesBody />
     </>
