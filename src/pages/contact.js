@@ -119,6 +119,7 @@ const Contact = () => {
           name="Kreativ form"
         >
           <Input type="hidden" name="bot-field" />
+          <Input type="hidden" name="form-name" value="Kreativ form" />
 
           <Label htmlFor="nameInput">Name:</Label>
           <Input
