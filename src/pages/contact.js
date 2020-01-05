@@ -116,6 +116,7 @@ const Contact = () => {
           netlify-honeypot="bot-field"
           data-netlify="true"
           action="/thanks"
+          name="Kreativ form"
         >
           <Input type="hidden" name="bot-field" />
 
