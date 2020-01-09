@@ -122,7 +122,6 @@ const Contact = ({ location }) => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(contactForm)
 
     if (name && email && message) {
       fetch('/', {
@@ -135,16 +134,12 @@ const Contact = ({ location }) => {
           message,
         }),
       })
-        .then(response => {
-          console.log('====================================')
-          console.log(`${JSON.stringify(response, null, 2)}`)
-          console.log('====================================')
-          navigate(contactForm.getAttribute('action'))
+        .then(() => {
+          navigate(contactForm.current.getAttribute('action'))
         })
         .catch(error => {
-          console.log('====================================')
-          console.log(`error in submiting the form data:${error}`)
-          console.log('====================================')
+          // eslint-disable-next-line no-console
+          console.error(`error in submiting the form data:${error}`)
         })
     }
   }
