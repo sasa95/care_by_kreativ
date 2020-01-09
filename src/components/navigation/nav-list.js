@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import Scrollspy from 'react-scrollspy'
+import { useMediaQuery } from 'react-responsive'
 import mq from '../../styles/media-queries'
 import colors from '../../styles/colors'
-import NavigationContext from '../../context/navigation-context'
+import MainContext from '../../context/main-context'
 import { Link } from 'gatsby'
-import { Location } from '@reach/router'
-import { useMediaQuery } from 'react-responsive'
 
 const List = styled(Scrollspy)`
   text-align: center;
@@ -27,10 +26,6 @@ const ListItem = styled.li`
   font-size: 1.3rem;
   font-weight: bold;
   display: ${({ hide }) => (hide ? 'none' : 'list-item')};
-
-  /* &:first-child {
-    display: none;
-  } */
 
   @media ${mq.mobile3_up} {
     font-size: 1.5rem;
@@ -69,11 +64,43 @@ const ActiveLink = createGlobalStyle`
 `
 
 const NavList = () => {
-  const { setNavExpanded } = useContext(NavigationContext)
+  const { pathname, setNavExpanded } = useContext(MainContext)
+  const internalLinks = ['Hero', 'Projects', 'Skills', 'Squad']
 
   const isTablet = useMediaQuery({
     query: mq.tablet1_up,
   })
+
+  const generateLinks = path => {
+    let generatedLinks = []
+
+    if (path === '/') {
+      generatedLinks = internalLinks.map((link, index) => {
+        return (
+          <ListItem hide={!index ? true : false} key={index}>
+            <InternalLink
+              href={`/#${link.toLowerCase()}`}
+              onClick={() => setNavExpanded(false)}
+            >
+              {link}
+            </InternalLink>
+          </ListItem>
+        )
+      })
+    } else {
+      const homeLink = (
+        <ListItem key="home" onClick={() => setNavExpanded(false)}>
+          <Link to="/" onClick={() => setNavExpanded(false)}>
+            Home
+          </Link>
+        </ListItem>
+      )
+
+      generatedLinks.push(homeLink)
+    }
+
+    return [generatedLinks]
+  }
 
   return (
     <>
@@ -83,59 +110,7 @@ const NavList = () => {
         currentClassName="activeLink"
         offset={-300}
       >
-        <Location>
-          {({ location: { pathname } }) => {
-            if (pathname === '/') {
-              return (
-                <>
-                  <ListItem hide="true">
-                    <InternalLink
-                      href="/#hero"
-                      onClick={() => setNavExpanded(false)}
-                    >
-                      Hero
-                    </InternalLink>
-                  </ListItem>
-
-                  <ListItem>
-                    <InternalLink
-                      href="/#projects"
-                      onClick={() => setNavExpanded(false)}
-                    >
-                      Projects
-                    </InternalLink>
-                  </ListItem>
-
-                  <ListItem>
-                    <InternalLink
-                      href="/#skills"
-                      onClick={() => setNavExpanded(false)}
-                    >
-                      Skills
-                    </InternalLink>
-                  </ListItem>
-
-                  <ListItem>
-                    <InternalLink
-                      href="/#squad"
-                      onClick={() => setNavExpanded(false)}
-                    >
-                      Squad
-                    </InternalLink>
-                  </ListItem>
-                </>
-              )
-            } else {
-              return (
-                <ListItem onClick={() => setNavExpanded(false)}>
-                  <Link to="/" onClick={() => setNavExpanded(false)}>
-                    Home
-                  </Link>
-                </ListItem>
-              )
-            }
-          }}
-        </Location>
+        {generateLinks(pathname)}
 
         <ListItem onClick={() => setNavExpanded(false)}>
           <Link

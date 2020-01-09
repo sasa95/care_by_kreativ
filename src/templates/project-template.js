@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Head from '../components/head'
 import mq from '../styles/media-queries'
+import MainContext from '../context/main-context'
 
 const Project = styled.section`
   padding-top: 70px;
@@ -27,7 +28,13 @@ export const query = graphql`
   }
 `
 
-const ProjectTemplate = ({ data }) => {
+const ProjectTemplate = ({ data, location }) => {
+  const { setPathname } = useContext(MainContext)
+
+  useEffect(() => {
+    setPathname(location.pathname)
+  }, [])
+
   return (
     <>
       <Head title="Projects" />

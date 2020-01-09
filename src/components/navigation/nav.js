@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { throttle } from 'lodash'
 import { useMediaQuery } from 'react-responsive'
-import NavigationContext from '../../context/navigation-context'
+import MainContext from '../../context/main-context'
 import NavHamburger from './nav-hamburger'
 import NavOverlay from './nav-overlay'
 import mq from '../../styles/media-queries'
@@ -45,7 +45,7 @@ const NavBrand = styled.img`
 `
 
 const Nav = () => {
-  const { navExpanded } = useContext(NavigationContext)
+  const { navExpanded } = useContext(MainContext)
   const [prevScrollpos, setPrevScrollpos] = useState(0)
   const [currScrollpos, setCurrScrollpos] = useState(-1)
   const [visible, setVisible] = useState(true)

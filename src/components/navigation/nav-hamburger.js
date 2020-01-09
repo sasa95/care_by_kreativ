@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import NavigationContext from '../../context/navigation-context'
+import MainContext from '../../context/main-context'
 import mq from '../../styles/media-queries'
 
 const Icon = styled.div`
@@ -77,7 +77,7 @@ const Line = styled.span`
 `
 
 const NavHamburger = () => {
-  const { navExpanded, setNavExpanded } = useContext(NavigationContext)
+  const { navExpanded, setNavExpanded } = useContext(MainContext)
 
   return (
     <Icon

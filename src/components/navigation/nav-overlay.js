@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import NavigationContext from '../../context/navigation-context'
+import MainContext from '../../context/main-context'
 import NavList from './nav-list'
 
 const Overlay = styled.div`
@@ -26,7 +26,7 @@ const Overlay = styled.div`
 `
 
 const NavOverlay = () => {
-  const { navExpanded } = useContext(NavigationContext)
+  const { navExpanded } = useContext(MainContext)
 
   return (
     <Overlay navExpanded={navExpanded}>

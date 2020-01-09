@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import colors from '../styles/colors'
 import mq from '../styles/media-queries'
 import BubblesHeroSlow from './bubbles/bubbles-hero-slow'
 import BubblesHeroFast from './bubbles/bubbles-hero-fast'
+import MainContext from '../context/main-context'
 
 const Wrapper = styled.section`
   position: relative;
@@ -115,6 +116,7 @@ const HighLight = styled.span`
 
 const Hero = () => {
   const isLandscape = useMediaQuery({ query: mq.landscape })
+  // const { siteLoaded, setSiteLoaded } = useContext(MainContext)
 
   return (
     <>

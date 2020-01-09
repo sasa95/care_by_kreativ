@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import Head from '../components/head'
 import mq from '../styles/media-queries'
 import { Container, FormField } from '../styles/shared'
 import colors from '../styles/colors'
+import MainContext from '../context/main-context'
 
 const ContactSection = styled.section`
   ${Container}
@@ -97,7 +98,13 @@ const SendButton = styled.button`
   }
 `
 
-const Contact = () => {
+const Contact = ({ location }) => {
+  const { setPathname } = useContext(MainContext)
+
+  useEffect(() => {
+    setPathname(location.pathname)
+  }, [])
+
   return (
     <>
       <Head title="Contact" />

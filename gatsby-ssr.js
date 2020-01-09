@@ -1,8 +1,8 @@
 import React from 'react'
 import 'typeface-poppins'
-import { NavigationProvider } from './src/context/navigation-context'
+import { MainContextProvider } from './src/context/main-context'
 
 const wrapRootElement = ({ element }) => {
-  return <NavigationProvider>{element}</NavigationProvider>
+  return <MainContextProvider>{element}</MainContextProvider>
 }
 export { wrapRootElement }

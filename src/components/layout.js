@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { Normalize } from 'styled-normalize'
 import styled, { createGlobalStyle } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-import NavigationContext from '../context/navigation-context'
+import MainContext from '../context/main-context'
 import Nav from './navigation/nav'
 import Footer from './footer/footer'
 import mq from '../styles/media-queries'
@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
     }
   }, [])
 
-  const { navExpanded } = useContext(NavigationContext)
+  const { navExpanded } = useContext(MainContext)
 
   return (
     <>
