@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import colors from '../styles/colors'
@@ -54,7 +54,7 @@ const Title = styled.h1`
   margin: 0;
   font-size: 3.5rem;
   font-weight: 700;
-  opacity: 0;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
   animation: ${TitleFadeIn} 2s 2s forwards;
     
 
@@ -76,7 +76,7 @@ const Subtitle = styled.p`
   margin: 0;
   align-self: flex-start;
   color: rgba(26, 26, 26, 0.72);
-  opacity: 0;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
   animation: ${TitleFadeIn} 2s 3s forwards;
   transform: translateX(3px);
 
@@ -116,22 +116,29 @@ const HighLight = styled.span`
 
 const Hero = () => {
   const isLandscape = useMediaQuery({ query: mq.landscape })
-  // const { siteLoaded, setSiteLoaded } = useContext(MainContext)
+  const { siteLoaded } = useContext(MainContext)
 
   return (
     <>
       <Wrapper id="hero">
         <TextContainer>
-          <Title>
+          <Title animate={!siteLoaded}>
             <HighLight>We</HighLight> are <br />
             <HighLight>Care</HighLight> by {!isLandscape && <br />}
             Kreativ
           </Title>
-          <Subtitle>Filling digital space with love</Subtitle>
+          <Subtitle animate={!siteLoaded}>
+            Filling digital space with love
+          </Subtitle>
         </TextContainer>
       </Wrapper>
-      <BubblesHeroFast />
-      <BubblesHeroSlow />
+
+      {!siteLoaded ? (
+        <>
+          <BubblesHeroFast />
+          <BubblesHeroSlow />
+        </>
+      ) : null}
     </>
   )
 }

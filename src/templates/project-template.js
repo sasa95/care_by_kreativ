@@ -29,10 +29,14 @@ export const query = graphql`
 `
 
 const ProjectTemplate = ({ data, location }) => {
-  const { setPathname } = useContext(MainContext)
+  const { setPathname, siteLoaded, setSiteLoaded } = useContext(MainContext)
 
   useEffect(() => {
     setPathname(location.pathname)
+
+    if (!siteLoaded) {
+      setSiteLoaded(true)
+    }
   }, [])
 
   return (
