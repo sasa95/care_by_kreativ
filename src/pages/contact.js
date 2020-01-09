@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
+import { navigate } from 'gatsby'
 import Head from '../components/head'
 import mq from '../styles/media-queries'
 import { Container, FormField } from '../styles/shared'
@@ -100,6 +101,10 @@ const SendButton = styled.button`
 
 const Contact = ({ location }) => {
   const { setPathname, siteLoaded, setSiteLoaded } = useContext(MainContext)
+  const [name, setName] = useState(null)
+  const [email, setEmail] = useState(null)
+  const [message, setMessage] = useState(null)
+  const contactForm = useRef()
 
   useEffect(() => {
     setPathname(location.pathname)
@@ -108,6 +113,41 @@ const Contact = ({ location }) => {
       setSiteLoaded(true)
     }
   }, [])
+
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log(contactForm)
+
+    if (name && email && message) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': contactForm.current.getAttribute('name'),
+          name,
+          email,
+          message,
+        }),
+      })
+        .then(response => {
+          console.log('====================================')
+          console.log(`${JSON.stringify(response, null, 2)}`)
+          console.log('====================================')
+          navigate(contactForm.getAttribute('action'))
+        })
+        .catch(error => {
+          console.log('====================================')
+          console.log(`error in submiting the form data:${error}`)
+          console.log('====================================')
+        })
+    }
+  }
 
   return (
     <>
@@ -128,6 +168,8 @@ const Contact = ({ location }) => {
           data-netlify="true"
           action="/thanks"
           name="Kreativ form"
+          onSubmit={handleSubmit}
+          ref={contactForm}
         >
           <Input type="hidden" name="bot-field" />
           <Input type="hidden" name="form-name" value="Kreativ form" />
@@ -139,6 +181,7 @@ const Contact = ({ location }) => {
             id="nameInput"
             placeholder="Name"
             required
+            onChange={e => setName(e.target.value)}
           />
 
           <Label htmlFor="emailInput">Email:</Label>
@@ -148,6 +191,7 @@ const Contact = ({ location }) => {
             id="emailInput"
             placeholder="Email"
             required
+            onChange={e => setEmail(e.target.value)}
           />
 
           <Label htmlFor="messageInput">Message:</Label>
@@ -156,6 +200,7 @@ const Contact = ({ location }) => {
             id="messageInput"
             placeholder="Message"
             required
+            onChange={e => setMessage(e.target.value)}
           ></Message>
 
           <SendButton type="submit">Send message</SendButton>
