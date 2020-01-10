@@ -147,8 +147,8 @@ const Contact = ({ location }) => {
         }),
       })
         .then(() => {
-          setLoading(false)
           navigate(contactForm.current.getAttribute('action'))
+          // setLoading(false)
         })
         .catch(error => {
           setLoading(false)
