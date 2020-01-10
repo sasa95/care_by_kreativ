@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
+import TopBarProgress from 'react-topbar-progress-indicator'
 import Head from '../components/head'
 import mq from '../styles/media-queries'
 import { Container, FormField } from '../styles/shared'
@@ -99,11 +100,20 @@ const SendButton = styled.button`
   }
 `
 
+TopBarProgress.config({
+  barColors: {
+    '0': `${colors.kreativBlue}`,
+    '1.0': `${colors.kreativViolet}`,
+  },
+  shadowBlur: 5,
+})
+
 const Contact = ({ location }) => {
   const { setPathname, siteLoaded, setSiteLoaded } = useContext(MainContext)
   const [name, setName] = useState(null)
   const [email, setEmail] = useState(null)
   const [message, setMessage] = useState(null)
+  const [loading, setLoading] = useState(false)
   const contactForm = useRef()
 
   useEffect(() => {
@@ -124,6 +134,8 @@ const Contact = ({ location }) => {
     e.preventDefault()
 
     if (name && email && message) {
+      setLoading(true)
+
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -135,10 +147,11 @@ const Contact = ({ location }) => {
         }),
       })
         .then(() => {
+          setLoading(false)
           navigate(contactForm.current.getAttribute('action'))
         })
         .catch(error => {
-          // eslint-disable-next-line no-console
+          setLoading(false)
           console.error(`error in submiting the form data:${error}`)
         })
     }
@@ -146,6 +159,8 @@ const Contact = ({ location }) => {
 
   return (
     <>
+      {loading && <TopBarProgress />}
+
       <Head title="Contact" />
       <ContactSection>
         <Title>Let’s make something glorious!</Title>
