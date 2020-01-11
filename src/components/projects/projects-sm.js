@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
 import ProjectItemSM from './project-item-sm'
+import MainContext from '../../context/main-context'
 
 const fadeIn = keyframes`
   to {opacity: 1}
@@ -11,17 +12,25 @@ const Projects = styled.section`
   bottom: 60px;
   margin-bottom: -60px;
   padding: 0 15px;
-  opacity: 0;
+  opacity: ${({ animate }) => (animate ? 0 : 1)};
   animation: ${fadeIn} 2s forwards;
   animation-play-state: ${({ animation }) => animation};
 `
 
-const ProjectsSM = ({ projects, animationPlayState }) => (
-  <Projects animation={animationPlayState} id="projects">
-    {projects.map((project, i) => (
-      <ProjectItemSM key={i} project={project} />
-    ))}
-  </Projects>
-)
+const ProjectsSM = ({ projects, animationPlayState }) => {
+  const { siteLoaded } = useContext(MainContext)
+
+  return (
+    <Projects
+      animation={animationPlayState}
+      animate={!siteLoaded}
+      id="projects"
+    >
+      {projects.map((project, i) => (
+        <ProjectItemSM key={i} project={project} />
+      ))}
+    </Projects>
+  )
+}
 
 export default ProjectsSM
