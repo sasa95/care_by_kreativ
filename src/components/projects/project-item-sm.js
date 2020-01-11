@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import CircleBorder from '../circle-border'
+import { Link, navigate } from 'gatsby'
 
 const Project = styled.div`
   display: flex;
@@ -77,12 +78,18 @@ const BorderOuterContainer = styled.div`
 `
 
 const ProjectItemSM = ({
-  project: { name, images, color, title, subtitle },
+  project: { name, slug, images, color, title, subtitle },
 }) => {
+  const toProject = project => {
+    navigate(`/projects/${project}`)
+  }
+
   return (
     <Project>
-      <Name>{name}</Name>
-      <ImageContainer>
+      <Name>
+        <Link to={`/projects/${slug}`}>{name}</Link>
+      </Name>
+      <ImageContainer onClick={() => toProject(slug)}>
         <Image fluid={images[0]} />
         <Overlay color={color} />
         <BorderInnerContainer>
