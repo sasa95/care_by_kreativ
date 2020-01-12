@@ -108,7 +108,7 @@ const NavList = () => {
       <List
         items={['hero', 'projects', 'skills', 'squad', 'contact']}
         currentClassName="activeLink"
-        offset={-300}
+        offset={-100}
       >
         {generateLinks(pathname)}
 

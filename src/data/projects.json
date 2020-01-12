@@ -4,20 +4,38 @@
     "slug": "lorem_ipsum",
     "title": "Maecenas eget tortor puru",
     "subtitle": "Nulla sollicitudin libero maximus",
-    "color": "#F8B624"
+    "color": "#F8B624",
+    "type": "Branding",
+    "text": {
+      "overview": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.",
+      "problem": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.",
+      "solution": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world."
+    }
   },
   {
     "name": "Amet Consectetur",
     "slug": "amet_consectetur",
     "title": "In hac habitasse platea dictums",
     "subtitle": "Nulla facilisi interdum et malesuada",
-    "color": "#DD2538"
+    "color": "#DD2538",
+    "type": "Web Development",
+    "text": {
+      "overview": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.",
+      "problem": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.",
+      "solution": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world."
+    }
   },
   {
     "name": "Dolor Sit",
     "slug": "dolor_sit",
     "title": "Turpis ultricies nec",
     "subtitle": "Aliquet mi tempor cras",
-    "color": "#9280F9"
+    "color": "#9280F9",
+    "type": "Product Design",
+    "text": {
+      "overview": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.",
+      "problem": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.",
+      "solution": "Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world.Breathe fresh air in digital world.digital world. Breathe fresh air in digital world.digital world."
+    }
   }
 ]
