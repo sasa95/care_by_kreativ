@@ -15,10 +15,11 @@ const Nav = styled.nav`
   @media ${mq.desktop1_up} {
     display: block;
     position: fixed;
-    top: 50%;
+    top: 150px;
+    bottom: 0;
     left: 50px;
-    transform: translateY(-50%);
-    height: 400px;
+    height: 350px;
+    margin: auto;
   }
 `
 
@@ -51,7 +52,7 @@ const IconStyles = css`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70%;
+  width: 50%;
 `
 
 const LinkText = styled.span`
