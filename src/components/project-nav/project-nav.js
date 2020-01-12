@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 import colors from '../../styles/colors'
 import mq from '../../styles/media-queries'
 import Scrollspy from 'react-scrollspy'
@@ -37,12 +37,7 @@ const ListItem = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: rgba(26, 26, 26, 0.72);
-`
-
-const InternalLink = styled.a`
-  text-decoration: none !important;
-  color: rgba(26, 26, 26, 0.72);
+  color: rgba(51, 51, 51, 0.72);
 `
 
 const ImageContainer = styled.div`
@@ -51,23 +46,7 @@ const ImageContainer = styled.div`
   height: 60px;
 `
 
-const OverviewNavIcon = styled(OverviewIcon)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-`
-
-const ProblemNavIcon = styled(ProblemIcon)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-`
-
-const SolutionNavIcon = styled(SolutionIcon)`
+const IconStyles = css`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -81,14 +60,33 @@ const LinkText = styled.span`
 `
 
 const ActiveLink = createGlobalStyle`
- .active-project-link {
+ .active-project-link:first-child {
    path {
     fill: ${colors.kreativRed};
-    fill-opacity: 1;
    }
 
    circle {
      stroke: ${colors.kreativRed};
+   }
+ }
+
+ .active-project-link:nth-child(2) {
+   path {
+    fill: ${colors.kreativOrange};
+   }
+
+   circle {
+     stroke: ${colors.kreativOrange};
+   }
+ }
+
+ .active-project-link:last-child {
+   path {
+    fill: ${colors.kreativViolet};
+   }
+
+   circle {
+     stroke: ${colors.kreativViolet};
    }
  }
 `
@@ -99,45 +97,46 @@ const ProjectNav = () => {
   return (
     <Nav>
       <ActiveLink />
+
       <List
         items={['project-overview', 'project-problem', 'project-solution']}
         currentClassName="active-project-link"
-        offset={-50}
+        offset={-70}
       >
         <ListItem>
           <ImageContainer>
-            <InternalLink href={`${pathname}#project-overview`}>
-              <OverviewNavIcon className="OverviewNavIcon" />
+            <a href={`${pathname}#project-overview`}>
+              <OverviewIcon css={IconStyles} />
               <CircleBorder />
-            </InternalLink>
+            </a>
           </ImageContainer>
-          <InternalLink href={`${pathname}#project-overview`}>
+          <a href={`${pathname}#project-overview`}>
             <LinkText>Overview</LinkText>
-          </InternalLink>
+          </a>
         </ListItem>
 
         <ListItem>
           <ImageContainer>
-            <InternalLink href={`${pathname}#project-problem`}>
-              <ProblemNavIcon className="ProblemNavIcon" />
+            <a href={`${pathname}#project-problem`}>
+              <ProblemIcon css={IconStyles} />
               <CircleBorder />
-            </InternalLink>
+            </a>
           </ImageContainer>
-          <InternalLink href={`${pathname}#project-problem`}>
+          <a href={`${pathname}#project-problem`}>
             <LinkText>Problem</LinkText>
-          </InternalLink>
+          </a>
         </ListItem>
 
         <ListItem>
           <ImageContainer>
-            <InternalLink href={`${pathname}#project-solution`}>
-              <SolutionNavIcon className="SolutionNavIcon" />
+            <a href={`${pathname}#project-solution`}>
+              <SolutionIcon css={IconStyles} />
               <CircleBorder />
-            </InternalLink>
+            </a>
           </ImageContainer>
-          <InternalLink href={`${pathname}#project-solution`}>
+          <a href={`${pathname}#project-solution`}>
             <LinkText>Solution</LinkText>
-          </InternalLink>
+          </a>
         </ListItem>
       </List>
     </Nav>

@@ -15,14 +15,7 @@ const ProjectInfo = styled.section`
   @media ${mq.mobile3_up} {
     padding-top: 106px;
   }
-
-  @media ${mq.desktop1_up} {
-    display: flex;
-    flex-direction: row;
-  }
 `
-
-const Content = styled.div``
 
 const Name = styled.h1`
   margin: 0 0 10px;
@@ -48,7 +41,8 @@ const Type = styled.h2`
 `
 
 const Subsection = styled.section`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  padding-top: 20px;
 `
 
 const SectionTitle = styled.h3`
@@ -119,77 +113,75 @@ const ProjectTemplate = ({ data, location }) => {
       <ProjectInfo>
         <ProjectNav />
 
-        <Content>
-          <div id="project-overview" style={{ paddingTop: '5px' }}>
-            <Name>{projectData.name}</Name>
-            <Type>{projectData.type}</Type>
+        <div id="project-overview" style={{ paddingTop: '5px' }}>
+          <Name>{projectData.name}</Name>
+          <Type>{projectData.type}</Type>
 
-            <Subsection>
-              <SectionTitle color={colors.kreativRed}>Overview</SectionTitle>
-              <SectionText>{projectData.text.overview}</SectionText>
+          <Subsection>
+            <SectionTitle color={colors.kreativRed}>Overview</SectionTitle>
+            <SectionText>{projectData.text.overview}</SectionText>
 
-              <div>
+            <div>
+              <Image
+                src="https://cdn.dribbble.com/users/4189231/screenshots/9438894/media/adfdb96cf0f764dca09cab6eeb568853.png"
+                alt=""
+              />
+              <Row2Col>
                 <Image
-                  src="https://cdn.dribbble.com/users/4189231/screenshots/9438894/media/adfdb96cf0f764dca09cab6eeb568853.png"
+                  src="https://cdn.dribbble.com/users/3061865/screenshots/9447536/media/0ffdde94e60e7893c064211afa932702.jpg"
                   alt=""
                 />
-                <Row2Col>
-                  <Image
-                    src="https://cdn.dribbble.com/users/3061865/screenshots/9447536/media/0ffdde94e60e7893c064211afa932702.jpg"
-                    alt=""
-                  />
-                  <Image
-                    src="https://cdn.dribbble.com/users/1081436/screenshots/9438925/media/464bd3cb01d92558cab7fc305cd08d31.png"
-                    alt=""
-                  />
-                </Row2Col>
-              </div>
-            </Subsection>
+                <Image
+                  src="https://cdn.dribbble.com/users/1081436/screenshots/9438925/media/464bd3cb01d92558cab7fc305cd08d31.png"
+                  alt=""
+                />
+              </Row2Col>
+            </div>
+          </Subsection>
+        </div>
+
+        <Subsection id="project-problem">
+          <SectionTitle color={colors.kreativOrange}>Problem</SectionTitle>
+          <SectionText>{projectData.text.problem}</SectionText>
+          <div>
+            <Image
+              src="https://cdn.dribbble.com/users/4189231/screenshots/9438894/media/adfdb96cf0f764dca09cab6eeb568853.png"
+              alt=""
+            />
+            <Row2Col>
+              <Image
+                src="https://cdn.dribbble.com/users/3061865/screenshots/9447536/media/0ffdde94e60e7893c064211afa932702.jpg"
+                alt=""
+              />
+              <Image
+                src="https://cdn.dribbble.com/users/1081436/screenshots/9438925/media/464bd3cb01d92558cab7fc305cd08d31.png"
+                alt=""
+              />
+            </Row2Col>
           </div>
+        </Subsection>
 
-          <Subsection id="project-problem">
-            <SectionTitle color={colors.kreativOrange}>Problem</SectionTitle>
-            <SectionText>{projectData.text.problem}</SectionText>
-            <div>
+        <Subsection id="project-solution">
+          <SectionTitle color={colors.kreativViolet}>Solution</SectionTitle>
+          <SectionText>{projectData.text.solution}</SectionText>
+
+          <div>
+            <Image
+              src="https://cdn.dribbble.com/users/4189231/screenshots/9438894/media/adfdb96cf0f764dca09cab6eeb568853.png"
+              alt=""
+            />
+            <Row2Col>
               <Image
-                src="https://cdn.dribbble.com/users/4189231/screenshots/9438894/media/adfdb96cf0f764dca09cab6eeb568853.png"
+                src="https://cdn.dribbble.com/users/3061865/screenshots/9447536/media/0ffdde94e60e7893c064211afa932702.jpg"
                 alt=""
               />
-              <Row2Col>
-                <Image
-                  src="https://cdn.dribbble.com/users/3061865/screenshots/9447536/media/0ffdde94e60e7893c064211afa932702.jpg"
-                  alt=""
-                />
-                <Image
-                  src="https://cdn.dribbble.com/users/1081436/screenshots/9438925/media/464bd3cb01d92558cab7fc305cd08d31.png"
-                  alt=""
-                />
-              </Row2Col>
-            </div>
-          </Subsection>
-
-          <Subsection id="project-solution">
-            <SectionTitle color={colors.kreativViolet}>Solution</SectionTitle>
-            <SectionText>{projectData.text.solution}</SectionText>
-
-            <div>
               <Image
-                src="https://cdn.dribbble.com/users/4189231/screenshots/9438894/media/adfdb96cf0f764dca09cab6eeb568853.png"
+                src="https://cdn.dribbble.com/users/1081436/screenshots/9438925/media/464bd3cb01d92558cab7fc305cd08d31.png"
                 alt=""
               />
-              <Row2Col>
-                <Image
-                  src="https://cdn.dribbble.com/users/3061865/screenshots/9447536/media/0ffdde94e60e7893c064211afa932702.jpg"
-                  alt=""
-                />
-                <Image
-                  src="https://cdn.dribbble.com/users/1081436/screenshots/9438925/media/464bd3cb01d92558cab7fc305cd08d31.png"
-                  alt=""
-                />
-              </Row2Col>
-            </div>
-          </Subsection>
-        </Content>
+            </Row2Col>
+          </div>
+        </Subsection>
       </ProjectInfo>
     </>
   )
