@@ -17,7 +17,6 @@ const Projects = () => {
             title
             subtitle
             color
-            slug
           }
         }
       }

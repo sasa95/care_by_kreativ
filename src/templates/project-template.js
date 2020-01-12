@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Head from '../components/head'
@@ -7,6 +7,7 @@ import MainContext from '../context/main-context'
 import { Container } from '../styles/shared'
 import colors from '../styles/colors'
 import ProjectNav from '../components/project-nav/project-nav'
+import ProjectPagination from '../components/project-pagination'
 
 const ProjectInfo = styled.section`
   ${Container};
@@ -92,14 +93,46 @@ export const query = graphql`
         }
       }
     }
+
+    allProjects: allProjectsJson {
+      edges {
+        node {
+          name
+          slug
+        }
+      }
+    }
   }
 `
 
 const ProjectTemplate = ({ data, location }) => {
   const { setPathname, siteLoaded, setSiteLoaded } = useContext(MainContext)
   const projectData = data.allSitePage.edges[0].node.context
+  const allProjects = data.allProjects.edges.map(project => project.node)
+  const [prevProject, setPrevProject] = useState()
+  const [nextProject, setNextProject] = useState()
+
+  // 1. find index of current project
+  // 2. if index === 0 then no prev
+  // 3. if index === length then no next
+
+  const setPagination = () => {
+    const index = allProjects.findIndex(
+      project => project.slug === projectData.slug
+    )
+
+    if (index > 0) {
+      setPrevProject(allProjects[index - 1])
+    }
+
+    if (index < allProjects.length - 1) {
+      setNextProject(allProjects[index + 1])
+    }
+  }
 
   useEffect(() => {
+    setPagination()
+
     setPathname(location.pathname)
 
     if (!siteLoaded) {
@@ -183,6 +216,8 @@ const ProjectTemplate = ({ data, location }) => {
           </div>
         </Subsection>
       </ProjectInfo>
+
+      <ProjectPagination prev={prevProject} next={nextProject} />
     </>
   )
 }
