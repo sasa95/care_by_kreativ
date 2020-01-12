@@ -6,7 +6,7 @@ import mq from '../styles/media-queries'
 import MainContext from '../context/main-context'
 import { Container } from '../styles/shared'
 import colors from '../styles/colors'
-import ProjectNav from '../components/project-nav'
+import ProjectNav from '../components/project-nav/project-nav'
 
 const ProjectInfo = styled.section`
   ${Container};
