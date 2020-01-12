@@ -12,6 +12,9 @@ const sizes = {
   desktop4: 1536,
   desktop5: 1600,
   desktop6: 1920,
+  desktop7: 2560,
+  desktop8: 3440,
+  desktop9: 3840,
 }
 
 const mediaQueries = Object.keys(sizes).reduce((acc, cur) => {

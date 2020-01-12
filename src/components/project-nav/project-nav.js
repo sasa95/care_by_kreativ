@@ -21,6 +21,33 @@ const Nav = styled.nav`
     height: 350px;
     margin: auto;
   }
+
+  @media ${mq.desktop2_up} {
+    left: 80px;
+  }
+
+  @media ${mq.desktop4_up} {
+    left: 150px;
+  }
+
+  @media ${mq.desktop6_up} {
+    left: 350px;
+  }
+
+  @media ${mq.desktop7_up} {
+    left: 650px;
+    top: 0;
+  }
+
+  @media ${mq.desktop8_up} {
+    left: 1050px;
+    top: 0;
+  }
+
+  @media ${mq.desktop9_up} {
+    left: 1250px;
+    top: 0;
+  }
 `
 
 const List = styled(Scrollspy)`
