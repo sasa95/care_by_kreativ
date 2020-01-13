@@ -9,7 +9,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const path = item.slug
 
     createPage({
-      path: `projects/${path}`,
+      path: `/projects/${path}`,
       component: projectTemplate,
       context: item,
     })

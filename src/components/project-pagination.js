@@ -23,12 +23,12 @@ const ProjectPagination = ({ prev, next }) => {
       <List>
         {prev && (
           <li>
-            <Link to={`projects/${prev.slug}`}>{prev.name}</Link>
+            <Link to={`/projects/${prev.slug}`}>{prev.name}</Link>
           </li>
         )}
         {next && (
           <li>
-            <Link to={`projects/${next.slug}`}>{next.name}</Link>
+            <Link to={`/projects/${next.slug}`}>{next.name}</Link>
           </li>
         )}
       </List>
