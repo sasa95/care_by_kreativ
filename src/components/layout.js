@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { Normalize } from 'styled-normalize'
 import styled, { createGlobalStyle } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
+import nProgress from 'nprogress'
 import MainContext from '../context/main-context'
 import Nav from './navigation/nav'
 import Footer from './footer/footer'
@@ -27,6 +28,11 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  #nprogress .bar {
+    background: rgb(42,82,202)!important;
+    background: linear-gradient(rgba(42,82,202,1) 0%, rgba(146,128,249,1) 35%)!important;
+  }
 `
 
 const Main = styled.main`
@@ -45,6 +51,8 @@ const Layout = ({ children }) => {
     : 70
 
   useEffect(() => {
+    nProgress.configure({ minimum: 0.5, showSpinner: false })
+
     if (typeof window !== 'undefined') {
       require('smooth-scroll')('a[href*="#"]', {
         offset,
