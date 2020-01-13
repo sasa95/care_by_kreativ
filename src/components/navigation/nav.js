@@ -22,6 +22,12 @@ const Navigation = styled.nav`
     `
     top: 0;
   `}
+
+  ${({ y }) =>
+    y > 10 &&
+    `
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+  `}
 `
 const Navbar = styled.div`
   display: flex;
@@ -84,7 +90,7 @@ const Nav = () => {
   }
 
   return (
-    <Navigation navExpanded={navExpanded} visible={visible}>
+    <Navigation navExpanded={navExpanded} visible={visible} y={currScrollpos}>
       <Navbar navExpanded={navExpanded} visible={visible}>
         <Link to="/">
           <NavBrand navExpanded={navExpanded} src={logo} />
