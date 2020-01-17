@@ -1,15 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { throttle } from 'lodash'
-import { useMediaQuery } from 'react-responsive'
 import MainContext from '../../context/main-context'
-import NavHamburger from './nav-hamburger'
-import NavOverlay from './nav-overlay'
 import mq from '../../styles/media-queries'
 import NavList from './nav-list'
 import logo from '../../images/logo.svg'
 import { Container } from '../../styles/shared'
-import { Link } from 'gatsby'
 
 const Navigation = styled.nav`
   position: fixed;
@@ -30,13 +27,13 @@ const Navigation = styled.nav`
   `}
 `
 const Navbar = styled.div`
+  ${Container}
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background: #fff;
-
-  ${Container}
 `
 
 const NavBrand = styled.img`
@@ -55,10 +52,6 @@ const Nav = () => {
   const [prevScrollpos, setPrevScrollpos] = useState(0)
   const [currScrollpos, setCurrScrollpos] = useState(-1)
   const [visible, setVisible] = useState(true)
-
-  const isTablet = useMediaQuery({
-    query: mq.tablet1_up,
-  })
 
   useEffect(() => {
     window.addEventListener('scroll', throttle(handleScroll, 300), false)
@@ -95,9 +88,8 @@ const Nav = () => {
         <Link to="/">
           <NavBrand navExpanded={navExpanded} src={logo} />
         </Link>
-        {isTablet ? <NavList /> : <NavHamburger />}
+        <NavList />
       </Navbar>
-      {!isTablet && <NavOverlay />}
     </Navigation>
   )
 }
