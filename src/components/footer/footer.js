@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import SocialIcon from './social-icon'
-import fbIcon from '../../images/social/facebook.svg'
-import liIcon from '../../images/social/linkedin.svg'
-import igIcon from '../../images/social/instagram.svg'
-import mq from '../../styles/media-queries'
+import fbIcon from '@images/social/facebook.svg'
+import liIcon from '@images/social/linkedin.svg'
+import igIcon from '@images/social/instagram.svg'
+import mq from '@styles/media-queries'
 
 const FooterContainer = styled.footer`
   padding: 0 15px 0;

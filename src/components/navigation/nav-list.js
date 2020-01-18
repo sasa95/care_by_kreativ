@@ -2,8 +2,8 @@ import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { Link } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
-import mq from '../../styles/media-queries'
-import colors from '../../styles/colors'
+import mq from '@styles/media-queries'
+import colors from '@styles/colors'
 
 const List = styled.ul`
   text-align: center;

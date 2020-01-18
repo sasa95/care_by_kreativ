@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
 import nProgress from 'nprogress'
-import Head from '../components/head'
-import mq from '../styles/media-queries'
-import { Container, FormField } from '../styles/shared'
-import colors from '../styles/colors'
-import MainContext from '../context/main-context'
+import Head from '@components/head'
+import mq from '@styles/media-queries'
+import { Container, FormField } from '@styles/shared'
+import colors from '@styles/colors'
+import MainContext from '@context/main-context'
 
 const ContactSection = styled.section`
   ${Container}

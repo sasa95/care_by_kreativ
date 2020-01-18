@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { throttle } from 'lodash'
-import mq from '../../styles/media-queries'
+import mq from '@styles/media-queries'
 import NavList from './nav-list'
-import logo from '../../images/logo.svg'
-import { Container } from '../../styles/shared'
+import logo from '@images/logo.svg'
+import { Container } from '@styles/shared'
 
 const Navigation = styled.nav`
   position: fixed;

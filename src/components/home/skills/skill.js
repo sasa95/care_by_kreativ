@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import CircleBorder from '../../circle-border'
-import mq from '../../../styles/media-queries'
+import CircleBorder from '@components/circle-border'
+import mq from '@styles/media-queries'
 
 const SkillContainer = styled.div`
   display: flex;

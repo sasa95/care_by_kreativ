@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import CircleBorder from '../../circle-border'
+import CircleBorder from '@components/circle-border'
 import { Link, navigate } from 'gatsby'
 
 const Project = styled.div`

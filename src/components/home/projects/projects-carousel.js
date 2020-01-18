@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import CircleBorder from '../../circle-border'
-import useMounted from '../../../helpers/useMounted'
+import CircleBorder from '@components/circle-border'
+import useMounted from '@helpers/useMounted'
 import { Link, navigate } from 'gatsby'
 
 const TextContainer = styled.div`

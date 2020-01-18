@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { Container } from '../../styles/shared'
+import { Container } from '@styles/shared'
 
 const Pagination = styled.nav`
   ${Container}

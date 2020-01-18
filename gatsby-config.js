@@ -38,5 +38,21 @@ module.exports = {
     {
       resolve: `gatsby-plugin-nprogress`,
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@components': 'src/components',
+          '@context': 'src/context',
+          '@data': 'src/data',
+          '@helpers': 'src/helpers',
+          '@images': 'src/images',
+          '@pages': 'src/pages',
+          '@styles': 'src/styles',
+          '@templates': 'src/templates',
+        },
+        extensions: ['js'],
+      },
+    },
   ],
 }

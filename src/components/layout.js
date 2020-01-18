@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import nProgress from 'nprogress'
 import Nav from './navigation/nav'
 import Footer from './footer/footer'
-import mq from '../styles/media-queries'
+import mq from '@styles/media-queries'
 import Bubbles from './bubbles'
 
 const GlobalStyle = createGlobalStyle`

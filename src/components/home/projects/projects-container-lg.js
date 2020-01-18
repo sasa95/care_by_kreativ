@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import ProjectsCarousel from './projects-carousel'
-import { Container } from '../../../styles/shared'
+import { Container } from '@styles/shared'
 
 const grow = keyframes`
   to { width: 100% }

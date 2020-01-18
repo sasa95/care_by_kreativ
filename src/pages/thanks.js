@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react'
 import styled from 'styled-components'
-import Head from '../components/head'
-import mq from '../styles/media-queries'
-import { Container } from '../styles/shared'
-import colors from '../styles/colors'
-import MainContext from '../context/main-context'
+import Head from '@components/head'
+import mq from '@styles/media-queries'
+import { Container } from '@styles/shared'
+import colors from '@styles/colors'
+import MainContext from '@context/main-context'
 
 const PageContainer = styled.div`
   ${Container}

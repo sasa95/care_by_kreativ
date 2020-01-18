@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import mq from '../../../styles/media-queries'
+import mq from '@styles/media-queries'
 
 const MemberContainer = styled.div`
   margin-bottom: 40px;

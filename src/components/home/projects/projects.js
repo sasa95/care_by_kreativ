@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive'
 import { groupBy, orderBy } from 'lodash'
 import ProjectsContainerSM from './projects-container-sm'
 import ProjectsContainerLG from './projects-container-lg'
-import mq from '../../../styles/media-queries'
+import mq from '@styles/media-queries'
 
 const Projects = () => {
   const data = useStaticQuery(graphql`

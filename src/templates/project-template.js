@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import Head from '../components/head'
-import mq from '../styles/media-queries'
-import MainContext from '../context/main-context'
-import { Container } from '../styles/shared'
-import colors from '../styles/colors'
-import ProjectNav from '../components/project/project-nav'
-import ProjectPagination from '../components/project/project-pagination'
+import Head from '@components/head'
+import mq from '@styles/media-queries'
+import MainContext from '@context/main-context'
+import { Container } from '@styles/shared'
+import colors from '@styles/colors'
+import ProjectNav from '@components/project/project-nav'
+import ProjectPagination from '@components/project/project-pagination'
 
 const ProjectInfo = styled.section`
   ${Container};

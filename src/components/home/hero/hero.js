@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-import colors from '../../../styles/colors'
-import mq from '../../../styles/media-queries'
+import colors from '@styles/colors'
+import mq from '@styles/media-queries'
 import HeroBubblesSlow from './hero-bubbles-slow'
 import HeroBubblesFast from './hero-bubbles-fast'
-import MainContext from '../../../context/main-context'
+import MainContext from '@context/main-context'
 
 const Wrapper = styled.section`
   position: relative;
