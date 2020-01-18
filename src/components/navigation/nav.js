@@ -1,8 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { throttle } from 'lodash'
-import MainContext from '../../context/main-context'
 import mq from '../../styles/media-queries'
 import NavList from './nav-list'
 import logo from '../../images/logo.svg'
@@ -38,7 +37,6 @@ const Navbar = styled.div`
 
 const NavBrand = styled.img`
   width: 40px;
-  opacity: ${({ navExpanded }) => (navExpanded ? 0 : 1)};
   z-index: 100;
 
   @media ${mq.mobile3_up} and ${mq.portrait},
@@ -48,7 +46,6 @@ const NavBrand = styled.img`
 `
 
 const Nav = () => {
-  const { navExpanded } = useContext(MainContext)
   const [prevScrollpos, setPrevScrollpos] = useState(0)
   const [currScrollpos, setCurrScrollpos] = useState(-1)
   const [visible, setVisible] = useState(true)
@@ -83,10 +80,10 @@ const Nav = () => {
   }
 
   return (
-    <Navigation navExpanded={navExpanded} visible={visible} y={currScrollpos}>
-      <Navbar navExpanded={navExpanded} visible={visible}>
+    <Navigation visible={visible} y={currScrollpos}>
+      <Navbar visible={visible}>
         <Link to="/">
-          <NavBrand navExpanded={navExpanded} src={logo} />
+          <NavBrand src={logo} />
         </Link>
         <NavList />
       </Navbar>

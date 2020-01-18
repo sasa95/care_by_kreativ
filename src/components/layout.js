@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Normalize } from 'styled-normalize'
 import styled, { createGlobalStyle } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import nProgress from 'nprogress'
-import MainContext from '../context/main-context'
 import Nav from './navigation/nav'
 import Footer from './footer/footer'
 import mq from '../styles/media-queries'
@@ -21,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     position: relative;
-    overflow: ${({ navExpanded }) => (navExpanded ? 'hidden' : 'auto')};
   }
 
   a {
@@ -62,11 +60,9 @@ const Layout = ({ children }) => {
     }
   }, [])
 
-  const { navExpanded } = useContext(MainContext)
-
   return (
     <>
-      <GlobalStyle navExpanded={navExpanded} />
+      <GlobalStyle />
       <Normalize />
       <Nav />
       <Main>{children}</Main>

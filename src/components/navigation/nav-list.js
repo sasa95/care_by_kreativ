@@ -1,10 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import { Link } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
 import mq from '../../styles/media-queries'
 import colors from '../../styles/colors'
-import MainContext from '../../context/main-context'
 
 const List = styled.ul`
   text-align: center;
@@ -34,8 +33,6 @@ const ActiveLink = createGlobalStyle`
 `
 
 const NavList = () => {
-  const { setNavExpanded } = useContext(MainContext)
-
   const isTablet = useMediaQuery({
     query: mq.tablet1_up,
   })
@@ -44,7 +41,7 @@ const NavList = () => {
     <>
       <ActiveLink />
       <List>
-        <ListItem onClick={() => setNavExpanded(false)}>
+        <ListItem>
           <Link to="/contact" activeClassName="activeRoute">
             {isTablet ? 'hey@carebykreativ.com' : 'Say Hi'}
           </Link>
