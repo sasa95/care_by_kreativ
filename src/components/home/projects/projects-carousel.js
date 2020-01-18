@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import CircleBorder from '../circle-border'
-import useMounted from '../../helpers/useMounted'
+import CircleBorder from '../../circle-border'
+import useMounted from '../../../helpers/useMounted'
 import { Link, navigate } from 'gatsby'
 
 const TextContainer = styled.div`
@@ -193,7 +193,7 @@ const OverlayTertiary = styled.div`
   transition-delay: 0.3s;
 `
 
-const ProjectItemLG = ({ selectedProject }) => {
+const ProjectsCarousel = ({ selectedProject }) => {
   const [transition, setTransition] = useState('none')
   const [opacity, setOpacity] = useState(1)
   const [left, setLeft] = useState(0)
@@ -280,4 +280,4 @@ const ProjectItemLG = ({ selectedProject }) => {
   )
 }
 
-export default ProjectItemLG
+export default ProjectsCarousel

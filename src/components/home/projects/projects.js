@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
 import { groupBy, orderBy } from 'lodash'
-import ProjectsSM from './projects-sm'
-import ProjectsLG from './projects-lg'
-import mq from '../../styles/media-queries'
+import ProjectsContainerSM from './projects-container-sm'
+import ProjectsContainerLG from './projects-container-lg'
+import mq from '../../../styles/media-queries'
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -77,13 +77,15 @@ const Projects = () => {
   return (
     <>
       {allProjects && isMobile && (
-        <ProjectsSM
+        <ProjectsContainerSM
           projects={allProjects}
           animationPlayState={animationPlayState}
         />
       )}
 
-      {allProjects && isDesktop && <ProjectsLG projects={allProjects} />}
+      {allProjects && isDesktop && (
+        <ProjectsContainerLG projects={allProjects} />
+      )}
     </>
   )
 }

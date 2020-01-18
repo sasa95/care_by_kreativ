@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
-import mq from '../../styles/media-queries'
+import mq from '../../../styles/media-queries'
 import Skill from './skill'
-import arc from '../../images/arc.svg'
+import arc from '../../../images/arc.svg'
 
 const SkillsSection = styled.section`
   display: flex;
@@ -74,7 +74,7 @@ const Skills = () => {
   const [skillsData, setSkillsData] = useState([])
 
   useEffect(() => {
-    const url = require.context('../../images/', true)
+    const url = require.context('../../../images/', true)
 
     const skills = data.allSkillsJson.edges
       .map(p => p.node)

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import mq from '../../styles/media-queries'
+import mq from '../../../styles/media-queries'
 import TeamMember from './team-member'
-import { Container } from '../../styles/shared'
+import { Container } from '../../../styles/shared'
 
 const TeamSection = styled.section`
   display: flex;
@@ -84,7 +84,7 @@ const Team = () => {
   const [teamData, setTeamData] = useState([])
 
   useEffect(() => {
-    const url = require.context('../../images/', true)
+    const url = require.context('../../../images/', true)
 
     const team = data.allTeamJson.edges
       .map(p => p.node)

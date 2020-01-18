@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
 import ProjectItemSM from './project-item-sm'
-import MainContext from '../../context/main-context'
+import MainContext from '../../../context/main-context'
 
 const fadeIn = keyframes`
   to {opacity: 1}
@@ -17,7 +17,7 @@ const Projects = styled.section`
   animation-play-state: ${({ animation }) => animation};
 `
 
-const ProjectsSM = ({ projects, animationPlayState }) => {
+const ProjectsContainerSM = ({ projects, animationPlayState }) => {
   const { siteLoaded } = useContext(MainContext)
 
   return (
@@ -33,4 +33,4 @@ const ProjectsSM = ({ projects, animationPlayState }) => {
   )
 }
 
-export default ProjectsSM
+export default ProjectsContainerSM

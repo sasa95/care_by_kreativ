@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes, css } from 'styled-components'
-import ProjectItemLG from './project-item-lg'
-import { Container } from '../../styles/shared'
+import ProjectsCarousel from './projects-carousel'
+import { Container } from '../../../styles/shared'
 
 const grow = keyframes`
   to { width: 100% }
@@ -54,7 +54,7 @@ const Indicator = styled.div`
   }
 `
 
-const ProjectsLG = ({ projects, image }) => {
+const ProjectsContainerLG = ({ projects, image }) => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
 
   useEffect(() => {
@@ -78,7 +78,7 @@ const ProjectsLG = ({ projects, image }) => {
 
   return (
     <Projects id="projects">
-      <ProjectItemLG
+      <ProjectsCarousel
         fancyImage={image}
         selectedProject={projects[selectedProjectIndex]}
       />
@@ -98,4 +98,4 @@ const ProjectsLG = ({ projects, image }) => {
   )
 }
 
-export default ProjectsLG
+export default ProjectsContainerLG

@@ -1,17 +1,17 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import colors from '../../styles/colors'
+import colors from '../styles/colors'
 
 const randomColors = Object.values(colors)
 
-const heroAnimation = keyframes`
+const bodyAnimation = keyframes`
   0% {
-    top: 100vh;
+    bottom: 0;
     opacity: 1
   } 
 
   100% {
-    top: -10%;
+    bottom: calc(100% + 20px);
     opacity: 1
   }
 `
@@ -24,12 +24,13 @@ const template = i => {
 
   return `
     & > *:nth-child(${i}) {
-      animation-delay: ${1 + i / 10}s
-      animation-duration: ${Math.max(1, 1.3 * Math.random())}s
-      background-color: ${color}
-      ${position}: calc(50% + ${10 * Math.floor(Math.random() * 3) + 1}%);
+      animation-delay: ${i * 2 - 2}s
+      animation-duration: ${Math.max(15, 18 * Math.random())}s
+      background-color: ${color};
+      ${position}: ${15 + 15 * Math.floor(Math.random() * 10)}px
       width: ${size}px
       height: ${size}px
+      opacity: 0;
     }
   `
 }
@@ -42,8 +43,9 @@ const getAnimations = number => {
   return str
 }
 
-const FastBubbles = styled.div`
-  ${getAnimations(15)}
+const BodyBubbles = styled.div`
+  height: 16px;
+  ${getAnimations(5)};
 `
 
 const generateBubbles = number => {
@@ -51,21 +53,16 @@ const generateBubbles = number => {
 }
 
 const Bubble = styled.span`
-  display: block;
+  display: table-cell;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   position: absolute;
-  animation: ${heroAnimation} 1s linear;
   opacity: 0;
-  z-index: 100;
+  animation: ${bodyAnimation} 1s linear infinite forwards;
+  z-index: 10;
 `
 
-const BubblesHeroFast = () => (
-  <FastBubbles>
-    {generateBubbles(5)}
-    {generateBubbles(10)}
-  </FastBubbles>
-)
+const Bubbles = () => <BodyBubbles>{generateBubbles(5)}</BodyBubbles>
 
-export default BubblesHeroFast
+export default Bubbles

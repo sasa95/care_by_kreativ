@@ -6,7 +6,7 @@ import nProgress from 'nprogress'
 import Nav from './navigation/nav'
 import Footer from './footer/footer'
 import mq from '../styles/media-queries'
-import BubblesBody from './bubbles/bubbles-body'
+import Bubbles from './bubbles'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -67,7 +67,7 @@ const Layout = ({ children }) => {
       <Nav />
       <Main>{children}</Main>
       <Footer />
-      <BubblesBody />
+      <Bubbles />
     </>
   )
 }

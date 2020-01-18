@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import colors from '../../styles/colors'
+import colors from '../../../styles/colors'
 
 const randomColors = Object.values(colors)
 
@@ -61,6 +61,6 @@ const Bubble = styled.span`
   z-index: 100;
 `
 
-const BubblesHeroSlow = () => <SlowBubbles>{generateBubbles(5)}</SlowBubbles>
+const HeroBubblesSlow = () => <SlowBubbles>{generateBubbles(5)}</SlowBubbles>
 
-export default BubblesHeroSlow
+export default HeroBubblesSlow
