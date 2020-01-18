@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
-    "gatsby": "^2.18.21",
-    "gatsby-image": "^2.2.38",
+    "gatsby": "^2.18.25",
+    "gatsby-image": "^2.2.39",
     "gatsby-plugin-layout": "^1.1.21",
     "gatsby-plugin-lodash": "^3.1.19",
     "gatsby-plugin-nprogress": "^2.1.18",
@@ -24,7 +24,7 @@
     "gatsby-plugin-styled-components": "^3.1.17",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-json": "^2.2.25",
-    "gatsby-transformer-sharp": "^2.3.12",
+    "gatsby-transformer-sharp": "^2.3.13",
     "lodash": "^4.17.15",
     "nprogress": "^0.2.0",
     "react": "^16.12.0",
@@ -33,7 +33,7 @@
     "react-responsive": "^8.0.1",
     "react-scrollspy": "^3.4.2",
     "smooth-scroll": "^16.1.1",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.0.0",
     "styled-normalize": "^8.0.6",
     "typeface-poppins": "0.0.72"
   },
