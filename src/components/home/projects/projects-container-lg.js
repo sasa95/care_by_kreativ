@@ -54,7 +54,7 @@ const Indicator = styled.div`
   }
 `
 
-const ProjectsContainerLG = ({ projects, image }) => {
+const ProjectsContainerLG = ({ projects }) => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
 
   useEffect(() => {
@@ -78,10 +78,7 @@ const ProjectsContainerLG = ({ projects, image }) => {
 
   return (
     <Projects id="projects">
-      <ProjectsCarousel
-        fancyImage={image}
-        selectedProject={projects[selectedProjectIndex]}
-      />
+      <ProjectsCarousel selectedProject={projects[selectedProjectIndex]} />
 
       <IndicatorsContainer>
         {projects.map((project, i) => (
