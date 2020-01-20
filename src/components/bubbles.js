@@ -24,12 +24,12 @@ const template = i => {
 
   return `
     & > *:nth-child(${i}) {
-      animation-delay: ${i * 2 - 2}s
-      animation-duration: ${Math.max(15, 18 * Math.random())}s
+      animation-delay: ${i * 2 - 2}s;
+      animation-duration: ${Math.max(15, 18 * Math.random())}s;
       background-color: ${color};
-      ${position}: ${15 + 15 * Math.floor(Math.random() * 10)}px
-      width: ${size}px
-      height: ${size}px
+      ${position}: ${15 + 15 * Math.floor(Math.random() * 10)}px;
+      width: ${size}px;
+      height: ${size}px;
       opacity: 0;
     }
   `
