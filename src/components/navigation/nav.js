@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { throttle } from 'lodash'
 import mq from '@styles/media-queries'
-import NavList from './nav-list'
-import logo from '@images/logo.svg'
+import colors from '@styles/colors'
 import { Container } from '@styles/shared'
+import logo from '@images/logo.svg'
+import NavList from './nav-list'
 
 const Navigation = styled.nav`
   position: fixed;
@@ -82,9 +83,9 @@ const Nav = () => {
   return (
     <Navigation visible={visible} y={currScrollpos}>
       <Navbar visible={visible}>
-        <Link to="/">
+        <AniLink cover direction="right" bg={colors.kreativViolet} to="/">
           <NavBrand src={logo} />
-        </Link>
+        </AniLink>
         <NavList />
       </Navbar>
     </Navigation>

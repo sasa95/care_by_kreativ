@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
-import { navigate } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import nProgress from 'nprogress'
 import Head from '@components/head'
 import mq from '@styles/media-queries'
@@ -106,6 +106,7 @@ const Contact = ({ location }) => {
   const [email, setEmail] = useState(null)
   const [message, setMessage] = useState(null)
   const contactForm = useRef()
+  const hiddenLink = useRef(null)
 
   useEffect(() => {
     setPathname(location.pathname)
@@ -138,8 +139,8 @@ const Contact = ({ location }) => {
         }),
       })
         .then(() => {
-          navigate(contactForm.current.getAttribute('action'))
           nProgress.done()
+          hiddenLink.current.children[0].click()
         })
         .catch(error => {
           nProgress.done()
@@ -153,6 +154,7 @@ const Contact = ({ location }) => {
       <Head title="Contact" />
       <ContactSection>
         <Title>Let’s make something glorious!</Title>
+
         <Description>
           Say hi to{' '}
           <Email href="mailto:hey@carebykreativ.com">
@@ -205,6 +207,12 @@ const Contact = ({ location }) => {
           <SendButton type="submit">Send message</SendButton>
         </Form>
       </ContactSection>
+
+      <div style={{ display: 'none' }} ref={hiddenLink}>
+        <AniLink cover direction="right" bg={colors.kreativViolet} to="/thanks">
+          i am clicked
+        </AniLink>
+      </div>
     </>
   )
 }

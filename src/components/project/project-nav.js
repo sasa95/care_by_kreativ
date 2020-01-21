@@ -127,13 +127,13 @@ const ProjectNav = () => {
       <ActiveLink />
 
       <List
-        items={['project-overview', 'project-problem', 'project-solution']}
+        items={['main', 'project-problem', 'project-solution']}
         currentClassName="active-project-link"
         offset={-70}
       >
         <ListItem>
           <ImageContainer>
-            <a href={`${pathname}#project-overview`}>
+            <a href={`${pathname}#main`}>
               <OverviewIcon css={IconStyles} />
               <CircleBorder />
             </a>

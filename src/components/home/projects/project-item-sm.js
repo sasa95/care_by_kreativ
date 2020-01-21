@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import CircleBorder from '@components/circle-border'
-import { Link, navigate } from 'gatsby'
 
 const Project = styled.div`
   display: flex;
@@ -77,28 +77,35 @@ const BorderOuterContainer = styled.div`
   transform: translate(-50%, -50%);
 `
 
+const ImageLink = styled(AniLink)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`
+
 const ProjectItemSM = ({
   project: { name, slug, images, color, title, subtitle },
 }) => {
-  const toProject = project => {
-    navigate(`/projects/${project}`)
-  }
-
   return (
     <Project>
       <Name>
-        <Link to={`/projects/${slug}`}>{name}</Link>
+        <AniLink paintDrip hex={color} to={`/projects/${slug}`}>
+          {name}
+        </AniLink>
       </Name>
-      <ImageContainer onClick={() => toProject(slug)}>
-        <Image fluid={images[0]} />
-        <Overlay color={color} />
-        <BorderInnerContainer>
-          <CircleBorder color={color} />
-        </BorderInnerContainer>
-        <BorderOuterContainer>
-          <CircleBorder />
-        </BorderOuterContainer>
-      </ImageContainer>
+      <ImageLink paintDrip hex={color} to={`/projects/${slug}`}>
+        <ImageContainer>
+          <Image fluid={images[0]} />
+          <Overlay color={color} />
+          <BorderInnerContainer>
+            <CircleBorder color={color} />
+          </BorderInnerContainer>
+          <BorderOuterContainer>
+            <CircleBorder />
+          </BorderOuterContainer>
+        </ImageContainer>
+      </ImageLink>
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
     </Project>

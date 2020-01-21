@@ -1,6 +1,6 @@
 import React from 'react'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { Container } from '@styles/shared'
 
 const Pagination = styled.nav`
@@ -23,12 +23,12 @@ const ProjectPagination = ({ prev, next }) => {
       <List>
         {prev && (
           <li>
-            <Link to={`/projects/${prev.slug}`}>{prev.name}</Link>
+            <AniLink to={`/projects/${prev.slug}`}>{prev.name}</AniLink>
           </li>
         )}
         {next && (
           <li>
-            <Link to={`/projects/${next.slug}`}>{next.name}</Link>
+            <AniLink to={`/projects/${next.slug}`}>{next.name}</AniLink>
           </li>
         )}
       </List>

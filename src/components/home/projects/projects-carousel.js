@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import CircleBorder from '@components/circle-border'
 import useMounted from '@helpers/useMounted'
-import { Link, navigate } from 'gatsby'
 
 const TextContainer = styled.div`
   width: 33.33%;
@@ -234,17 +234,17 @@ const ProjectsCarousel = ({ selectedProject }) => {
     }
   }, [selectedProject])
 
-  const toProject = project => {
-    navigate(`/projects/${project}`)
-  }
-
   return currentProject ? (
     <>
       <TextContainer>
         <Name opacity={opacity} transition={transition} left={left}>
-          <Link to={`/projects/${currentProject.slug}`}>
+          <AniLink
+            paintDrip
+            hex={currentProject.color}
+            to={`/projects/${currentProject.slug}`}
+          >
             {currentProject.name}
-          </Link>
+          </AniLink>
         </Name>
         <Title opacity={opacity} transition={transition} left={left}>
           {currentProject.title}
@@ -255,15 +255,21 @@ const ProjectsCarousel = ({ selectedProject }) => {
       </TextContainer>
 
       <ImagesContainer>
-        <ImageContainerPrimary onClick={() => toProject(currentProject.slug)}>
-          <ImagePrimary fluid={currentProject.images[0]} opacity={opacity} />
-          <OverlayPrimary color={currentProject.color} opacity={opacity} />
-          <BorderInnerContainer opacity={opacity}>
-            <CircleBorder color={currentProject.color} />
-          </BorderInnerContainer>
-          <BorderOuterContainer opacity={opacity}>
-            <CircleBorder />
-          </BorderOuterContainer>
+        <ImageContainerPrimary>
+          <AniLink
+            paintDrip
+            hex={currentProject.color}
+            to={`/projects/${currentProject.slug}`}
+          >
+            <ImagePrimary fluid={currentProject.images[0]} opacity={opacity} />
+            <OverlayPrimary color={currentProject.color} opacity={opacity} />
+            <BorderInnerContainer opacity={opacity}>
+              <CircleBorder color={currentProject.color} />
+            </BorderInnerContainer>
+            <BorderOuterContainer opacity={opacity}>
+              <CircleBorder />
+            </BorderOuterContainer>
+          </AniLink>
         </ImageContainerPrimary>
         <ImageContainerSecondary onClick={() => toProject(currentProject.slug)}>
           <ImageSecondary fluid={currentProject.images[1]} opacity={opacity} />

@@ -31,6 +31,15 @@ const GlobalStyle = createGlobalStyle`
     background: rgb(42,82,202)!important;
     background: linear-gradient(rgba(42,82,202,1) 0%, rgba(146,128,249,1) 35%)!important;
   }
+
+  .tl-edges {
+    overflow: hidden;
+  }
+
+  .tl-wrapper {
+    z-index: auto!important;
+    transform: none!important;
+  }
 `
 
 const Main = styled.main`
@@ -65,7 +74,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Normalize />
       <Nav />
-      <Main>{children}</Main>
+      <Main id="main">{children}</Main>
       <Footer />
       <Bubbles />
     </>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import { useMediaQuery } from 'react-responsive'
 import mq from '@styles/media-queries'
 import colors from '@styles/colors'
@@ -42,9 +42,15 @@ const NavList = () => {
       <ActiveLink />
       <List>
         <ListItem>
-          <Link to="/contact" activeClassName="activeRoute">
+          <AniLink
+            cover
+            direction="left"
+            bg={colors.kreativOrange}
+            to="/contact"
+            activeClassName="activeRoute"
+          >
             {isTablet ? 'hey@carebykreativ.com' : 'Say Hi'}
-          </Link>
+          </AniLink>
         </ListItem>
       </List>
     </>

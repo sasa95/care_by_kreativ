@@ -146,7 +146,7 @@ const ProjectTemplate = ({ data, location }) => {
       <ProjectInfo>
         <ProjectNav />
 
-        <div id="project-overview" style={{ paddingTop: '5px' }}>
+        <div style={{ paddingTop: '5px' }}>
           <Name>{projectData.name}</Name>
           <Type>{projectData.type}</Type>
 
