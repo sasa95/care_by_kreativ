@@ -74,7 +74,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Normalize />
       <Nav />
-      <Main id="main">{children}</Main>
+      <Main>{children}</Main>
       <Footer />
       <Bubbles />
     </>

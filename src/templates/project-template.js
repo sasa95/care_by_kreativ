@@ -14,7 +14,7 @@ const ProjectInfo = styled.section`
   padding-top: 90px;
 
   @media ${mq.mobile3_up} {
-    padding-top: 106px;
+    padding-top: 95px;
   }
 `
 
@@ -142,7 +142,7 @@ const ProjectTemplate = ({ data, location }) => {
       <ProjectInfo>
         <ProjectNav />
 
-        <div style={{ paddingTop: '5px' }}>
+        <div id="project-overview" style={{ paddingTop: '5px' }}>
           <Name>{projectData.name}</Name>
           <Type>{projectData.type}</Type>
 
