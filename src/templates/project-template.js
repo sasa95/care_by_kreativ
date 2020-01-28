@@ -112,10 +112,6 @@ const ProjectTemplate = ({ data, location }) => {
   const [prevProject, setPrevProject] = useState()
   const [nextProject, setNextProject] = useState()
 
-  // 1. find index of current project
-  // 2. if index === 0 then no prev
-  // 3. if index === length then no next
-
   const setPagination = () => {
     const index = allProjects.findIndex(
       project => project.slug === projectData.slug
