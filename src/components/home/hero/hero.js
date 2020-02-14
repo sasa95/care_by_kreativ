@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
-import styled, { keyframes } from 'styled-components'
+import React, { useContext, useRef, useEffect } from 'react'
+import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import colors from '@styles/colors'
 import mq from '@styles/media-queries'
 import HeroBubblesSlow from './hero-bubbles-slow'
 import HeroBubblesFast from './hero-bubbles-fast'
 import MainContext from '@context/main-context'
+import gsap from 'gsap/gsap-core'
 
 const Wrapper = styled.section`
   position: relative;
@@ -45,17 +46,12 @@ const TextContainer = styled.div`
     left: -50px;
   }
 `
-const TitleFadeIn = keyframes`
-  to { opacity: 1 }
-`
 
 const Title = styled.h1`
   width: 100%;
   margin: 0;
   font-size: 3.5rem;
   font-weight: 700;
-  opacity: ${({ animate }) => (animate ? 0 : 1)};
-  animation: ${TitleFadeIn} 2s 2s forwards;
     
 
   @media ${mq.landscape} {
@@ -76,8 +72,6 @@ const Subtitle = styled.p`
   margin: 0;
   align-self: flex-start;
   color: rgba(26, 26, 26, 0.72);
-  opacity: ${({ animate }) => (animate ? 0 : 1)};
-  animation: ${TitleFadeIn} 2s 3s forwards;
   transform: translateX(3px);
 
   @media ${mq.mobile3_up} {
@@ -118,16 +112,75 @@ const Hero = () => {
   const isLandscape = useMediaQuery({ query: mq.landscape })
   const { siteLoaded } = useContext(MainContext)
 
+  const titleRef = useRef()
+  const subtitleRef = useRef()
+  const bubblesFastRef = useRef()
+  const bubblesSlowRef = useRef()
+
+  useEffect(() => {
+    if (!siteLoaded) {
+      const bubblesFast = bubblesFastRef.current.children
+      const bubblesSlow = bubblesSlowRef.current.children
+
+      gsap.set([titleRef.current, subtitleRef.current], { alpha: 0 })
+
+      const tl = gsap.timeline({ delay: 0.2 })
+
+      tl.to(
+        bubblesFast,
+        {
+          opacity: 1,
+          duration: 0,
+          stagger: i => 1 + i / 10,
+        },
+        0
+      )
+
+      tl.to(
+        bubblesFast,
+        {
+          top: '-10%',
+          duration: () => gsap.utils.random([1, 1.3, 1.5, 1.7]),
+          stagger: i => 1 + i / 10,
+        },
+        0
+      )
+
+      tl.to(
+        bubblesSlow,
+        {
+          opacity: 1,
+          duration: 0,
+          stagger: i => (i + 0.1) * 0.2,
+        },
+        2
+      )
+
+      tl.to(
+        bubblesSlow,
+        {
+          top: '-10%',
+          duration: i => (i + 1) * 3,
+          stagger: i => (i + 0.1) * 0.2,
+        },
+        2
+      )
+
+      tl.to(titleRef.current, 2, { alpha: 1 }, '2')
+      tl.to(subtitleRef.current, 2, { alpha: 1 }, '2.5')
+    }
+  }, [])
+
   return (
     <>
       <Wrapper id="hero">
         <TextContainer>
-          <Title animate={!siteLoaded}>
+          <Title animate={!siteLoaded} ref={titleRef}>
             <HighLight>We</HighLight> are <br />
             <HighLight>Care</HighLight> by {!isLandscape && <br />}
             Kreativ
           </Title>
-          <Subtitle animate={!siteLoaded}>
+          <Subtitle animate={!siteLoaded} ref={subtitleRef}>
             Filling digital space with love
           </Subtitle>
         </TextContainer>
@@ -135,8 +188,8 @@ const Hero = () => {
 
       {!siteLoaded ? (
         <>
-          <HeroBubblesFast />
-          <HeroBubblesSlow />
+          <HeroBubblesFast ref={bubblesFastRef} />
+          <HeroBubblesSlow ref={bubblesSlowRef} />
         </>
       ) : null}
     </>
