@@ -1,41 +1,27 @@
-import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import React, { forwardRef } from 'react'
+import styled from 'styled-components'
 import colors from '@styles/colors'
 
 const randomColors = Object.values(colors)
-
-const bodyAnimation = keyframes`
-  0% {
-    bottom: 0;
-    opacity: 1
-  } 
-
-  100% {
-    bottom: calc(100% + 20px);
-    opacity: 1
-  }
-`
+const sizes = [12, 14, 16]
 
 const template = i => {
-  let sizes = [12, 14, 16]
   let size = sizes[Math.floor(Math.random() * 3)]
   let color = randomColors[Math.floor(Math.random() * 3)]
   let position = i % 2 !== 0 ? 'left' : 'right'
 
   return `
     & > *:nth-child(${i}) {
-      animation-delay: ${i * 2 - 2}s;
-      animation-duration: ${Math.max(15, 18 * Math.random())}s;
+     
       background-color: ${color};
       ${position}: ${15 + 15 * Math.floor(Math.random() * 10)}px;
       width: ${size}px;
       height: ${size}px;
-      opacity: 0;
     }
   `
 }
 
-const getAnimations = number => {
+const getInitialProps = number => {
   let str = ''
   for (let index = 1; index <= number; index += 1) {
     str += template(index, index)
@@ -44,8 +30,8 @@ const getAnimations = number => {
 }
 
 const BodyBubbles = styled.div`
-  height: 16px;
-  ${getAnimations(5)};
+  height: 100%;
+  ${getInitialProps(5)};
 `
 
 const generateBubbles = number => {
@@ -54,15 +40,15 @@ const generateBubbles = number => {
 
 const Bubble = styled.span`
   display: table-cell;
-  width: 12px;
-  height: 12px;
   border-radius: 50%;
   position: absolute;
-  opacity: 0;
-  animation: ${bodyAnimation} 1s linear infinite forwards;
+  bottom: 0;
   z-index: 10;
+  opacity: 0;
 `
 
-const Bubbles = () => <BodyBubbles>{generateBubbles(5)}</BodyBubbles>
+const Bubbles = forwardRef((props, ref) => (
+  <BodyBubbles ref={ref}>{generateBubbles(5)}</BodyBubbles>
+))
 
 export default Bubbles

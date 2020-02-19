@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Normalize } from 'styled-normalize'
 import styled, { createGlobalStyle } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
@@ -7,6 +7,7 @@ import Nav from './navigation/nav'
 import Footer from './footer/footer'
 import mq from '@styles/media-queries'
 import Bubbles from './bubbles'
+import gsap from 'gsap/gsap-core'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -57,6 +58,8 @@ const Layout = ({ children }) => {
     ? 86
     : 70
 
+  const bubblesRef = useRef()
+
   useEffect(() => {
     nProgress.configure({ minimum: 0.5, showSpinner: false })
 
@@ -67,6 +70,23 @@ const Layout = ({ children }) => {
         updateURL: false,
       })
     }
+
+    const bubbles = bubblesRef.current.children
+
+    Array.from(bubbles).forEach((b, i) => {
+      gsap.to(b, {
+        ease: 'none',
+        opacity: 1,
+        duration: 0,
+      })
+
+      gsap.to(b, {
+        repeat: -1,
+        bottom: '100%',
+        ease: 'none',
+        duration: () => i * 1.8 + 10,
+      })
+    })
   }, [])
 
   return (
@@ -76,7 +96,7 @@ const Layout = ({ children }) => {
       <Nav />
       <Main>{children}</Main>
       <Footer />
-      <Bubbles />
+      <Bubbles ref={bubblesRef} />
     </>
   )
 }
