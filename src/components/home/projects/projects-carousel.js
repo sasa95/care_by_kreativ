@@ -271,11 +271,11 @@ const ProjectsCarousel = ({ selectedProject }) => {
             </BorderOuterContainer>
           </AniLink>
         </ImageContainerPrimary>
-        <ImageContainerSecondary onClick={() => toProject(currentProject.slug)}>
+        <ImageContainerSecondary>
           <ImageSecondary fluid={currentProject.images[1]} opacity={opacity} />
           <OverlaySecondary color={currentProject.color} opacity={opacity} />
         </ImageContainerSecondary>
-        <ImageContainerTertiary onClick={() => toProject(currentProject.slug)}>
+        <ImageContainerTertiary>
           <ImageTertiary fluid={currentProject.images[2]} opacity={opacity} />
           <OverlayTertiary color={currentProject.color} opacity={opacity} />
         </ImageContainerTertiary>
