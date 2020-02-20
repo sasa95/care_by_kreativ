@@ -52,7 +52,7 @@ const Title = styled.h1`
   margin: 0;
   font-size: 3.5rem;
   font-weight: 700;
-    
+  opacity: 0;
 
   @media ${mq.landscape} {
     margin-bottom: 15px;
@@ -73,6 +73,7 @@ const Subtitle = styled.p`
   align-self: flex-start;
   color: rgba(26, 26, 26, 0.72);
   transform: translateX(3px);
+  opacity: 0;
 
   @media ${mq.mobile3_up} {
     font-size: 1.1rem;
@@ -168,6 +169,8 @@ const Hero = () => {
 
       tl.to(titleRef.current, 2, { alpha: 1 }, '2')
       tl.to(subtitleRef.current, 2, { alpha: 1 }, '2.5')
+    } else {
+      gsap.set([titleRef.current, subtitleRef.current], { opacity: 1 })
     }
   }, [])
 
