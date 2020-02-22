@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import CircleBorder from '@components/circle-border'
 import useMounted from '@helpers/useMounted'
+import gsap from 'gsap/gsap-core'
 
 const TextContainer = styled.div`
   width: 33.33%;
@@ -19,10 +20,6 @@ const Name = styled.h2`
   font-size: 1.4rem;
   text-decoration: none;
   margin-bottom: 5px;
-  transition-duration: 0.3s;
-  left: ${({ left }) => left};
-  transition-property: ${({ transition }) => transition};
-  opacity: ${({ opacity }) => opacity};
 
   &:hover :after {
     width: 100%;
@@ -45,11 +42,6 @@ const Title = styled.h3`
   margin: 0 0 15px 0;
   font-size: 1.1rem;
   color: #5a5a5a;
-  transition-duration: 0.3s;
-  left: ${({ left }) => left};
-  transition-property: ${({ transition }) => transition};
-  transition-delay: 0.1s;
-  opacity: ${({ opacity }) => opacity};
 `
 const Subtitle = styled.h4`
   position: relative;
@@ -57,11 +49,6 @@ const Subtitle = styled.h4`
   font-size: 1.2rem;
   font-weight: normal;
   color: #6c6c6c;
-  transition-duration: 0.3s;
-  left: ${({ left }) => left};
-  transition-property: ${({ transition }) => transition};
-  transition-delay: 0.2s;
-  opacity: ${({ opacity }) => opacity};
 `
 
 const ImageContainerPrimary = styled.div`
@@ -78,9 +65,6 @@ const ImageContainerPrimary = styled.div`
 const ImagePrimary = styled(Img)`
   width: 330px;
   border-radius: 50%;
-  opacity: ${({ opacity }) => opacity};
-  transition: opacity 0.3s;
-  transition-delay: 0.4s;
 `
 
 const OverlayPrimary = styled.div`
@@ -91,14 +75,11 @@ const OverlayPrimary = styled.div`
   padding-bottom: 330px;
   border-radius: 50%;
   background: ${({ color }) => color};
-  opacity: ${({ opacity }) => (opacity ? 0.24 : 0)};
-  transition: opacity 0.3s;
-  transition-delay: 0.1s;
+  opacity: 0.24;
   z-index: 10;
 
   &:hover {
     cursor: pointer;
-    opacity: 0;
   }
 `
 
@@ -112,9 +93,6 @@ const BorderInnerContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: ${({ opacity }) => opacity};
-  transition: opacity 0.3s;
-  transition-delay: 0.1s;
 `
 
 const BorderOuterContainer = styled.div`
@@ -127,9 +105,6 @@ const BorderOuterContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: ${({ opacity }) => opacity};
-  transition: opacity 0.3s;
-  transition-delay: 0.1s;
 `
 const ImageContainerSecondary = styled.div`
   position: absolute;
@@ -144,9 +119,6 @@ const ImageContainerSecondary = styled.div`
 const ImageSecondary = styled(Img)`
   width: 155px;
   border-radius: 50%;
-  opacity: ${({ opacity }) => opacity};
-  transition: opacity 0.3s;
-  transition-delay: 0.2s;
 `
 
 const OverlaySecondary = styled.div`
@@ -157,9 +129,7 @@ const OverlaySecondary = styled.div`
   padding-bottom: 155px;
   border-radius: 50%;
   background: ${({ color }) => color};
-  opacity: ${({ opacity }) => (opacity ? 0.24 : 0)};
-  transition: opacity 0.3s;
-  transition-delay: 0.2s;
+  opacity: 0.24;
 `
 
 const ImageContainerTertiary = styled.div`
@@ -175,9 +145,6 @@ const ImageContainerTertiary = styled.div`
 const ImageTertiary = styled(Img)`
   width: 125px;
   border-radius: 50%;
-  opacity: ${({ opacity }) => opacity};
-  transition: opacity 0.3s;
-  transition-delay: 0.3s;
 `
 
 const OverlayTertiary = styled.div`
@@ -188,56 +155,74 @@ const OverlayTertiary = styled.div`
   padding-bottom: 125px;
   border-radius: 50%;
   background: ${({ color }) => color};
-  opacity: ${({ opacity }) => (opacity ? 0.24 : 0)};
-  transition: opacity 0.3s;
-  transition-delay: 0.3s;
+  opacity: 0.24;
 `
 
 const ProjectsCarousel = ({ selectedProject }) => {
-  const [transition, setTransition] = useState('none')
-  const [opacity, setOpacity] = useState(1)
-  const [left, setLeft] = useState(0)
-  const [currentProject, setCurrentProject] = useState(0)
-
+  const [currentProject, setCurrentProject] = useState()
   const isMounted = useMounted()
+  const textRefs = []
+  const imgRefs = []
+  const tl = gsap.timeline()
 
   useEffect(() => {
-    let t1
-    let t2
-    let t3
-
     if (!isMounted) {
       setCurrentProject(selectedProject)
     } else {
-      setTransition('opacity')
-      setOpacity(0)
+      tl.to(textRefs, {
+        duration: 0.1,
+        stagger: 0.05,
+        alpha: 0,
+      })
 
-      t1 = setTimeout(() => {
-        setLeft('-500px')
-      }, 510)
+      tl.to(textRefs, {
+        duration: 0.1,
+        left: '-500px',
+      })
 
-      t2 = setTimeout(() => {
-        setCurrentProject(selectedProject)
-      }, 650)
-
-      t3 = setTimeout(() => {
-        setOpacity(1)
-        setTransition('left')
-        setLeft(0)
-      }, 800)
+      tl.to(
+        imgRefs.reverse(),
+        {
+          duration: 0.3,
+          stagger: 0.1,
+          alpha: 0,
+          onComplete: () => {
+            setCurrentProject(selectedProject)
+          },
+        },
+        0
+      )
     }
 
-    return () => {
-      clearTimeout(t1)
-      clearTimeout(t2)
-      clearTimeout(t3)
-    }
+    return () => {}
   }, [selectedProject])
+
+  useEffect(() => {
+    if (currentProject) {
+      tl.set(textRefs, { alpha: 1 })
+
+      tl.to(textRefs, {
+        duration: 0.2,
+        stagger: 0.1,
+        left: 0,
+      })
+
+      tl.to(
+        imgRefs,
+        {
+          duration: 0.3,
+          stagger: 0.1,
+          alpha: 1,
+        },
+        0
+      )
+    }
+  }, [currentProject])
 
   return currentProject ? (
     <>
       <TextContainer>
-        <Name opacity={opacity} transition={transition} left={left}>
+        <Name ref={e => e && textRefs.push(e)}>
           <AniLink
             paintDrip
             hex={currentProject.color}
@@ -246,10 +231,8 @@ const ProjectsCarousel = ({ selectedProject }) => {
             {currentProject.name}
           </AniLink>
         </Name>
-        <Title opacity={opacity} transition={transition} left={left}>
-          {currentProject.title}
-        </Title>
-        <Subtitle opacity={opacity} transition={transition} left={left}>
+        <Title ref={e => e && textRefs.push(e)}>{currentProject.title}</Title>
+        <Subtitle ref={e => e && textRefs.push(e)}>
           {currentProject.subtitle}
         </Subtitle>
       </TextContainer>
@@ -261,23 +244,30 @@ const ProjectsCarousel = ({ selectedProject }) => {
             hex={currentProject.color}
             to={`/projects/${currentProject.slug}`}
           >
-            <ImagePrimary fluid={currentProject.images[0]} opacity={opacity} />
-            <OverlayPrimary color={currentProject.color} opacity={opacity} />
-            <BorderInnerContainer opacity={opacity}>
+            <div ref={e => e && imgRefs.push(e)}>
+              <ImagePrimary fluid={currentProject.images[0]} />
+
+              <OverlayPrimary color={currentProject.color} />
+            </div>
+            <BorderInnerContainer>
               <CircleBorder color={currentProject.color} />
             </BorderInnerContainer>
-            <BorderOuterContainer opacity={opacity}>
+            <BorderOuterContainer>
               <CircleBorder />
             </BorderOuterContainer>
           </AniLink>
         </ImageContainerPrimary>
-        <ImageContainerSecondary>
-          <ImageSecondary fluid={currentProject.images[1]} opacity={opacity} />
-          <OverlaySecondary color={currentProject.color} opacity={opacity} />
+        <ImageContainerSecondary ref={e => e && imgRefs.push(e)}>
+          <ImageSecondary fluid={currentProject.images[1]} />
+          <OverlaySecondary color={currentProject.color} />
         </ImageContainerSecondary>
-        <ImageContainerTertiary>
-          <ImageTertiary fluid={currentProject.images[2]} opacity={opacity} />
-          <OverlayTertiary color={currentProject.color} opacity={opacity} />
+        <ImageContainerTertiary ref={e => e && imgRefs.push(e)}>
+          <ImageTertiary
+            fluid={currentProject.images[2]}
+            ref={e => e && imgRefs.push(e.imageRef.current)}
+          />
+
+          <OverlayTertiary color={currentProject.color} />
         </ImageContainerTertiary>
       </ImagesContainer>
     </>
