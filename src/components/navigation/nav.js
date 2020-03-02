@@ -84,7 +84,7 @@ const Nav = () => {
     <Navigation visible={visible} y={currScrollpos}>
       <Navbar visible={visible}>
         <AniLink cover direction="right" bg={colors.kreativViolet} to="/">
-          <NavBrand src={logo} />
+          <NavBrand src={logo} alt="Care by Kreativ logo" />
         </AniLink>
         <NavList />
       </Navbar>

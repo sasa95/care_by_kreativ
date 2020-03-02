@@ -243,6 +243,7 @@ const ProjectsCarousel = ({ selectedProject }) => {
             paintDrip
             hex={currentProject.color}
             to={`/projects/${currentProject.slug}`}
+            aria-label={`Learn more about ${currentProject.name} project`}
           >
             <div ref={e => e && imgRefs.push(e)}>
               <ImagePrimary fluid={currentProject.images[0]} />

@@ -94,7 +94,12 @@ const ProjectItemSM = ({
           {name}
         </AniLink>
       </Name>
-      <ImageLink paintDrip hex={color} to={`/projects/${slug}`}>
+      <ImageLink
+        paintDrip
+        hex={color}
+        to={`/projects/${slug}`}
+        aria-label={`Learn more about ${name} project`}
+      >
         <ImageContainer>
           <Image fluid={images[0]} />
           <Overlay color={color} />

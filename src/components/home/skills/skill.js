@@ -106,7 +106,7 @@ const Skill = ({ skill: { title, description, word, color, icon } }) => {
     <SkillContainer>
       <IconContainer>
         <Circle className="Circle" color={color} />
-        <Icon src={icon} />
+        <Icon src={icon} alt={word} />
         <Word>{word}</Word>
       </IconContainer>
       <TextContainer>

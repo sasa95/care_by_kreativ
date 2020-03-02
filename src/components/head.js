@@ -20,6 +20,7 @@ const Head = ({ title }) => {
         name="description"
         content={`${data.site.siteMetadata.description}`}
       />
+      <html lang="en" />
     </Helmet>
   )
 }
