@@ -57,5 +57,11 @@ module.exports = {
         extensions: ['js'],
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/favicon.png',
+      },
+    },
   ],
 }
