@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import { throttle } from 'lodash'
 import mq from '@styles/media-queries'
 import colors from '@styles/colors'
 import { Container } from '@styles/shared'
 import logo from '@images/logo.svg'
+import { throttle } from '@helpers/throttle'
 import NavList from './nav-list'
 
 const Navigation = styled.nav`
@@ -52,11 +52,11 @@ const Nav = () => {
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
-    window.addEventListener('scroll', throttle(handleScroll, 300), false)
+    window.addEventListener('scroll', throttle(handleScroll, 100), false)
     document.addEventListener('scrollStart', handleSmoothScroll, false)
 
     return () => {
-      window.removeEventListener('scroll', throttle(handleScroll, 300), false)
+      window.removeEventListener('scroll', throttle(handleScroll, 100), false)
       document.removeEventListener('scrollStart', handleSmoothScroll, false)
     }
   }, [])

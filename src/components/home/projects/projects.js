@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { useMediaQuery } from 'react-responsive'
-import { groupBy, orderBy } from 'lodash'
 import ProjectsContainerSM from './projects-container-sm'
 import ProjectsContainerLG from './projects-container-lg'
 import mq from '@styles/media-queries'
+import { groupBy } from '@helpers/groupBy'
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -50,7 +50,9 @@ const Projects = () => {
       image => image.node.childImageSharp.fluid
     )
 
-    const imagesSorted = orderBy(imagesMapped, 'originalName')
+    const imagesSorted = imagesMapped.sort((a, b) =>
+      a.originalName > b.originalName ? 1 : -1
+    )
 
     const imagesGrouped = groupBy(imagesSorted, image => {
       const end = image.originalName.lastIndexOf('_')
