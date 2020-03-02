@@ -6,8 +6,7 @@ import mq from '@styles/media-queries'
 import MainContext from '@context/main-context'
 import { Container } from '@styles/shared'
 import colors from '@styles/colors'
-import ProjectNav from '@components/project/project-nav'
-import ProjectPagination from '@components/project/project-pagination'
+import ProjectPagination from '@components/project-pagination'
 
 const ProjectInfo = styled.section`
   ${Container};
@@ -140,8 +139,6 @@ const ProjectTemplate = ({ data, location }) => {
     <>
       <Head title="Projects" />
       <ProjectInfo>
-        <ProjectNav />
-
         <div id="project-overview" style={{ paddingTop: '5px' }}>
           <Name>{projectData.name}</Name>
           <Type>{projectData.type}</Type>
