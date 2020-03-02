@@ -22,6 +22,7 @@
     "gatsby-plugin-manifest": "^2.2.42",
     "gatsby-plugin-nprogress": "^2.1.19",
     "gatsby-plugin-preact": "^3.1.26",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-styled-components": "^3.1.19",
@@ -38,8 +39,7 @@
     "react-responsive": "^8.0.3",
     "smooth-scroll": "^16.1.2",
     "styled-components": "^5.0.1",
-    "styled-normalize": "^8.0.7",
-    "typeface-poppins": "0.0.72"
+    "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.10.0",
