@@ -21,7 +21,9 @@ const Projects = () => {
         }
       }
 
-      images: allFile(filter: { relativeDirectory: { regex: "/projects/" } }) {
+      images: allFile(
+        filter: { relativeDirectory: { regex: "/projects.*thumbnails/" } }
+      ) {
         edges {
           node {
             childImageSharp {
@@ -47,19 +49,19 @@ const Projects = () => {
 
   useEffect(() => {
     const imagesMapped = data.images.edges.map(
-      image => image.node.childImageSharp.fluid
+      (image) => image.node.childImageSharp.fluid
     )
 
     const imagesSorted = imagesMapped.sort((a, b) =>
       a.originalName > b.originalName ? 1 : -1
     )
 
-    const imagesGrouped = groupBy(imagesSorted, image => {
+    const imagesGrouped = groupBy(imagesSorted, (image) => {
       const end = image.originalName.lastIndexOf('_')
       return image.originalName.substring(0, end)
     })
 
-    const projects = data.projects.edges.map(project => {
+    const projects = data.projects.edges.map((project) => {
       return {
         ...project.node,
         images: imagesGrouped[project.node.slug],

@@ -5,13 +5,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const projectTemplate = path.resolve('./src/templates/project-template.js')
 
-  projectsData.forEach(item => {
+  projectsData.forEach((item) => {
     const path = item.slug
 
     createPage({
       path: `/projects/${path}`,
       component: projectTemplate,
-      context: item,
+      context: {
+        item,
+        imagesPath: `projects/${item.slug}/post`,
+      },
     })
   })
 }

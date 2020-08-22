@@ -14,6 +14,8 @@ const Navigation = styled.nav`
   top: -100px;
   width: 100%;
   transition: 0.5s;
+  background: #fff;
+
   ${({ visible }) =>
     visible &&
     `
@@ -33,7 +35,6 @@ const Navbar = styled.div`
   align-items: center;
   padding-top: 15px;
   padding-bottom: 15px;
-  background: #fff;
 `
 
 const NavBrand = styled.img`

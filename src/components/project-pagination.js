@@ -23,12 +23,16 @@ const ProjectPagination = ({ prev, next }) => {
       <List>
         {prev && (
           <li>
-            <AniLink to={`/projects/${prev.slug}`}>{prev.name}</AniLink>
+            <AniLink cover direction="right" to={`/projects/${prev.slug}`}>
+              {prev.name}
+            </AniLink>
           </li>
         )}
         {next && (
           <li>
-            <AniLink to={`/projects/${next.slug}`}>{next.name}</AniLink>
+            <AniLink cover direction="left" to={`/projects/${next.slug}`}>
+              {next.name}
+            </AniLink>
           </li>
         )}
       </List>
