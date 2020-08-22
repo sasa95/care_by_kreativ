@@ -37,12 +37,12 @@ const Navbar = styled.div`
 `
 
 const NavBrand = styled.img`
-  width: 40px;
+  height: 40px;
   z-index: 100;
 
   @media ${mq.mobile3_up} and ${mq.portrait},
     ${mq.tablet1_up} {
-    width: 56px;
+      height: 56px;
   }
 `
 

@@ -167,7 +167,7 @@ const ProjectTemplate = ({ data, location }) => {
         </div>
 
         <Subsection id="project-problem">
-          <SectionTitle color={colors.kreativOrange}>Problem</SectionTitle>
+          <SectionTitle color={colors.kreativCyan}>Problem</SectionTitle>
           <SectionText>{projectData.text.problem}</SectionText>
           <div>
             <Image

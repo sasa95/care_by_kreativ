@@ -45,7 +45,7 @@ const NavList = () => {
           <AniLink
             cover
             direction="left"
-            bg={colors.kreativOrange}
+            bg={colors.kreativCyan}
             to="/contact"
             activeClassName="activeRoute"
           >
