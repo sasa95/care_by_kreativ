@@ -4,7 +4,7 @@ import mq from '@styles/media-queries'
 
 const Text = styled.h1`
   margin: 0 0 20px;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 2.4rem;
   font-size: 1.4rem;
 

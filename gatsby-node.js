@@ -14,6 +14,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       context: {
         item,
         imagesPath: `projects/${item.slug}/post`,
+        logoPath: `projects/${item.slug}/post/logo`,
       },
     })
   })

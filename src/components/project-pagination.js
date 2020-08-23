@@ -11,29 +11,39 @@ const List = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0;
+  margin: 40px 0 0;
   padding: 0;
   width: 100%;
   list-style: none;
+`
+
+const ListItem = styled.li`
+  color: #2a52ca;
+  text-transform: uppercase;
+  font-weight: bold;
 `
 
 const ProjectPagination = ({ prev, next }) => {
   return (
     <Pagination>
       <List>
-        {prev && (
-          <li>
+        {prev ? (
+          <ListItem>
             <AniLink cover direction="right" to={`/projects/${prev.slug}`}>
-              {prev.name}
+              Prev
             </AniLink>
-          </li>
+          </ListItem>
+        ) : (
+          <li></li>
         )}
-        {next && (
-          <li>
+        {next ? (
+          <ListItem>
             <AniLink cover direction="left" to={`/projects/${next.slug}`}>
-              {next.name}
+              Next
             </AniLink>
-          </li>
+          </ListItem>
+        ) : (
+          <li></li>
         )}
       </List>
     </Pagination>

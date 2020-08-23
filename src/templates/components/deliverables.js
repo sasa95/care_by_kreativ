@@ -31,10 +31,11 @@ const Item = styled.li`
   color: #6c6c6c;
   display: flex;
   align-items: center;
-  padding-left: 25px;
   white-space: nowrap;
 
   @media ${mq.tablet3_up} {
+    padding-left: 25px;
+
     :before {
       position: absolute;
       vertical-align: middle;

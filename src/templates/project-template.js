@@ -6,28 +6,26 @@ import Head from '@components/head'
 import mq from '@styles/media-queries'
 import MainContext from '@context/main-context'
 import { Container } from '@styles/shared'
-import colors from '@styles/colors'
 import ProjectPagination from '@components/project-pagination'
-import Heading from './components/heading'
-import Paragraph from './components/paragraph'
 import Intro from './components/intro'
+import Logo from './components/logo'
+import LogoDesign from './components/logo-design'
+import TextBlock from './components/text-block'
+import TextImageGrid from './components/text-image-grid'
 
-const ProjectInfo = styled.section`
+const Section = styled.section`
   ${Container};
   padding-top: 40px;
+  padding-bottom: 20px;
 
   @media ${mq.tablet3_up} {
     padding-top: 95px;
+    padding-bottom: 60px;
   }
 `
 
-const Subsection = styled.section`
-  margin-bottom: 20px;
-  padding-top: 20px;
-`
-
 export const query = graphql`
-  query($path: String!, $imagesPath: String!) {
+  query($path: String!, $imagesPath: String!, $logoPath: String!) {
     allSitePage(filter: { path: { eq: $path } }) {
       edges {
         node {
@@ -45,6 +43,18 @@ export const query = graphql`
                   text {
                     type
                     content
+                    background {
+                      image {
+                        name
+                      }
+                    }
+                  }
+                  images {
+                    name
+                    caption
+                  }
+                  image {
+                    name
                   }
                   deliverables
                 }
@@ -78,6 +88,19 @@ export const query = graphql`
               originalName
             }
           }
+          extension
+          publicURL
+          name
+        }
+      }
+    }
+
+    logos: allFile(filter: { relativeDirectory: { eq: $logoPath } }) {
+      edges {
+        node {
+          extension
+          publicURL
+          name
         }
       }
     }
@@ -88,13 +111,19 @@ const ProjectTemplate = ({ data, location }) => {
   const { setPathname, siteLoaded, setSiteLoaded } = useContext(MainContext)
   const projectData = data.allSitePage.edges[0].node.context.item
 
-  console.log(projectData)
   const allProjects = data.allProjects.edges.map((project) => project.node)
   const [prevProject, setPrevProject] = useState()
   const [nextProject, setNextProject] = useState()
-  const images = data.images.edges.map(
-    (project) => project.node.childImageSharp
-  )
+
+  const logos = data.logos.edges.reduce(function (acc, cur, i) {
+    acc[cur.node.name] = cur.node
+    return acc
+  }, {})
+
+  const images = data.images.edges.reduce(function (acc, cur, i) {
+    acc[cur.node.name] = cur.node
+    return acc
+  }, {})
 
   const setPagination = () => {
     const index = allProjects.findIndex(
@@ -108,8 +137,6 @@ const ProjectTemplate = ({ data, location }) => {
     if (index < allProjects.length - 1) {
       setNextProject(allProjects[index + 1])
     }
-
-    console.log({ allProjects, index })
   }
 
   useEffect(() => {
@@ -125,33 +152,48 @@ const ProjectTemplate = ({ data, location }) => {
   return (
     <>
       <Head title="Projects" />
-      <Img fluid={images[0].fluid} />
 
-      <ProjectInfo>
-        {projectData.postContent.map((el) => {
-          switch (el.type) {
-            case 'intro':
-              return <Intro content={el.content} />
-            default:
-              return undefined
-          }
-        })}
-
-        {/* {projectData.postContent.map((el) => {
-          let a
-          switch (el.type) {
-            case 'intro':
-              a = `<h1>Ovo je intro</h1>`
-              break
-            default:
-              break
-          }
-
-          return a
-        })} */}
-
-        <Subsection></Subsection>
-      </ProjectInfo>
+      {projectData.postContent.map((el) => {
+        switch (el.type) {
+          case 'fluidImage':
+            return (
+              <Img
+                fluid={images[el.content.image.name].childImageSharp.fluid}
+              />
+            )
+          case 'intro':
+            return (
+              <Section>
+                <Intro content={el.content} />
+              </Section>
+            )
+          case 'logo-design':
+            return <LogoDesign images={logos} data={el.content.images} />
+          case 'logo':
+            return (
+              <Logo src={logos[el.content.image.name].publicURL} alt="Logo" />
+            )
+          case 'textBlock':
+            return (
+              <Section>
+                <TextBlock text={el.content.text} />
+              </Section>
+            )
+          case 'textImageGrid':
+            return (
+              <TextImageGrid
+                text={el.content.text[0].content}
+                textBackground={
+                  images[el.content.text[0].background.image.name]
+                    .childImageSharp.fluid
+                }
+                image={images[el.content.image.name].childImageSharp.fluid}
+              />
+            )
+          default:
+            return undefined
+        }
+      })}
 
       <ProjectPagination prev={prevProject} next={nextProject} />
     </>

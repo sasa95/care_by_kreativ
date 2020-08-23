@@ -8,6 +8,14 @@
     "type": "Branding",
     "postContent": [
       {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "hero"
+          }
+        }
+      },
+      {
         "type": "intro",
         "content": {
           "text": [
@@ -30,6 +38,72 @@
             "Packaging"
           ]
         }
+      },
+      {
+        "type": "logo",
+        "content": {
+          "image": {
+            "name": "logo"
+          }
+        }
+      },
+      {
+        "type": "textImageGrid",
+        "content": {
+          "text": [
+            {
+              "type": "overlay",
+              "content": "A beer that is made at home, for friends with traditional values needed a logo that reflected those ideas. We’ve chosen a gothic style custom lettering, contrasted with a modern DDC workman’s font. The logo can easly be broken down into a system, from a full lettering to the symbol, suitable for all applications.",
+              "background": {
+                "image": {
+                  "name": "eagle-overlay"
+                }
+              }
+            }
+          ],
+          "image": {
+            "name": "in-beer-we-trust"
+          }
+        }
+      },
+      {
+        "type": "textBlock",
+        "content": {
+          "text": [
+            {
+              "type": "heading",
+              "content": "Our solution"
+            },
+            {
+              "type": "paragraph",
+              "content": "This design was further taken to its primary application: packaging. We’ve taken Eagle’s name and identity and helped it come alive through an illustration of an Eagle soaring through the skies. In the background there are two mountains present in the region of the brand’s origin."
+            }
+          ]
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "eagle-blueprint"
+          }
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "eagle-three-cans"
+          }
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "eagle-cans"
+          }
+        }
       }
     ],
     "text": {
@@ -46,6 +120,14 @@
     "color": "#DD2538",
     "type": "Branding",
     "postContent": [
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "hero"
+          }
+        }
+      },
       {
         "type": "intro",
         "content": {
@@ -71,6 +153,95 @@
             "Poster"
           ]
         }
+      },
+      {
+        "type": "logo-design",
+        "content": {
+          "images": [
+            {
+              "name": "oldLogo",
+              "caption": "Old logo"
+            },
+            {
+              "name": "logo",
+              "caption": "Final logo"
+            }
+          ]
+        }
+      },
+      {
+        "type": "logo",
+        "content": {
+          "image": {
+            "name": "logo"
+          }
+        }
+      },
+      {
+        "type": "textBlock",
+        "content": {
+          "text": [
+            {
+              "type": "heading",
+              "content": "Our solution"
+            },
+            {
+              "type": "paragraph",
+              "content": "Considering this, we had to get started with the logo. It was the most essential part of the whole effort. The original design ‘borrowed’ heavily from Superman’s logo and relied on free fonts to complete the solution, a heavy redesign was needed."
+            }
+          ]
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "alfa-grid"
+          }
+        }
+      },
+      {
+        "type": "textBlock",
+        "content": {
+          "text": [
+            {
+              "type": "heading",
+              "content": "The packaging"
+            },
+            {
+              "type": "paragraph",
+              "content": "This approach was later taken to the packaging as well. Wolf was the main focus with the clearest element being his eye, glaring at the viewer. Elements were added to help bring mystical elements to the design. All of this makes the design really stand out among its competitors, who use far simpler solutions."
+            },
+            {
+              "type": "paragraph",
+              "content": "The final result? A design that jumps off the shelf."
+            }
+          ]
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "alfa-two-cans"
+          }
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "alfa-banner"
+          }
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "alfa-three-cans"
+          }
+        }
       }
     ],
     "text": {
@@ -87,6 +258,14 @@
     "color": "#9280F9",
     "type": "UI/UX",
     "postContent": [
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "hero"
+          }
+        }
+      },
       {
         "type": "intro",
         "content": {
@@ -110,6 +289,75 @@
             "Product Design",
             "Logo"
           ]
+        }
+      },
+      {
+        "type": "logo-design",
+        "content": {
+          "images": [
+            {
+              "name": "initialIdea",
+              "caption": "Initial Idea"
+            },
+            {
+              "name": "logo",
+              "caption": "Final logo"
+            }
+          ]
+        }
+      },
+      {
+        "type": "logo",
+        "content": {
+          "image": {
+            "name": "logo"
+          }
+        }
+      },
+      {
+        "type": "textBlock",
+        "content": {
+          "text": [
+            {
+              "type": "heading",
+              "content": "Our solution"
+            },
+            {
+              "type": "paragraph",
+              "content": "Knowing that thoughts or ideas do not have an exact form in our body but they are moving our heartbeat and soul, we tried to materialize them in a form of logo. Dark color symbolizes field in our brain and pinkish shape represents the constant moving of our ideas."
+            }
+          ]
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "diary-mockup-1"
+          }
+        }
+      },
+      {
+        "type": "textBlock",
+        "content": {
+          "text": [
+            {
+              "type": "heading",
+              "content": "UX solution"
+            },
+            {
+              "type": "paragraph",
+              "content": "Day after day, week after week, formulating your thoughts can be tiresome and monotonous. Our main mission was tapping into the conscience of the user and motivate them to write. The writer can answer and see the development of himself by daily answering questions generated by a cute assistant  - little Birdy, an assistant who suggests a new question every day, creating a perfect ground for writing."
+            }
+          ]
+        }
+      },
+      {
+        "type": "fluidImage",
+        "content": {
+          "image": {
+            "name": "diary-mockup-2"
+          }
         }
       }
     ],
