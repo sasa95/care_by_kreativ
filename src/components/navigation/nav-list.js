@@ -22,7 +22,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   color: ${colors.kreativBlue};
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
 `
 
 const ActiveLink = createGlobalStyle`
