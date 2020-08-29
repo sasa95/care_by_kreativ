@@ -9,8 +9,12 @@ const TeamSection = styled.section`
   display: flex;
   flex-direction: column;
   padding: 20px 15px 0;
-
+  margin-top: 40px;
   ${Container}
+
+  @media ${mq.tablet3_up} {
+    margin-top: 0;
+  }
 `
 
 const Title = styled.h1`
@@ -87,8 +91,8 @@ const Team = () => {
     const url = require.context('@images/', true)
 
     const team = data.allTeamJson.edges
-      .map(p => p.node)
-      .map(member => {
+      .map((p) => p.node)
+      .map((member) => {
         return {
           ...member,
           image: url('./' + member.image),
