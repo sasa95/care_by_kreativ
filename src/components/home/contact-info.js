@@ -24,7 +24,7 @@ const Email = styled.a`
 const ContactInfo = () => {
   return (
     <InfoSection>
-      <Text>You can Google us, Love us or contact us on:</Text>
+      <Text>You can Google us, love us or contact us on:</Text>
       <Email href="mailto:hey@carebykreativ.com">hey@carebykreativ.com</Email>
     </InfoSection>
   )
