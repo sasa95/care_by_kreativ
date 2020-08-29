@@ -18,8 +18,7 @@ const Name = styled.h2`
 `
 
 const Image = styled.img`
-  width: 60%;
-  max-width: 250px;
+  max-width: 200px;
   margin: auto;
 `
 
