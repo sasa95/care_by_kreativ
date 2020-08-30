@@ -7,11 +7,29 @@ import HeroBubblesSlow from './hero-bubbles-slow'
 import HeroBubblesFast from './hero-bubbles-fast'
 import MainContext from '@context/main-context'
 import gsap from 'gsap/gsap-core'
+import lottie from 'lottie-web'
+import animation from '@animations/growth.json'
 
 const Wrapper = styled.section`
   position: relative;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media ${mq.tablet3_up} {
+    flex-direction: row;
+    width: 900px;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media ${mq.desktop2_up} {
+    width: 950px;
+  }
 `
+
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,7 +39,6 @@ const TextContainer = styled.div`
   margin-right: auto;
   width: 100%;
   max-width: 227px;
-  height: 100%;
   color: ${colors.kreativBlue};
 
   @media ${mq.mobile3_up} and ${mq.portrait} {
@@ -42,8 +59,10 @@ const TextContainer = styled.div`
 
   @media ${mq.tablet3_up} and (min-height: 580px) and ${mq.landscape} {
     max-width: 449px;
-    position: relative;
-    left: -50px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 `
 
@@ -109,6 +128,24 @@ const HighLight = styled.span`
   }
 `
 
+const AnimationContainer = styled.div`
+  width: 350px;
+  margin-top: 30px;
+  margin: 20px auto 0;
+
+  @media ${mq.mobile2_up} {
+    width: 400px;
+  }
+
+  @media ${mq.tablet3_up} and (min-height: 580px) and ${mq.landscape} {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+  }
+`
+
 const Hero = () => {
   const isLandscape = useMediaQuery({ query: mq.landscape })
   const { siteLoaded } = useContext(MainContext)
@@ -117,6 +154,7 @@ const Hero = () => {
   const subtitleRef = useRef()
   const bubblesFastRef = useRef()
   const bubblesSlowRef = useRef()
+  const animationContainer = useRef()
 
   useEffect(() => {
     if (!siteLoaded) {
@@ -132,7 +170,7 @@ const Hero = () => {
         {
           opacity: 1,
           duration: 0,
-          stagger: i => 1 + i / 10,
+          stagger: (i) => 1 + i / 10,
         },
         0
       )
@@ -142,7 +180,7 @@ const Hero = () => {
         {
           top: '-10%',
           duration: () => gsap.utils.random([1, 1.3, 1.5, 1.7]),
-          stagger: i => 1 + i / 10,
+          stagger: (i) => 1 + i / 10,
         },
         0
       )
@@ -152,7 +190,7 @@ const Hero = () => {
         {
           opacity: 1,
           duration: 0,
-          stagger: i => (i + 0.1) * 0.2,
+          stagger: (i) => (i + 0.1) * 0.2,
         },
         2
       )
@@ -161,8 +199,8 @@ const Hero = () => {
         bubblesSlow,
         {
           top: '-10%',
-          duration: i => (i + 1) * 3,
-          stagger: i => (i + 0.1) * 0.2,
+          duration: (i) => (i + 1) * 3,
+          stagger: (i) => (i + 0.1) * 0.2,
         },
         2
       )
@@ -172,6 +210,24 @@ const Hero = () => {
     } else {
       gsap.set([titleRef.current, subtitleRef.current], { opacity: 1 })
     }
+
+    let direction = 1
+
+    const anim = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: 'svg',
+      autoplay: true,
+      animationData: animation,
+      loop: false,
+    })
+
+    anim.addEventListener('complete', () => {
+      direction *= -1
+      anim.setDirection(direction)
+      anim.play()
+    })
+
+    return () => anim.destroy()
   }, [])
 
   return (
@@ -187,6 +243,8 @@ const Hero = () => {
             Filling digital space with love
           </Subtitle>
         </TextContainer>
+
+        <AnimationContainer ref={animationContainer} />
       </Wrapper>
 
       {!siteLoaded ? (

@@ -53,6 +53,7 @@ module.exports = {
           '@pages': 'src/pages',
           '@styles': 'src/styles',
           '@templates': 'src/templates',
+          '@animations': 'src/animations',
         },
         extensions: ['js'],
       },

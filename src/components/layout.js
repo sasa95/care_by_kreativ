@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     position: relative;
+    overflow-x: hidden;
   }
 
   a {
