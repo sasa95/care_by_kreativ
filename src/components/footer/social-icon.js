@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import CircleBorder from '@components/circle-border'
 import mq from '@styles/media-queries'
 
 const IconContainer = styled.div`
@@ -19,25 +18,17 @@ const Icon = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 20px;
+  height: 40px;
 
   @media ${mq.tablet1_up} {
-    height: 30px;
+    height: 60px;
   }
-`
-
-const Circle = styled(CircleBorder)`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 `
 
 const SocialIcon = ({ icon }) => {
   return (
     <IconContainer>
       <Icon src={icon} alt="icon" />
-      <Circle className="Circle" />
     </IconContainer>
   )
 }
