@@ -159,7 +159,8 @@
             },
             {
               "name": "logo",
-              "caption": "Final logo"
+              "caption": "Final logo",
+              "class": "alfa-final-logo"
             }
           ]
         }

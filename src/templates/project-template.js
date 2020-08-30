@@ -60,17 +60,13 @@ export const query = graphql`
                   images {
                     name
                     caption
+                    class
                   }
                   image {
                     name
                   }
                   deliverables
                 }
-              }
-              text {
-                overview
-                problem
-                solution
               }
             }
           }

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import mq from '@styles/media-queries'
 
 const Container = styled.div`
@@ -34,18 +34,32 @@ const Caption = styled.figcaption`
   white-space: nowrap;
 `
 
+const GlobalStyle = createGlobalStyle`
+  .alfa-final-logo {
+    position: relative;
+    top: 10px;
+  }
+`
+
 const LogoDesign = ({ images, data }) => {
   return (
-    <Container>
-      {data.map((file) => {
-        return (
-          <figure>
-            <Img src={images[file.name].publicURL} alt={file.caption} />
-            <Caption>{file.caption}</Caption>
-          </figure>
-        )
-      })}
-    </Container>
+    <>
+      <GlobalStyle />
+      <Container>
+        {data.map((file) => {
+          return (
+            <figure>
+              <Img
+                src={images[file.name].publicURL}
+                alt={file.caption}
+                className={file.class}
+              />
+              <Caption>{file.caption}</Caption>
+            </figure>
+          )
+        })}
+      </Container>
+    </>
   )
 }
 export default LogoDesign
