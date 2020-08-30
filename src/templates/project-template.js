@@ -13,6 +13,14 @@ import LogoDesign from './components/logo-design'
 import TextBlock from './components/text-block'
 import TextImageGrid from './components/text-image-grid'
 
+const ProjectContainer = styled.div`
+  padding-top: 86px;
+
+  @media ${mq.tablet3_up} {
+    padding-top: 84px;
+  }
+`
+
 const Section = styled.section`
   ${Container};
   padding-top: 40px;
@@ -150,7 +158,7 @@ const ProjectTemplate = ({ data, location }) => {
   }, [])
 
   return (
-    <>
+    <ProjectContainer class="project-container">
       <Head title="Projects" />
 
       {projectData.postContent.map((el) => {
@@ -196,7 +204,7 @@ const ProjectTemplate = ({ data, location }) => {
       })}
 
       <ProjectPagination prev={prevProject} next={nextProject} />
-    </>
+    </ProjectContainer>
   )
 }
 
