@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import CircleBorder from '@components/circle-border'
 import mq from '@styles/media-queries'
 
 const SkillContainer = styled.div`
@@ -56,18 +55,11 @@ const Icon = styled.img`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 35px;
+  width: 70px;
 
   @media ${mq.tablet3_up} {
-    width: 55px;
+    width: 113px;
   }
-`
-
-const Circle = styled(CircleBorder)`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 `
 
 const Title = styled.h3`
@@ -105,7 +97,6 @@ const Skill = ({ skill: { title, description, word, color, icon } }) => {
   return (
     <SkillContainer>
       <IconContainer>
-        <Circle className="Circle" color={color} />
         <Icon src={icon} alt={word} />
         <Word>{word}</Word>
       </IconContainer>
